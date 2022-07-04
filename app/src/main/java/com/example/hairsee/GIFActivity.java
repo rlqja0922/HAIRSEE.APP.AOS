@@ -31,7 +31,7 @@ public class GIFActivity extends AppCompatActivity {
         tv_gif.setTextSize((float)(standardSize_Y / 30));
         String getCarImg = SharedStore.getCarImg(this);
         Log.d("GIF Activity", "Base64 이미지 값 : "+ getCarImg);
-        new HttpCarImage(this).execute(getCarImg);
+        new HttpImage(this).execute(getCarImg);
     }
     public Point getScreenSize(Activity activity) {
         Display display = activity.getWindowManager().getDefaultDisplay();
