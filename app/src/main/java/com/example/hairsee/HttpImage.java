@@ -86,7 +86,6 @@ public class HttpImage extends AsyncTask<String, Void, String> {
                 String licensePlateStr = jsonData.getString("licensePlateStr");
                 Log.d(TAG,"status true : "+status);
                 Log.d(TAG,"licensePlateStr : "+licensePlateStr);
-                SharedStore.setMyCarNumber(mContext, licensePlateStr);
                 Intent PutIntent = new Intent(mContext, ResultActivity.class);
                 mContext.startActivity(PutIntent);
             }else if(!status) {

@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_gifactivity.xml" value="0.5100806451612904" />
+        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_main.xml" value="0.17300724637681159" />
+        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_press_button.xml" value="0.17300724637681159" />
+        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_pressbt.xml" value="0.15364583333333334" />
+        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_result.xml" value="0.16302083333333334" />
+        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_spalsh.xml" value="0.17300724637681159" />
+        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_splash.xml" value="0.17300724637681159" />
+        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/surfaceview.xml" value="0.1" />
+        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/tfe_od_activity_camera.xml" value="0.17300724637681159" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

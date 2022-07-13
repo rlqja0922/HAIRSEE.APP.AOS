@@ -401,7 +401,6 @@ class CameraPreview extends ViewGroup implements SurfaceHolder.Callback {
 //            Log.d(TAG,"bitmap"+SharedStore.getBitmap(getContext(),"MyData"));
 
             String CarImg = MyImageUtils.bitmapToBase64(bitmap);
-            SharedStore.setCarImg(getContext(), CarImg);
 //            String getImg = SharedStore.getCarImg(getContext());
 //            Log.d(TAG, "이미지값 저장 :"+getImg);
 

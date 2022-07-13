@@ -59,7 +59,6 @@
         android:text="분석중입니다..."
         android:textColor="@color/white"
         android:textSize="25dp"
-        android:fontFamily="@font/nanumsquareb"
         app:layout_constraintRight_toLeftOf="@+id/gif2"
         app:layout_constraintLeft_toRightOf="@+id/gif1"
         android:gravity="center"

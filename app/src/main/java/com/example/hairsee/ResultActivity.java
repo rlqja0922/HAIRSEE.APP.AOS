@@ -38,8 +38,6 @@ public class ResultActivity extends AppCompatActivity {
 //        String CarImg = SharedStore.getCarImg(this);
 //        Log.d(TAG, "Base64 이미지 값 : "+ CarImg);
 //        new HttpCarImage(this).execute(CarImg);
-        String MyCarNumber = SharedStore.getMyCarNumber(ResultActivity.this);
-        Log.d(TAG, "MyCarNumber 값 : "+ MyCarNumber);
         fail1 = findViewById(R.id.fail1);
         fail2 = findViewById(R.id.fail2);
         succ1 = findViewById(R.id.suc1);
@@ -60,29 +58,6 @@ public class ResultActivity extends AppCompatActivity {
         tv_result_info1.setTextSize((float)(standardSize_Y / 60));
         tv_result_info2.setTextSize((float)(standardSize_X / 60));
         tv_result_info2.setTextSize((float)(standardSize_Y / 60));
-
-        if (MyCarNumber.equals("") || MyCarNumber.equals(null)){
-            ResultActivity.tv_result_info1.setVisibility(View.VISIBLE);
-            ResultActivity.tv_result_info2.setVisibility(View.VISIBLE);
-            fail1.setVisibility(View.VISIBLE);
-            fail2.setVisibility(View.VISIBLE);
-            succ1.setVisibility(View.GONE);
-            succ2.setVisibility(View.GONE);
-            succ3.setVisibility(View.GONE);
-            background.setVisibility(View.GONE);
-            background1.setVisibility(View.VISIBLE);
-        }else {
-            ResultActivity.tv_result_info1.setVisibility(View.GONE);
-            ResultActivity.tv_result_info2.setVisibility(View.GONE);
-            fail1.setVisibility(View.GONE);
-            fail2.setVisibility(View.GONE);
-            succ1.setVisibility(View.VISIBLE);
-            succ2.setVisibility(View.VISIBLE);
-            succ3.setVisibility(View.VISIBLE);
-            background.setVisibility(View.VISIBLE);
-            background1.setVisibility(View.GONE);
-            ResultActivity.succtext.setText(MyCarNumber);
-        }
 
         const_gohome.setOnClickListener(new View.OnClickListener() {
             @Override

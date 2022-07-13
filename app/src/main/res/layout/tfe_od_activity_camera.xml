@@ -55,8 +55,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="0dp"
             android:paddingLeft="100dp"
-            android:paddingRight="100dp"
-            app:srcCompat="@drawable/box_line_2" />
+            android:paddingRight="100dp" />
 
         <TextView
             android:id="@+id/tvNoticeCamera"
@@ -88,7 +87,6 @@
         android:layout_gravity="start|bottom"
         android:background="#FFFFFF"
         android:tint="@android:color/black"
-        android:src="@drawable/ic_baseline_switch_camera_24"
         android:layout_margin="16dp"
         />
 
@@ -99,7 +97,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
         android:layout_margin="16dp"
-        android:src="@drawable/icon_pickture"
         android:tint="@android:color/black" />
 
 

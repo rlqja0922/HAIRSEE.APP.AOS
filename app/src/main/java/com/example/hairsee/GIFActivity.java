@@ -22,16 +22,12 @@ public class GIFActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gifactivity);
         ImageView img_gif = findViewById(R.id.img_gif);
-        Glide.with(this).load(R.drawable.gif_loading2).into(img_gif);
         TextView tv_gif = findViewById(R.id.tv_gif);
 //        Intent intent = getIntent();
 //        String data = intent.getStringExtra("CarImg");
         getStandardSize();
         tv_gif.setTextSize((float)(standardSize_X / 30));
         tv_gif.setTextSize((float)(standardSize_Y / 30));
-        String getCarImg = SharedStore.getCarImg(this);
-        Log.d("GIF Activity", "Base64 이미지 값 : "+ getCarImg);
-        new HttpImage(this).execute(getCarImg);
     }
     public Point getScreenSize(Activity activity) {
         Display display = activity.getWindowManager().getDefaultDisplay();

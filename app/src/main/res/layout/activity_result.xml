@@ -11,14 +11,12 @@
         android:id="@+id/background1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/resultback1"
         android:visibility="gone">
     </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/background"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/resultback"
             android:visibility="visible">
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -190,7 +188,6 @@
 <ImageView
     android:layout_width="0dp"
     android:layout_height="0dp"
-    android:src="@drawable/hyperball3"
     app:layout_constraintLeft_toRightOf="@+id/result1"
     app:layout_constraintRight_toLeftOf="@+id/result2"
     app:layout_constraintTop_toTopOf="@+id/result6_1"
@@ -203,7 +200,6 @@
         android:id="@+id/tv_resultTop"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:fontFamily="@font/nanumsquareeb"
         android:gravity="center"
         android:text="분석 결과"
         android:textColor="@color/white"
@@ -275,7 +271,6 @@
                 android:id="@+id/cartext1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nanumsquareb"
                 android:gravity="center"
                 android:textSize="10dp"
                 android:text="차종"
@@ -287,7 +282,6 @@
                 android:id="@+id/cartext2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nanumsquareeb"
                 android:gravity="center"
                 android:paddingTop="25dp"
                 android:text="준비중"
@@ -307,7 +301,6 @@
                 android:id="@+id/cartext1_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nanumsquareb"
                 android:gravity="center"
                 android:textSize="10dp"
                 android:text="색상"
@@ -317,7 +310,6 @@
                 android:id="@+id/cartext2_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nanumsquareeb"
                 android:gravity="center"
                 android:paddingTop="25dp"
                 android:text="준비중"
@@ -339,7 +331,6 @@
                 android:id="@+id/cartext1_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nanumsquareb"
                 android:gravity="center"
                 android:text="연식"
                 android:textColor="@color/white"
@@ -348,7 +339,6 @@
                 android:id="@+id/cartext2_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/nanumsquareeb"
                 android:gravity="center"
                 android:paddingTop="25dp"
                 android:text="준비중"
@@ -368,7 +358,6 @@
         app:layout_constraintBottom_toTopOf="@+id/result12_2"
         app:layout_constraintLeft_toLeftOf="@id/point1"
         app:layout_constraintRight_toRightOf="@id/result4"
-        android:background="@drawable/carnumbox1"
         android:visibility="visible"
         >
 
@@ -377,7 +366,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center|right"
-            android:fontFamily="@font/nanumsquareeb"
             android:paddingRight="10dp"
             android:text="00가 0000"
             android:textColor="@color/white"
@@ -395,8 +383,7 @@
         app:layout_constraintBottom_toTopOf="@+id/result12"
         app:layout_constraintLeft_toLeftOf="@id/point1"
         app:layout_constraintRight_toRightOf="@id/result4"
-        android:visibility="visible"
-        android:background="@drawable/parking">
+        android:visibility="visible">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -418,7 +405,6 @@
             android:id="@+id/tv_resultInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nanumsquarer"
             android:gravity="center"
             android:text="\n이미지가 고르지 않아 인식할 수 없습니다.\n 다시 시도해주세요"
             android:textColor="@color/white"
@@ -481,7 +467,6 @@
             android:id="@+id/tv_resultInfo1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nanumsquaren"
             android:gravity="center|start"
             android:text="● 밝은 곳에서 차량의 정면을 촬영해주세요."
             android:textColor="@color/white"
@@ -499,7 +484,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
-            android:fontFamily="@font/nanumsquaren"
             android:gravity="center|start"
             android:text="● 차량의 번호판이 온전히 보이는 이미지를 권장합니다."
             android:textColor="@color/white"
@@ -514,7 +498,6 @@
         android:id="@+id/const_restart"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/btnback"
         app:layout_constraintBottom_toTopOf="@+id/result14"
         app:layout_constraintLeft_toRightOf="@+id/result15"
         app:layout_constraintRight_toLeftOf="@+id/result16"
@@ -582,7 +565,6 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="centerInside"
-            android:src="@drawable/restart2"
             app:layout_constraintBottom_toTopOf="@+id/btn6"
             app:layout_constraintLeft_toRightOf="@+id/btn1"
             app:layout_constraintRight_toLeftOf="@+id/btn2"
@@ -592,7 +574,6 @@
             android:id="@+id/tv_restart"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:fontFamily="@font/nanumsquareeb"
             android:gravity="center"
             android:text="다시하기"
             android:textColor="@color/white"
@@ -607,7 +588,6 @@
         android:id="@+id/const_gohome"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/btnback"
         app:layout_constraintBottom_toTopOf="@+id/result14"
         app:layout_constraintLeft_toRightOf="@+id/result17"
         app:layout_constraintRight_toLeftOf="@+id/result18"
@@ -675,7 +655,6 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="centerInside"
-            android:src="@drawable/home2"
             app:layout_constraintBottom_toTopOf="@+id/btnhome6"
             app:layout_constraintLeft_toRightOf="@+id/btnhome1"
             app:layout_constraintRight_toLeftOf="@+id/btnhome2"
@@ -685,7 +664,6 @@
             android:id="@+id/tv_gohome"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:fontFamily="@font/nanumsquareeb"
             android:gravity="center"
             android:text="메인으로"
             android:textColor="@color/white"

@@ -106,10 +106,8 @@
             android:id="@+id/btn_capture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/cambtn3"
             app:fabSize="normal"
             android:visibility="visible"
-            android:backgroundTint="@color/color_gray3"
             app:layout_constraintTop_toBottomOf="@+id/surface6"
             app:layout_constraintBottom_toTopOf="@+id/surface9"
             app:layout_constraintLeft_toRightOf="@+id/surface3"
@@ -119,7 +117,6 @@
             android:id="@+id/btn_back"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@drawable/camback1"
             app:layout_constraintBottom_toTopOf="@+id/surface8"
             app:layout_constraintTop_toBottomOf="@+id/surface7"
             app:layout_constraintRight_toLeftOf="@+id/surface2"
@@ -131,7 +128,6 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="fitXY"
-            android:src="@drawable/guideline2"
             app:layout_constraintBottom_toTopOf="@+id/surface11"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintLeft_toRightOf="@+id/surface12"
@@ -154,8 +150,7 @@
             <ImageView
                 android:id="@+id/example"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/example"/>
+                android:layout_height="wrap_content"/>
 
             <ImageButton
                 android:id="@+id/viewclose"
@@ -170,7 +165,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@drawable/shape"
             app:layout_constraintLeft_toRightOf="@+id/surface12"
             app:layout_constraintRight_toLeftOf="@+id/surface13"
             app:layout_constraintTop_toBottomOf="@+id/surface11"

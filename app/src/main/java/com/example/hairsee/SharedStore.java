@@ -37,22 +37,6 @@ public class SharedStore {
     }
 
 
-    public static String getCarImg(Context context){
-        SharedPreferences sharedPreferences = context.getSharedPreferences("MyData", 0);
-        return sharedPreferences.getString("CarImg", "");
-    }
-    public static void setCarImg(Context context, String CarImg){
-        context.getSharedPreferences("MyData", 0).edit().putString("CarImg", CarImg).apply();
-    }
-
-    public static void  setMyCarNumber(Context context, String CarNumber){
-        context.getSharedPreferences("MyData",0).edit().putString("CarNumber", CarNumber).apply();
-    }
-    public static String getMyCarNumber(Context context){
-        SharedPreferences sharedPreferences = context.getSharedPreferences("MyData", 0);
-        return sharedPreferences.getString("CarNumber","");
-    }
-
     public static void deleteUserData(Context context) {
         SharedPreferences.Editor editor = context.getSharedPreferences("MyData", 0).edit();
         try{

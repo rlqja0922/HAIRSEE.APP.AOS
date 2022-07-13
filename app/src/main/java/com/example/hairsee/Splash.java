@@ -19,7 +19,7 @@ public class Splash extends AppCompatActivity {
             @Override
             public void run() {
                 Intent intent;
-                intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent = new Intent(getApplicationContext(), Pressbt.class);
                 startActivity(intent);
                 finish();
             }
