@@ -1,10 +1,12 @@
 package com.example.hairsee;
 
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
+import android.os.Environment;
 import android.util.Base64;
 import android.util.Log;
 
@@ -13,35 +15,49 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
+import android.media.ImageReader;
 public class MyImageUtils {
+    public static String format_y_m_d = "yyyy.MM.dd";
     private static final String TAG = "ImageUtils";
 
     public static boolean saveBitMapImg(Bitmap imageData, String name, String extension, Context c) {//extension : jpg, png
         try {
             //저장할 파일 경로
-            File storageDir = new File(c.getFilesDir() + "/capture");
-            if (!storageDir.exists()) //폴더가 없으면 생성.
-                storageDir.mkdirs();
+            ContextWrapper contextWrapper = new ContextWrapper(c);
+            File dired = contextWrapper.getExternalFilesDir(Environment.DIRECTORY_DCIM);
+            String path = dired.getAbsolutePath()+"/hairsee/";
 
-            String filename = name + "." + extension;
+            if (!dired.exists()) {
+                dired.mkdirs();
+            }
+
+            SimpleDateFormat dateformat = new SimpleDateFormat(format_y_m_d, Locale.KOREA);
+            String filePath = path + dateformat+".JPG";
+            File file = new File(filePath);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
 
             // 기존에 있다면 삭제
-            File file = new File(storageDir, filename);
-            boolean deleted = file.delete();
-            Log.w(TAG, "기존 이미지 삭제 : " + deleted);
+//            boolean deleted = file.delete();
+//            Log.w(TAG, "기존 이미지 삭제 : " + deleted);
+            file.createNewFile();
             FileOutputStream output = null;
 
             try {
                 output = new FileOutputStream(file);
-                imageData.compress(Bitmap.CompressFormat.JPEG, 30, output); //해상도에 맞추어 Compress
+                imageData.compress(Bitmap.CompressFormat.JPEG, 100, output); //해상도에 맞추어 Compress
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } finally {
                 try {
                     assert output != null;
+                    output.flush();
                     output.close();
                 } catch (IOException e) {
                     e.printStackTrace();
