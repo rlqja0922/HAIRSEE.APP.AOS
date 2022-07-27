@@ -242,7 +242,8 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
         finish();
       });
     }else {
-      MyImageUtils.saveBitMapImg(croppedBitmap,"dlalwldlfma","dlfma",DetectorActivity.this);
+      SimpleDateFormat dateformat = new SimpleDateFormat(format_y_m_d, Locale.KOREA);
+      MyImageUtils.saveBitMapImg(croppedBitmap,dateformat.format(new Date()),"dlfma",DetectorActivity.this);
       if (croppedBitmap == null) {
         return;
       }

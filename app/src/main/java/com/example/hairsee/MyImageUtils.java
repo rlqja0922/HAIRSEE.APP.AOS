@@ -15,59 +15,64 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import android.media.ImageReader;
 public class MyImageUtils {
     public static String format_y_m_d = "yyyy.MM.dd";
     private static final String TAG = "ImageUtils";
 
-    public static boolean saveBitMapImg(Bitmap imageData, String name, String extension, Context c) {//extension : jpg, png
+    public static void saveBitMapImg(Bitmap imageData, String name, String extension, Context c) {//extension : jpg, png
         try {
             //저장할 파일 경로
             ContextWrapper contextWrapper = new ContextWrapper(c);
-            File dired = contextWrapper.getExternalFilesDir(Environment.DIRECTORY_DCIM);
-            String path = dired.getAbsolutePath()+"/hairsee/";
-
-            if (!dired.exists()) {
-                dired.mkdirs();
-            }
-
-            SimpleDateFormat dateformat = new SimpleDateFormat(format_y_m_d, Locale.KOREA);
-            String filePath = path + dateformat+".JPG";
-            File file = new File(filePath);
+            String saveDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString() + "/헤보자";
+            File file = new File(saveDir);
             if (!file.exists()) {
-                file.mkdirs();
+                file.mkdir();
             }
 
-            // 기존에 있다면 삭제
-//            boolean deleted = file.delete();
-//            Log.w(TAG, "기존 이미지 삭제 : " + deleted);
-            file.createNewFile();
+            String fileName = name + ".png";
+            File tempFile = new File(saveDir, fileName);
             FileOutputStream output = null;
 
             try {
-                output = new FileOutputStream(file);
-                imageData.compress(Bitmap.CompressFormat.JPEG, 100, output); //해상도에 맞추어 Compress
+                if (tempFile.createNewFile()) {
+                    output = new FileOutputStream(tempFile);
+                    // 이미지 줄이기
+                    // TODO : 사진 비율로 압축하도록 수정할 것
+                    Bitmap newBitmap = imageData.createScaledBitmap(imageData, 200, 200, true);
+                    // 이미지 압축. 압축된 파일은 output stream에 저장. 2번째 인자는 압축률인데 100으로 해도 많이 깨진다..
+                    newBitmap.compress(Bitmap.CompressFormat.PNG, 100, output);
+                } else {
+                    // 같은 이름의 파일 존재
+                    Log.d("TEST_LOG", "같은 이름의 파일 존재:" + name);
+
+                    return ;
+                }
             } catch (FileNotFoundException e) {
+                Log.d("TEST_LOG", "파일을 찾을 수 없음");
+                return ;
+
+            } catch (IOException e) {
+                Log.d("TEST_LOG", "IO 에러");
                 e.printStackTrace();
+                return ;
+
             } finally {
-                try {
-                    assert output != null;
-                    output.flush();
-                    output.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                if (output != null) {
+                    try {
+                        output.flush();
+                        output.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
-            Log.e(TAG, "사진 저장 성공");
-            return true;
+            return ;
         } catch (Exception e) {
-            Log.w(TAG, "사진 저장 실패");
-            return false;
+            e.printStackTrace();
         }
     }
 
