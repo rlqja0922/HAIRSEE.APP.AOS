@@ -19,9 +19,8 @@ public class ResultActivity extends AppCompatActivity {
     private final String TAG = "ResultActivity";
 
     public static Context mContext;
-    public static TextView tv_resultTop, tv_result_succ1, tv_result_succ2, tv_result_succ3, tv_result_fail1, tv_result_fail2,
-                            tv_result_info1, tv_result_info2, tv_result_point1, tv_result_point2,succtext;
-    public ConstraintLayout const_gohome, const_restart,fail1,fail2,succ1,succ2,succ3,background,background1;
+    public static TextView tv_resultTop, tv_result_info1, tv_result_info2;
+    public ConstraintLayout const_gohome, const_restart,fail1,fail2,succ2,background,background1;
     int standardSize_X, standardSize_Y;
     float density;
     @Override
@@ -41,12 +40,9 @@ public class ResultActivity extends AppCompatActivity {
 //        new HttpCarImage(this).execute(CarImg);
         fail1 = findViewById(R.id.fail1);
         fail2 = findViewById(R.id.fail2);
-        succ1 = findViewById(R.id.suc1);
         succ2 = findViewById(R.id.suc2);
-        succ3 = findViewById(R.id.suc3);
         background = findViewById(R.id.background);
         background1 = findViewById(R.id.background1);
-        succtext = findViewById(R.id.succtext2);
         const_restart = findViewById(R.id.const_restart);
         const_gohome = findViewById(R.id.const_gohome);
         tv_resultTop = findViewById(R.id.tv_resultTop);

@@ -3,13 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.17864583333333334" />
         <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/drawable/cam_back.xml" value="0.19635416666666666" />
         <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/drawable/ic_baseline_switch_camera_24.xml" value="0.19635416666666666" />
+        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/drawable/ic_launcher_background.xml" value="0.17864583333333334" />
         <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_gifactivity.xml" value="0.5100806451612904" />
         <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_main.xml" value="0.17300724637681159" />
         <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_press_button.xml" value="0.17300724637681159" />
         <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_pressbt.xml" value="0.15364583333333334" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_result.xml" value="0.16302083333333334" />
+        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_result.xml" value="0.25" />
         <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_spalsh.xml" value="0.17300724637681159" />
         <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_splash.xml" value="0.17300724637681159" />
         <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/alertxml.xml" value="0.14375" />
