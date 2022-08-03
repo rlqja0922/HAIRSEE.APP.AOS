@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Point;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Display;
 import android.view.View;
@@ -12,15 +13,16 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.example.hairsee.utils.OnSingleClickListener;
 import com.example.hairsee.utils.SharedStore;
 
 public class ResultActivity extends AppCompatActivity {
 
     private final String TAG = "ResultActivity";
-
+    private final int ImgageShare = 101;
     public static Context mContext;
     public static TextView tv_resultTop, tv_result_info1, tv_result_info2;
-    public ConstraintLayout const_gohome, const_restart,fail1,fail2,succ2,background,background1;
+    public ConstraintLayout const_gohome, const_restart,const_share,fail1,fail2,succ2,background,background1;
     int standardSize_X, standardSize_Y;
     float density;
     @Override
@@ -45,6 +47,7 @@ public class ResultActivity extends AppCompatActivity {
         background1 = findViewById(R.id.background1);
         const_restart = findViewById(R.id.const_restart);
         const_gohome = findViewById(R.id.const_gohome);
+        const_share = findViewById(R.id.const_share);
         tv_resultTop = findViewById(R.id.tv_resultTop);
         tv_result_info1 = findViewById(R.id.tv_resultInfo1);
         tv_result_info2 = findViewById(R.id.tv_resultInfo2);
@@ -72,6 +75,16 @@ public class ResultActivity extends AppCompatActivity {
                 Intent intentRestart = new Intent(ResultActivity.this, CameraActivity.class);
                 intentRestart.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intentRestart);
+            }
+        });
+        const_share.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void onSingleClick(View v) {
+                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+                sharingIntent.setType("video/*");	// 고정
+                sharingIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(SharedStore.getImgPath(mContext, "imgPath"))); // path:비디오경로
+                sharingIntent.setPackage("com.kakao.talk");	// 고정.
+                startActivityForResult(sharingIntent, ImgageShare);	// 결과를 받고싶을 때
             }
         });
     }
