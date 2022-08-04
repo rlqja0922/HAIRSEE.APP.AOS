@@ -2,6 +2,7 @@ package com.example.hairsee;
 
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -9,6 +10,8 @@ import android.media.ExifInterface;
 import android.os.Environment;
 import android.util.Base64;
 import android.util.Log;
+
+import com.example.hairsee.utils.SharedStore;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -23,7 +26,7 @@ public class MyImageUtils {
     public static String format_y_m_d = "yyyy.MM.dd";
     private static final String TAG = "ImageUtils";
 
-    public static void saveBitMapImg(Bitmap imageData, String name, String extension, Context c) {//extension : jpg, png
+    public static boolean saveBitMapImg(Bitmap imageData, String name, String extension, Context c) {//extension : jpg, png
         try {
             //저장할 파일 경로
             ContextWrapper contextWrapper = new ContextWrapper(c);
@@ -49,31 +52,34 @@ public class MyImageUtils {
                     // 같은 이름의 파일 존재
                     Log.d("TEST_LOG", "같은 이름의 파일 존재:" + name);
 
-                    return ;
+                    return false;
                 }
             } catch (FileNotFoundException e) {
                 Log.d("TEST_LOG", "파일을 찾을 수 없음");
-                return ;
+                return false;
 
             } catch (IOException e) {
                 Log.d("TEST_LOG", "IO 에러");
                 e.printStackTrace();
-                return ;
+                return false;
 
             } finally {
                 if (output != null) {
                     try {
                         output.flush();
                         output.close();
+                        SharedStore.setImgPath(c,saveDir + fileName);
+                        return true;
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
             }
-            return ;
+            return false;
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return false;
     }
 
     public static List<Bitmap> getRecognitionFace(Context c, String employeeNum){

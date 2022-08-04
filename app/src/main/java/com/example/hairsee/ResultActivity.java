@@ -3,18 +3,25 @@ package com.example.hairsee;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Display;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.hairsee.utils.OnSingleClickListener;
 import com.example.hairsee.utils.SharedStore;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 public class ResultActivity extends AppCompatActivity {
 
@@ -77,12 +84,12 @@ public class ResultActivity extends AppCompatActivity {
                 startActivity(intentRestart);
             }
         });
-        const_share.setOnClickListener(new OnSingleClickListener() {
+        const_share.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onSingleClick(View v) {
+            public void onClick(View v) {
                 Intent sharingIntent = new Intent(Intent.ACTION_SEND);
                 sharingIntent.setType("video/*");	// 고정
-                sharingIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(SharedStore.getImgPath(mContext, "imgPath"))); // path:비디오경로
+                sharingIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(SharedStore.getImgPath(ResultActivity.this))); // path:비디오경로
                 sharingIntent.setPackage("com.kakao.talk");	// 고정.
                 startActivityForResult(sharingIntent, ImgageShare);	// 결과를 받고싶을 때
             }
@@ -116,5 +123,14 @@ public class ResultActivity extends AppCompatActivity {
         Intent intentHome = new Intent(ResultActivity.this, MainActivity.class);
         intentHome.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intentHome);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ImgageShare){
+            if (resultCode ==RESULT_OK){
+                Toast.makeText(this,"공유성공", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

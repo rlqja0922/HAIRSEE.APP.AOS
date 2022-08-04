@@ -29,12 +29,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HAIRSEE" >
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="your app package name"
-            android:exported="false"
-            android:grantUriPermissions="true">
-        </provider>
+
         <activity
             android:name=".Pressbt"
             android:exported="false" />
@@ -57,6 +52,8 @@
         <activity android:name=".detection.DetectorActivity">
 
         </activity>
+        <activity android:name=".ResultActivity"></activity>
+        <activity android:name=".GIFActivity"></activity>
     </application>
 
 </manifest>

@@ -59,6 +59,7 @@ import android.widget.Toast;
 import com.example.hairsee.MyImageUtils;
 import com.example.hairsee.MyUtils;
 import com.example.hairsee.R;
+import com.example.hairsee.ResultActivity;
 import com.example.hairsee.detection.customview.OverlayView;
 import com.example.hairsee.detection.env.BorderedText;
 import com.example.hairsee.detection.env.ImageUtils;
@@ -176,7 +177,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
   private boolean isShowDial;
   private static String result = "";
   private Camera.CameraInfo mCameraInfo;
-  public String format_y_m_d = "yyyy.MM.dd";
+  public String format_y_m_d = "yy.MM.dd.HH.mm.ss";
   /**
    * 전체 프로세스 정리 등록
    * 1. 등록 버튼 클릭 [ fabAdd ] 하여 저장 플레그 값을 변경 [ addPending = true ]
@@ -241,9 +242,13 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
         facesSize = 0;
         finish();
       });
-    }else {
+    }else if (facesSize == 1){
       SimpleDateFormat dateformat = new SimpleDateFormat(format_y_m_d, Locale.KOREA);
-      MyImageUtils.saveBitMapImg(croppedBitmap,dateformat.format(new Date()),"dlfma",DetectorActivity.this);
+      boolean save =  MyImageUtils.saveBitMapImg(croppedBitmap,dateformat.format(new Date()),"dlfma",DetectorActivity.this);
+      if (save){
+        Intent intent = new Intent(DetectorActivity.this, ResultActivity.class);
+        startActivity(intent);
+      }
       if (croppedBitmap == null) {
         return;
       }

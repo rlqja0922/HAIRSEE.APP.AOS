@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
 import android.util.Log;
-import android.util.StateSet;
 
 import java.io.ByteArrayOutputStream;
 
@@ -64,15 +63,13 @@ public class SharedStore {
             return null;
         }
     }
-    public static void setImgPath(Context context, String value){
-        SharedPreferences pref = getPreferences(context);
-        SharedPreferences.Editor editor = pref.edit();
-        editor.putString("imgPath",value);
-        editor.apply();
+    public static void setImgPath(Context context, String ImgPath){
+        context.getSharedPreferences("MyData",0).edit().putString("imgPath",ImgPath).apply();
     }
-    public static String getImgPath(Context context, String key){
-        SharedPreferences preferences = getPreferences(context);
-        String value = preferences.getString(key, "");
-        return value;
+
+    public static String getImgPath(Context context){
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MyData",0);
+        return sharedPreferences.getString("imgPath","");
     }
+
 }
