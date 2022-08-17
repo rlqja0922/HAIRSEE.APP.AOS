@@ -18,6 +18,7 @@ import android.widget.Button;
 import com.example.hairsee.detection.DetectorActivity;
 import com.example.hairsee.utils.MyAlert;
 import com.example.hairsee.utils.OnSingleClickListener;
+import com.example.hairsee.utils.SharedStore;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -86,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
                     InputStream in = getContentResolver().openInputStream(data.getData());
                     Bitmap img = BitmapFactory.decodeStream(in);
                     in.close();
+
+                    SharedStore.setImgPath(MainActivity.this,data.getDataString());
+                    Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+                    startActivity(intent);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

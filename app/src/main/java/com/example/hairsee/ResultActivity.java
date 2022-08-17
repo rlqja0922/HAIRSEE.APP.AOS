@@ -88,10 +88,10 @@ public class ResultActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-                sharingIntent.setType("video/*");	// 고정
-                sharingIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(SharedStore.getImgPath(ResultActivity.this))); // path:비디오경로
-                sharingIntent.setPackage("com.kakao.talk");	// 고정.
-                startActivityForResult(sharingIntent, ImgageShare);	// 결과를 받고싶을 때
+                sharingIntent.setType("image/*");
+                Uri imageUri = Uri.parse(SharedStore.getImgPath(ResultActivity.this));
+                sharingIntent.putExtra(Intent.EXTRA_STREAM,imageUri);
+                startActivity(Intent.createChooser(sharingIntent, null));
             }
         });
     }

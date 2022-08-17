@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class MyImageUtils {
-    public static String format_y_m_d = "yyyy.MM.dd";
+    public static String format_y_m_d = "yyyyMMdd";
     private static final String TAG = "ImageUtils";
 
     public static boolean saveBitMapImg(Bitmap imageData, String name, String extension, Context c) {//extension : jpg, png
@@ -36,7 +36,7 @@ public class MyImageUtils {
                 file.mkdir();
             }
 
-            String fileName = name + ".png";
+            String fileName = name + ".jpg";
             File tempFile = new File(saveDir, fileName);
             FileOutputStream output = null;
 
@@ -45,9 +45,9 @@ public class MyImageUtils {
                     output = new FileOutputStream(tempFile);
                     // 이미지 줄이기
                     // TODO : 사진 비율로 압축하도록 수정할 것
-                    Bitmap newBitmap = imageData.createScaledBitmap(imageData, 200, 200, true);
+                    Bitmap newBitmap = imageData.createScaledBitmap(imageData, 500, 500, true);
                     // 이미지 압축. 압축된 파일은 output stream에 저장. 2번째 인자는 압축률인데 100으로 해도 많이 깨진다..
-                    newBitmap.compress(Bitmap.CompressFormat.PNG, 100, output);
+                    newBitmap.compress(Bitmap.CompressFormat.JPEG, 100, output);
                 } else {
                     // 같은 이름의 파일 존재
                     Log.d("TEST_LOG", "같은 이름의 파일 존재:" + name);
@@ -68,7 +68,7 @@ public class MyImageUtils {
                     try {
                         output.flush();
                         output.close();
-                        SharedStore.setImgPath(c,saveDir + fileName);
+                        SharedStore.setImgPath(c,tempFile.getPath());
                         return true;
                     } catch (IOException e) {
                         e.printStackTrace();

@@ -177,7 +177,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
   private boolean isShowDial;
   private static String result = "";
   private Camera.CameraInfo mCameraInfo;
-  public String format_y_m_d = "yy.MM.dd.HH.mm.ss";
+  public String format_y_m_d = "yyMMddHHmmss";
   /**
    * 전체 프로세스 정리 등록
    * 1. 등록 버튼 클릭 [ fabAdd ] 하여 저장 플레그 값을 변경 [ addPending = true ]
