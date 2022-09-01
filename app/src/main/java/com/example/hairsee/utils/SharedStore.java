@@ -27,13 +27,13 @@ public class SharedStore {
         return value;
     }
 
-    public static boolean getAutoLogin(Context context){
+    public static boolean getSplash(Context context){
         SharedPreferences sharedPreferences = context.getSharedPreferences("MyData", 0);
-        return sharedPreferences.getBoolean("isAutoLogin", false);
+        return sharedPreferences.getBoolean("Splash", false);
     }
-    public static void setAutoLogin(Context context, boolean isAutoLogin){
-        Log.d("autoCheck", "autoCheck : " + isAutoLogin);
-        context.getSharedPreferences("MyData", 0).edit().putBoolean("isAutoLogin", isAutoLogin).commit();
+    public static void setSplash(Context context, boolean Splash){
+        Log.d("Splash", "Splash : " + Splash);
+        context.getSharedPreferences("MyData", 0).edit().putBoolean("Splash", Splash).commit();
     }
 
 

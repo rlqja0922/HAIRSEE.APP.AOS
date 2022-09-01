@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MotionEvent;
-import android.view.View;
+import android.os.Handler;
+import android.os.Looper;
 import android.widget.FrameLayout;
 
-public class Pressbt extends AppCompatActivity {
+public class SecondSplash extends AppCompatActivity {
 
     public FrameLayout background, pressLayout;
     @Override
@@ -17,13 +17,16 @@ public class Pressbt extends AppCompatActivity {
         setContentView(R.layout.activity_pressbt);
         background = findViewById(R.id.PressBackGround);
         pressLayout = findViewById(R.id.PressLayout);
-        pressLayout.setOnTouchListener(new View.OnTouchListener() {
+
+        Handler handler= new Handler(Looper.myLooper());
+        handler.postDelayed(new Runnable() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                Intent intent = new Intent(Pressbt.this,MainActivity.class);
+            public void run() {
+                Intent intent;
+                intent = new Intent(getApplicationContext(), SecondSplash.class);
                 startActivity(intent);
-                return false;
+                finish();
             }
-        });
+        },2000);// 초
     }
 }

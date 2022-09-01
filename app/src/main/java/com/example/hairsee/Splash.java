@@ -4,25 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 
+import com.example.hairsee.utils.SharedStore;
 public class Splash extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        if (SharedStore.getSplash(Splash.this)){
+            SharedStore.setSplash(Splash.this,true);
+            Intent intent;
+            intent = new Intent(getApplicationContext(), SecondSplash.class);
+            startActivity(intent);
+            finish();
+        }
 
-        Handler handler= new Handler(Looper.myLooper());
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent;
-                intent = new Intent(getApplicationContext(), Pressbt.class);
-                startActivity(intent);
-                finish();
-            }
-        },2000);// 초
     }
 }

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "513884813797",
+    "project_id": "hairsee-e5193",
+    "storage_bucket": "hairsee-e5193.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513884813797:android:1370b3667e9f78da57170c",
+        "android_client_info": {
+          "package_name": "com.example.hairsee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "513884813797-m44v5gocuo19o5sqh4evdgdj762vkecj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hairsee",
+            "certificate_hash": "a2c4cfef23e2bd57a73f0d91f9aedb6912f3a58d"
+          }
+        },
+        {
+          "client_id": "513884813797-9hth263gd2q7mb4v64l03u85oosqb5uv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPxUe96OFM4SVImyNv8k8mJT3n8tiZ8pA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "513884813797-9hth263gd2q7mb4v64l03u85oosqb5uv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

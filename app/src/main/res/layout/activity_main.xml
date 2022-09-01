@@ -72,11 +72,31 @@
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:background="@color/gray_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline11">
 
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav_view"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:background="#00ffffff"
+            android:theme="@style/Widget.BottomNavigationView"
+            app:elevation="11dp"
+            app:itemBackground="@color/black"
+            app:itemIconSize="@dimen/design_bottom_navigation_item_max_width"
+            app:itemIconTint="@color/new_blue"
+            app:itemTextColor="@color/white"
+            app:labelVisibilityMode="labeled"
+
+            app:menu="@menu/nav_menu">
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
     </FrameLayout>
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
@@ -104,5 +124,6 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline18"
         app:layout_constraintStart_toStartOf="@+id/guideline17"
         app:layout_constraintTop_toTopOf="@+id/guideline12" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

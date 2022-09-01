@@ -23,7 +23,10 @@
         <item name="colorPrimaryDark">@color/color_black</item>
         <item name="colorAccent">@color/color_gray3</item>
     </style>
+    <style name="Widget.BottomNavigationView"
+        parent="Widget.Design.BottomNavigationView">
 
+    </style>
     <style name="MyAlertDialog" parent="Base.Theme.AppCompat.Light.Dialog">
         <item name="android:textColor">@color/color_red</item>
         <item name="android:textColorPrimary">#000000</item>
