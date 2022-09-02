@@ -22,9 +22,6 @@ public class Second_Fragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = (ViewGroup) inflater.inflate(R.layout.fragment_second_, container, false);
 
-        Button button = rootView.findViewById(R.id.btn_1);
-
-
         return rootView;
     }
 }

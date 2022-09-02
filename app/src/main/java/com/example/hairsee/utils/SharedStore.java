@@ -72,4 +72,12 @@ public class SharedStore {
         return sharedPreferences.getString("imgPath","");
     }
 
+    public static void setFcmToken(Context context, String FcmToken){
+        context.getSharedPreferences("MyData",0).edit().putString("FcmToken",FcmToken).apply();
+    }
+
+    public static String getFcmToken(Context context){
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MyData",0);
+        return sharedPreferences.getString("FcmToken","");
+    }
 }

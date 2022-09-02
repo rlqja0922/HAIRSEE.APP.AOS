@@ -9,21 +9,18 @@ import android.os.Looper;
 import android.widget.FrameLayout;
 
 public class SecondSplash extends AppCompatActivity {
-
-    public FrameLayout background, pressLayout;
+//앱 두번째부터 킬때
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pressbt);
-        background = findViewById(R.id.PressBackGround);
-        pressLayout = findViewById(R.id.PressLayout);
+        setContentView(R.layout.activity_splash);
 
         Handler handler= new Handler(Looper.myLooper());
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent intent;
-                intent = new Intent(getApplicationContext(), SecondSplash.class);
+                intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
                 finish();
             }

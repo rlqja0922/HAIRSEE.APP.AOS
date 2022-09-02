@@ -10,14 +10,14 @@
         android:id="@+id/guideline42"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintGuide_percent="0.08"
+        app:layout_constraintGuide_percent="0.05"
         android:orientation="vertical" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline43"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintGuide_percent="0.94"
+        app:layout_constraintGuide_percent="0.95"
         android:orientation="vertical" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -57,7 +57,49 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="@id/guideline42"
+        app:layout_constraintEnd_toEndOf="@id/guideline43"
+        app:layout_constraintTop_toTopOf="@id/guideline37"
+        app:layout_constraintBottom_toBottomOf="@id/guideline38">
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/splashGuideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.15"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/splashGuideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.85"/>
+        <LinearLayout
+            android:id="@+id/splashBack"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/splashGuideline1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="horizontal">
 
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/splashCancel"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@id/splashGuideline2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPagerImageSlider"
         android:layout_width="0dp"

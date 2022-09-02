@@ -26,7 +26,6 @@ public class First_Fragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         View rootView = (ViewGroup) inflater.inflate(R.layout.fragment_first_, container, false);
-        Button button = rootView.findViewById(R.id.btn_1);
 
 
 

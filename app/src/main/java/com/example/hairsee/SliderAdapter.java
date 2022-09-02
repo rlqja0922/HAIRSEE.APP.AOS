@@ -7,6 +7,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.hairsee.splashpage.First_Fragment;
 import com.example.hairsee.splashpage.Second_Fragment;
+import com.example.hairsee.splashpage.Third_Fragment;
 
 //홈화면 카드뷰 어뎁터
 public class SliderAdapter extends FragmentStateAdapter {
@@ -23,6 +24,7 @@ public class SliderAdapter extends FragmentStateAdapter {
         switch (iViewIdx){
             case 0      : { return new First_Fragment(); }
             case 1      : { return new Second_Fragment(); }
+            case 2      : { return new Third_Fragment();}
 
             default :     return null;
         }
@@ -40,6 +42,6 @@ public class SliderAdapter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 2;
+        return 3;
     }
 }

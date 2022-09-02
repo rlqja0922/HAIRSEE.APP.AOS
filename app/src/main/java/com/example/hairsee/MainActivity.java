@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.hairsee.detection.DetectorActivity;
 import com.example.hairsee.utils.MyAlert;
@@ -31,12 +33,15 @@ public class MainActivity extends AppCompatActivity {
     public static int permissionWrite;
     public static final int Toast_Result = 1500;
     private static final int REQ = 0;
+    public EditText fcmtext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         gallBt = findViewById(R.id.gallery_bt);
         camBt = findViewById(R.id.camera_bt);
+        fcmtext = findViewById(R.id.fcmtext);
+        fcmtext.setText(SharedStore.getFcmToken(MainActivity.this));
         camBt.setOnClickListener(new OnSingleClickListener() {
             @Override
             public void onSingleClick(View v) {

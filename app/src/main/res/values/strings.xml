@@ -10,4 +10,6 @@
         \n ⦁ 차량이 가이드 라인을 벗어나지 않게 촬영해 주세요.
         \n ⦁ 번호판이 최대한 크고 잘 보이게 촬영해 주세요.</string>
     <string name="di_ct_error">에러가 발생했습니다. 잠시 뒤 다시 진행해 주시기 바랍니다.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

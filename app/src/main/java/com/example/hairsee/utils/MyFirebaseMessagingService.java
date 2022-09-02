@@ -56,6 +56,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             public void onComplete(@NonNull Task<String> task) {
                 if(task.isSuccessful()){
                     Log.d("FCM Token", task.getResult());// FCM 토큰 확인용
+                    SharedStore.setFcmToken(context, task.getResult());
                 }
             }
         });

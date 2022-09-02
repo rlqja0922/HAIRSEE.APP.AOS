@@ -36,7 +36,7 @@
             android:name=".SecondSplash"
             android:exported="false" />
         <activity
-            android:name=".Splash"
+            android:name=".FirstSplash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
