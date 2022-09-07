@@ -12,4 +12,10 @@
     <string name="di_ct_error">에러가 발생했습니다. 잠시 뒤 다시 진행해 주시기 바랍니다.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="guide_text1">해보고 싶었던 헤어스타일\n 간편하게 미리보기</string>
+    <string name="guide_text2">찍은 사진을\n 모두에게 공유해보세요</string>
+    <string name="guide_text3">정밀한 인식을 통한\n 맞춤 헤어 제공</string>
+    <string name="guide_text1_1">평소에 도전하고 싶었지만 나에게 어울릴까\n 고민되어 시도하지 못한 헤어스타일을\n AI 인식으로 시뮬레이션 해보세요.</string>
+    <string name="guide_text2_1">헤보자에서 씌운 헤어 필터 사진은\n 저장과 SNS로 공유가 가능합니다.\n 나에게 어울리는 머리스타일을 자랑해보세요.</string>
+    <string name="guide_text3_1">헤보자의 AI 얼굴인식 &amp; 헤어인식 기술로\n 사용자를 인식하고, 선택한 헤어스타일을 매치하여\n 사용자가 원하는 헤어스타일을 시뮬레이션 해줍니다.</string>
 </resources>
