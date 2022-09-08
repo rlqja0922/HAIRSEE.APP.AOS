@@ -7,17 +7,36 @@ import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.example.hairsee.utils.OnSingleClickListener;
 
 public class firstsplash_veiwpager extends AppCompatActivity {
 
     public ViewPager2 viewPageSetup;
+    private String page;
+    public ImageView pageindex1,pageindex2,pageindex3,mainBt;
+    public TextView mainBt2;
+    public LinearLayout splashback,splashcancel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_firstsplash_veiwpager);
         viewPageSetup = findViewById(R.id.viewPagerImageSlider);
+        pageindex1 = findViewById(R.id.pageindex1);
+        pageindex2 = findViewById(R.id.pageindex2);
+        pageindex3 = findViewById(R.id.pageindex3);
+        mainBt = findViewById(R.id.mainBt);
+        mainBt2 = findViewById(R.id.mainBt2);
+        splashback = findViewById(R.id.splashBack);
+        splashcancel = findViewById(R.id.splashCancel);
 
         SliderAdapter SetupPagerAdapter = new SliderAdapter(this);
 
@@ -39,9 +58,60 @@ public class firstsplash_veiwpager extends AppCompatActivity {
             public void transformPage(@NonNull View page, float position) {
                 float r = 1 - Math.abs(position);
                 page.setScaleY(0.85f + r * 0.15f);
+                String page1 = String.valueOf(viewPageSetup.getCurrentItem());
+                Log.d("ViewPager",page1);
+                if (page1.equals("0")){
+                    pageindex1.setImageResource(R.drawable.pageertrue);
+                    pageindex2.setImageResource(R.drawable.pagerfalse);
+                    pageindex3.setImageResource(R.drawable.pagerfalse);
+                    mainBt.setVisibility(View.GONE);
+                    mainBt2.setVisibility(View.GONE);
+                    splashback.setVisibility(View.GONE);
+                }else  if (page1.equals("1")){
+                    pageindex1.setImageResource(R.drawable.pagerfalse);
+                    pageindex2.setImageResource(R.drawable.pageertrue);
+                    pageindex3.setImageResource(R.drawable.pagerfalse);
+                    mainBt.setVisibility(View.GONE);
+                    mainBt2.setVisibility(View.GONE);
+                    splashback.setVisibility(View.VISIBLE);
+                }else if (page1.equals("2")){
+                    pageindex1.setImageResource(R.drawable.pagerfalse);
+                    pageindex2.setImageResource(R.drawable.pagerfalse);
+                    pageindex3.setImageResource(R.drawable.pageertrue);
+                    mainBt.setVisibility(View.VISIBLE);
+                    mainBt2.setVisibility(View.VISIBLE);
+                    splashback.setVisibility(View.VISIBLE);
+                }
             }
         });
 
         viewPageSetup.setPageTransformer(compositePageTransformer);
+        mainBt.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void onSingleClick(View v) {
+                Intent intent = new Intent(firstsplash_veiwpager.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        splashcancel.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void onSingleClick(View v) {
+                Intent intent = new Intent(firstsplash_veiwpager.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        splashback.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void onSingleClick(View v) {
+                String page1 = String.valueOf(viewPageSetup.getCurrentItem());
+                Log.d("ViewPager",page1);
+                    if (page1.equals("1")){
+                        viewPageSetup.setCurrentItem(0);
+                    }else if (page1.equals("2")){
+                        viewPageSetup.setCurrentItem(1);
+                    }
+            }
+        });
+
     }
 }

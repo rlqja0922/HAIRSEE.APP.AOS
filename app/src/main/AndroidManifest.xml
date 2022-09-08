@@ -31,12 +31,15 @@
         android:theme="@style/Theme.HAIRSEE">
         <activity
             android:name=".firstsplash_veiwpager"
+            android:noHistory="true"
             android:exported="false" />
         <activity
             android:name=".SecondSplash"
+            android:noHistory="true"
             android:exported="false" />
         <activity
             android:name=".FirstSplash"
+            android:noHistory="true"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,10 +50,13 @@
         <activity
             android:name=".MainActivity"
             android:exported="false"></activity>
-        <activity android:name=".detection.CameraActivity"></activity>
-        <activity android:name=".detection.DetectorActivity"></activity>
+        <activity android:name=".detection.CameraActivity"
+            android:noHistory="true"></activity>
+        <activity android:name=".detection.DetectorActivity"
+            android:noHistory="true"></activity>
         <activity android:name=".ResultActivity" />
-        <activity android:name=".GIFActivity" />
+        <activity android:name=".GIFActivity"
+            android:noHistory="true"></activity>
     </application>
 
 </manifest>

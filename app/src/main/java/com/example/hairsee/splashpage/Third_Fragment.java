@@ -31,14 +31,6 @@ public class Third_Fragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = (ViewGroup) inflater.inflate(R.layout.fragment_third_, container, false);
         context = getContext();
-        splashExit = rootView.findViewById(R.id.splashExit);
-        splashExit.setOnClickListener(new OnSingleClickListener() {
-            @Override
-            public void onSingleClick(View v) {
-                Intent intent = new Intent(context, MainActivity.class);
-                context.startActivity(intent);
-            }
-        });
         return rootView;
     }
 }

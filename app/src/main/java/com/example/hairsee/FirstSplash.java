@@ -14,6 +14,7 @@ public class FirstSplash extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.firstsplash);
+        SharedStore.setSplash(FirstSplash.this,true); // 스플레시테스트 끝날시 제거
         if (SharedStore.getSplash(FirstSplash.this)){
             SharedStore.setSplash(FirstSplash.this,false);
             Handler handler= new Handler(Looper.myLooper());

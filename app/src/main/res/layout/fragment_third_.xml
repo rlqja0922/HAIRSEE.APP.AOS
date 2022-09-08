@@ -1,16 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".splashpage.Third_Fragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <Button
-            android:id="@+id/splashExit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Button>
+        android:layout_height="match_parent"
+        android:background="@color/white">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/guide3"
+                app:layout_constraintBottom_toBottomOf="@id/first2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/first2"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.55"
+                />
+            <androidx.constraintlayout.widget.Guideline
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/first3"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.6"
+                />
+            <androidx.constraintlayout.widget.Guideline
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/first4"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.75"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@string/guide_text3"
+                android:textColor="#2A2A2A"
+                android:textStyle="bold"
+                android:textSize="23dp"
+                app:layout_constraintBottom_toBottomOf="@id/first4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/first3">
+
+            </TextView>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@string/guide_text3_1"
+                android:textColor="#565656"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/first4">
+
+            </TextView>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </FrameLayout>
 
 
