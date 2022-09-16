@@ -65,6 +65,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onNewToken(@NonNull String token) {
         super.onNewToken(token);
+        Log.d("FCM Token", token);// FCM 토큰 확인용
         //token을 서버로 전송
     }
 
@@ -93,7 +94,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 //        // JSON 으로 변환
 //        String strContact = gson.toJson(contact, AlarmData.class);
         String Title = data.get("title");
-        String Body = data.get("body");
+        String Body = data.get("step");
         String channel_id = "CHN_ID";
         Intent intent = new Intent(this, ResultActivity.class);
         //알림 채널 아이디 : 본인 하고싶으신대로...

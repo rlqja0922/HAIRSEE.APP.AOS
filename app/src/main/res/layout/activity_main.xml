@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color_white"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.Guideline
@@ -11,7 +12,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.07" />
+        app:layout_constraintGuide_percent="0.39" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline11_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline11"
@@ -25,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.8" />
+        app:layout_constraintGuide_percent="0.78" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline13"
@@ -60,71 +68,113 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.2"  />
+        app:layout_constraintGuide_percent="-0.03"  />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.4" />
+        app:layout_constraintGuide_percent="1.03" />
 
+
+<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:id="@+id/bottom_nav_view"-->
+<!--        android:layout_width="360dp"-->
+<!--        android:layout_height="65dp"-->
+<!--        android:background="#00ffffff"-->
+<!--        android:theme="@style/Widget.BottomNavigationView"-->
+<!--        app:elevation="11dp"-->
+<!--        app:itemBackground="@drawable/nav_indicator"-->
+<!--        app:itemIconSize="@dimen/design_bottom_navigation_item_max_width"-->
+<!--        app:itemIconTint="@color/new_blue"-->
+<!--        app:itemTextColor="#00ffffff"-->
+<!--        app:labelVisibilityMode="labeled"-->
+<!--        app:menu="@menu/nav_menu"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent">-->
+
+<!--    </com.google.android.material.bottomnavigation.BottomNavigationView>-->
     <FrameLayout
-        android:id="@+id/frameLayout"
+        android:id="@+id/Fragment"
+        android:background="@color/color_white"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@color/gray_color"
+        android:layout_height="match_parent"></FrameLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        android:background="@drawable/appbar"
+        android:elevation="11dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline18"
+        app:layout_constraintStart_toStartOf="@id/guideline17"
         app:layout_constraintTop_toTopOf="@+id/guideline11">
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_nav_view"
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:background="#00ffffff"
-            android:theme="@style/Widget.BottomNavigationView"
-            app:elevation="11dp"
-            app:itemBackground="@color/black"
-            app:itemIconSize="@dimen/design_bottom_navigation_item_max_width"
-            app:itemIconTint="@color/new_blue"
-            app:itemTextColor="@color/white"
-            app:labelVisibilityMode="labeled"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/barguideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.33" />
 
-            app:menu="@menu/nav_menu">
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/barguideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.66" />
 
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
-    </FrameLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/barguideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.33" />
 
-    <EditText
-        android:id="@+id/fcmtext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/barguideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.67" />
 
-    <Button
-        android:id="@+id/camera_bt"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="Camera"
-        app:layout_constraintBottom_toTopOf="@+id/guideline11"
-        app:layout_constraintEnd_toStartOf="@+id/guideline16"
-        app:layout_constraintStart_toStartOf="@+id/guideline15"
-        app:layout_constraintTop_toTopOf="@+id/guideline12" />
+        <ImageView
+            android:id="@+id/gallery_mn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/galic"
+            app:layout_constraintBottom_toBottomOf="@id/barguideline4"
+            app:layout_constraintEnd_toEndOf="@+id/barguideline1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/barguideline3"></ImageView>
 
-    <Button
-        android:id="@+id/gallery_bt"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="Gallery"
-        app:layout_constraintBottom_toTopOf="@+id/guideline11"
-        app:layout_constraintEnd_toStartOf="@+id/guideline18"
-        app:layout_constraintStart_toStartOf="@+id/guideline17"
-        app:layout_constraintTop_toTopOf="@+id/guideline12" />
+        <ImageView
+            android:id="@+id/home_mn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/hoemic"
+            app:layout_constraintBottom_toBottomOf="@id/barguideline4"
+            app:layout_constraintEnd_toEndOf="@+id/barguideline2"
+            app:layout_constraintStart_toStartOf="@+id/barguideline1"
+            app:layout_constraintTop_toTopOf="@id/barguideline3"></ImageView>
+
+        <ImageView
+            android:id="@+id/camera_mn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/camaraic"
+            app:layout_constraintBottom_toBottomOf="@id/barguideline4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/barguideline2"
+            app:layout_constraintTop_toTopOf="@id/barguideline3"></ImageView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

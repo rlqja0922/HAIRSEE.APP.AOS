@@ -243,14 +243,16 @@ public class CameraConnectionFragment extends Fragment {
 
     if (exactSizeFound) {
       LOGGER.i("Exact size match found.");
-      return desiredSize;
+      Size desiredSize1 =new Size(1440, 1080);
+      return desiredSize1;
     }
 
     // Pick the smallest of those, assuming we found any
     if (bigEnough.size() > 0) {
       final Size chosenSize = Collections.min(bigEnough, new CompareSizesByArea());
       LOGGER.i("Chosen size: " + chosenSize.getWidth() + "x" + chosenSize.getHeight());
-      return chosenSize;
+      Size desiredSize1 = new Size(1440, 1080);
+      return desiredSize1;
     } else {
       LOGGER.e("Couldn't find any suitable preview size");
       return choices[0];

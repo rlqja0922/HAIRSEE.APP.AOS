@@ -108,9 +108,9 @@ public class MultiBoxTracker {
 
     for (final Pair<Float, RectF> detection : screenRects) {
       final RectF rect = detection.second;
-      canvas.drawRect(rect, boxPaint);
-      canvas.drawText("" + detection.first, rect.left, rect.top, textPaint);
-      borderedText.drawText(canvas, rect.centerX(), rect.centerY(), "" + detection.first);
+//      canvas.drawRect(rect, boxPaint);
+//      canvas.drawText("" + detection.first, rect.left, rect.top, textPaint);
+//      borderedText.drawText(canvas, rect.centerX(), rect.centerY(), "" + detection.first);
     }
   }
 
@@ -144,7 +144,7 @@ public class MultiBoxTracker {
       boxPaint.setColor(recognition.color);
 
       float cornerSize = Math.min(trackedPos.width(), trackedPos.height()) / 8.0f;
-      canvas.drawRoundRect(trackedPos, cornerSize, cornerSize, boxPaint);
+//      canvas.drawRoundRect(trackedPos, cornerSize, cornerSize, boxPaint);
 
 
       @SuppressLint("DefaultLocale")
@@ -158,8 +158,8 @@ public class MultiBoxTracker {
               ? String.format("%s %s", recognition.title, strConfidence)
               : strConfidence;
 
-      borderedText.drawText(
-          canvas, trackedPos.left + cornerSize, trackedPos.top, labelString, boxPaint);
+//      borderedText.drawText(
+//          canvas, trackedPos.left + cornerSize, trackedPos.top, labelString, boxPaint);
     }
   }
 
