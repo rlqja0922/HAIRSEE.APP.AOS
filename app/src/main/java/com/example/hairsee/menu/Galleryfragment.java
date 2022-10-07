@@ -1,5 +1,7 @@
 package com.example.hairsee.menu;
 
+import static com.google.firebase.messaging.Constants.MessageNotificationKeys.TAG;
+
 import android.content.Context;
 import android.os.Bundle;
 
@@ -16,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.hairsee.R;
 import com.example.hairsee.menu.gallarysub.gallImageFragment;
+import com.example.hairsee.utils.SharedStore;
 
 import java.io.File;
 
@@ -75,6 +78,7 @@ public class Galleryfragment extends Fragment {
                              Bundle savedInstanceState) {
         view =  inflater.inflate(R.layout.fragment_galleryfragment, container, false);
         context = getContext();
+        SharedStore.setGallery0(context,true);
         // Inflate the layout for this fragment
          File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "MyCameraApp");
 
@@ -89,9 +93,10 @@ public class Galleryfragment extends Fragment {
 
         mGridView.setAdapter(mCustomImageAdapter); //GridView가Custom Image Adapter에서받은 값을뿌릴 수 있도록연결
         mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(context, mCustomImageAdapter.getItemPath(position), Toast.LENGTH_LONG).show();
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                Toast.makeText(context, position + " Click event", Toast.LENGTH_SHORT).show();
             }
         });
         return view;

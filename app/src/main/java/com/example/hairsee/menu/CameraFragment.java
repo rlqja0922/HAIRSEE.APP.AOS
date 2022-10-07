@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -18,10 +19,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.hairsee.MainActivity;
 import com.example.hairsee.R;
 import com.example.hairsee.detection.DetectorActivity;
+import com.example.hairsee.menu.CamSub.Camera2Fragment;
 import com.example.hairsee.utils.MyAlert;
 import com.example.hairsee.utils.OnSingleClickListener;
 
@@ -42,7 +45,7 @@ public class CameraFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private View view;
-    private Button cambt;
+    public ImageView camnextBt;
     private Context context;
     public static int permissionCamera;
     public static int permissionRead;
@@ -91,13 +94,22 @@ public class CameraFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_camera, container, false);
-        cambt = view.findViewById(R.id.cambt);
+
         context = getContext();
         mainActivity = getActivity();
-        cambt.setOnClickListener(new OnSingleClickListener() {
+        AppCompatActivity activity = (AppCompatActivity) context;
+        camnextBt = view.findViewById(R.id.camnextBt);
+        camnextBt.setOnClickListener(new OnSingleClickListener() {
             @Override
             public void onSingleClick(View v) {
-                permission();
+
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.Fragment,new Camera2Fragment()).commit();
+            }
+        });
+//        cambt.setOnClickListener(new OnSingleClickListener() {
+//            @Override
+//            public void onSingleClick(View v) {
+//                permission();
 //                permissionCamera = ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA);
 //                permissionRead = ContextCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE);
 //                permissionWrite = ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE);
@@ -113,8 +125,8 @@ public class CameraFragment extends Fragment {
 //                else {
 //                    btnRegistrationClickHandler();
 //                }
-            }
-        });
+//            }
+//        });
         return view;
 
     }

@@ -80,4 +80,13 @@ public class SharedStore {
         SharedPreferences sharedPreferences = context.getSharedPreferences("MyData",0);
         return sharedPreferences.getString("FcmToken","");
     }
+
+    public static void setGallery0(Context context, boolean Gallery0){
+        context.getSharedPreferences("MyData",0).edit().putBoolean("Gallery0",Gallery0).apply();
+    }
+    public static boolean getGallery0(Context context){
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MyData",0);
+        return sharedPreferences.getBoolean("Gallery0",true);
+    }
+
 }
