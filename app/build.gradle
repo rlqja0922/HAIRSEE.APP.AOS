@@ -62,5 +62,6 @@ dependencies {
 
     // Also declare the dependency for the TensorFlow Lite library and specify its version
     implementation 'org.tensorflow:tensorflow-lite:2.3.0'
+
 }
 apply plugin: 'com.google.gms.google-services'

@@ -1,4 +1,5 @@
 package com.example.hairsee;
+import android.content.Context;
 import android.media.Image;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,62 +9,56 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.hairsee.listClass.Hair;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Hairlist extends BaseAdapter {
+public class Hairlist extends RecyclerView.Adapter<Hairlist.ViewHolder>{
     private static final String TAG = "SingleAdapter";
 
     private List<Hair> items=new ArrayList<>();
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView imgView_item;
+        TextView tv;
 
-    public Hairlist() {
-        items.add(new Hair("써니",R.drawable.common_google_signin_btn_icon_dark));
-        items.add(new Hair("써니",R.drawable.common_google_signin_btn_icon_dark));
-        items.add(new Hair("써니",R.drawable.common_google_signin_btn_icon_dark));
-        items.add(new Hair("써니",R.drawable.common_google_signin_btn_icon_dark));
-        items.add(new Hair("써니",R.drawable.common_google_signin_btn_icon_dark));
-        items.add(new Hair("써니",R.drawable.common_google_signin_btn_icon_dark));
-        items.add(new Hair("써니",R.drawable.common_google_signin_btn_icon_dark));
-        items.add(new Hair("써니",R.drawable.common_google_signin_btn_icon_dark));
-        items.add(new Hair("써니",R.drawable.common_google_signin_btn_icon_dark));
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            tv= itemView.findViewById(R.id.tv_title);
+            imgView_item= itemView.findViewById(R.id.iv_img_resource);
+        }
+    }
+    public Hairlist(ArrayList<Hair> items) {
+        this.items = items;
     }
 
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        Context context = parent.getContext();
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        View view = inflater.inflate(R.layout.choiceitem, parent, false);
+        Hairlist.ViewHolder vh = new Hairlist.ViewHolder(view);
+        return vh;
+    }
 
     @Override
-    public int getCount() { //최초에 화면의 갯수를 설정함
-        Log.d(TAG, "getCount: ");
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Hair item = items.get(position);
+
+        holder.imgView_item.setImageResource(item.getImgResource());   // 사진 없어서 기본 파일로 이미지 띄움
+        holder.tv.setText(item.getTitle());
+    }
+
+    @Override
+    public int getItemCount() {
         return items.size();
     }
 
-    @Override
-    public Object getItem(int position) { //아이템이 클릭될 때 아이템의 데이터를 도출
-        Log.d(TAG, "getItem: "+position);
-        return items.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) { //필수 아님
-        Log.d(TAG, "getItemId: "+position);
-        return position;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        Log.d(TAG, "getView: "+position);
-        //레이아웃 인플레이터로 인플레이터 객체 접근
-        LayoutInflater inflater=LayoutInflater.from(parent.getContext());
-        //메모리에 아이템 하나 인플레이팅
-        View itemView=inflater.inflate(R.layout.choiceitem,parent,false);
-        //뷰 찾기
-        TextView tv=itemView.findViewById(R.id.tv_title);
-        ImageView imageView=itemView.findViewById(R.id.iv_img_resource);
-        //뷰 교체
-        String title=((Hair)getItem(position)).getTitle();
-        int imgResource=((Hair)getItem(position)).getImgResource();
-        tv.setText(title);
-        imageView.setImageResource(imgResource);
-        return itemView;
-    }
 }

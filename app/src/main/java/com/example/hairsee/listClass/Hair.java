@@ -6,8 +6,8 @@ public class Hair {
     private int imgResource;
 
     public Hair(String title, int imgResource) {
-        title = title;
-        imgResource = imgResource;
+        this.title = title;
+        this.imgResource = imgResource;
     }
 
     public String getTitle() {

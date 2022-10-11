@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="112dp"
-    android:layout_height="112dp">
+    android:layout_width="100dp"
+    android:layout_height="100dp">
     <ImageView
         android:id="@+id/iv_img_resource"
-        android:layout_width="112dp"
-        android:layout_height="112dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:src="@drawable/common_google_signin_btn_icon_dark_focused"
         android:layout_alignParentLeft="true"
         android:scaleType="centerCrop"/>
@@ -14,6 +14,7 @@
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:textColor="@color/black"
         android:text="헤어이름"
         android:textSize="15dp"
         android:textStyle="bold"
