@@ -66,8 +66,6 @@ public class ResultActivity extends AppCompatActivity {
 //        String CarImg = SharedStore.getCarImg(this);
 //        Log.d(TAG, "Base64 이미지 값 : "+ CarImg);
 //        new HttpCarImage(this).execute(CarImg);
-        fail1 = findViewById(R.id.fail1);
-        fail2 = findViewById(R.id.fail2);
         succ2 = findViewById(R.id.suc2);
         background = findViewById(R.id.background);
         background1 = findViewById(R.id.background1);
@@ -75,8 +73,6 @@ public class ResultActivity extends AppCompatActivity {
         const_gohome = findViewById(R.id.const_gohome);
         const_share = findViewById(R.id.const_share);
         tv_resultTop = findViewById(R.id.tv_resultTop);
-        tv_result_info1 = findViewById(R.id.tv_resultInfo1);
-        tv_result_info2 = findViewById(R.id.tv_resultInfo2);
 
         tv_resultTop.setTextSize((float)(standardSize_X / 33));
         tv_resultTop.setTextSize((float)(standardSize_Y / 33));

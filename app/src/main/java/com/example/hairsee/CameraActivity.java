@@ -35,7 +35,8 @@ public class CameraActivity extends AppCompatActivity
             Manifest.permission.WRITE_EXTERNAL_STORAGE};
     private static final int CAMERA_FACING = Camera.CameraInfo.CAMERA_FACING_BACK; // Camera.CameraInfo.CAMERA_FACING_FRONT
     public FloatingActionButton floatingActionButton;
-    public Button btn_back, btn_sample;
+    public Button btn_sample;
+    public ImageView btn_back;
     public ImageButton viewclose;
     private SurfaceView surfaceView;
     private CameraPreview mCameraPreview;

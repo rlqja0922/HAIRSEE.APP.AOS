@@ -36,6 +36,21 @@
     <!--        android:background="@android:color/black"-->
     <!--        android:orientation="vertical">-->
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="@color/white"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/cam_back" />
+
+    </FrameLayout>
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -68,6 +83,12 @@
         android:paddingRight="100dp"
         app:srcCompat="@drawable/box_line_2"
         tools:ignore="MissingConstraints,UnknownId" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <!--        <TextView-->
     <!--            android:id="@+id/tvNoticeCamera"-->
@@ -95,7 +116,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.8"/>
+        app:layout_constraintGuide_percent="0.85"/>
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/camhor2"
         android:layout_width="wrap_content"
@@ -122,33 +143,23 @@
         android:background="#FFFFFF"
         android:tint="@android:color/black"
         android:src="@drawable/ic_baseline_switch_camera_24"
-        android:layout_marginBottom="84dp"
-        android:layout_marginLeft="35dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/camhor1"
+        app:layout_constraintBottom_toTopOf="@+id/camhor2"
+        app:layout_constraintLeft_toRightOf="@+id/camver1"
+        app:layout_constraintRight_toLeftOf="@+id/camver2"/>
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="84dp"
+        app:layout_constraintTop_toBottomOf="@+id/camhor1"
+        app:layout_constraintBottom_toTopOf="@+id/camhor2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:src="@drawable/icon_pickture"
         android:tint="@color/new_blue" />
-    <Button
-        android:id="@+id/btn_back"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/cam_back"
-        app:layout_constraintTop_toBottomOf="@+id/camhor1"
-        app:layout_constraintBottom_toTopOf="@+id/camhor2"
-        app:layout_constraintLeft_toRightOf="@+id/camver1"
-        app:layout_constraintRight_toLeftOf="@+id/camver2"
-        android:tint="@color/color_white" />
-
 
     <!--    <View-->
     <!--        android:id="@+id/dummy"-->
