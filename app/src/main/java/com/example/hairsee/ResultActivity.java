@@ -66,13 +66,9 @@ public class ResultActivity extends AppCompatActivity {
 //        String CarImg = SharedStore.getCarImg(this);
 //        Log.d(TAG, "Base64 이미지 값 : "+ CarImg);
 //        new HttpCarImage(this).execute(CarImg);
-        succ2 = findViewById(R.id.suc2);
-        background = findViewById(R.id.background);
-        background1 = findViewById(R.id.background1);
         const_restart = findViewById(R.id.const_restart);
         const_gohome = findViewById(R.id.const_gohome);
         const_share = findViewById(R.id.const_share);
-        tv_resultTop = findViewById(R.id.tv_resultTop);
 
         tv_resultTop.setTextSize((float)(standardSize_X / 33));
         tv_resultTop.setTextSize((float)(standardSize_Y / 33));
@@ -148,57 +144,5 @@ public class ResultActivity extends AppCompatActivity {
             }
         }
     }
-    /**
-     * 영상 전송 API
-     */
-    private void ImgAPI(){
-        String file_path = SharedStore.getImgPath(mContext);
-        Log.d(TAG, "file_path" + file_path);
-        File file=new File(file_path);
-        String ipStr = "http://hairboza.asuscomm.com:25005/";
 
-        ArrayList<MultipartBody.Part> imageList = new ArrayList<>();
-        RequestBody requestFile = RequestBody.create(MediaType.parse("image/*"), file);
-        MultipartBody.Part uploadFile = MultipartBody.Part.createFormData("img", file.getName(), requestFile);
-        imageList.add(uploadFile);
-        Map<String, RequestBody> map = new HashMap<>();
-        RequestBody record = RequestBody.create(MediaType.parse("text/plain"), "testType");
-        map.put("hairType", record);
-        RequestBody type = RequestBody.create(MediaType.parse("text/plain"),"testColor");
-        map.put("hairColor", type);
-        RequestBody fcm = RequestBody.create(MediaType.parse("text/plain"),  SharedStore.getFcmToken(ResultActivity.this));
-        map.put("fcm", fcm);
-//            UploadTask uploadTask=new UploadTask();
-//            uploadTask.execute(new String[]{file_path,ipStr});
-//        RequestBody requestFile = RequestBody.create(MediaType.parse("image/*"),file);
-//        MultipartBody.Part body = MultipartBody.Part.createFormData("recordSeq", file.getName(), requestFile);
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://" + ipStr)
-                .addConverterFactory(ScalarsConverterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
-        Call<HairRequest> call = retrofitInterface.getRequest(map,imageList);
-        call.enqueue(new Callback<HairRequest>() {
-            @Override
-            public void onResponse(Call<HairRequest> call, Response<HairRequest> response) {
-                if (response.isSuccessful()) {
-                    HairRequest RequestData = response.body();
-                    Boolean status = RequestData.isStatus();
-                    if (status == true) {
-                        Log.d(TAG, "적용요청결과" + status);
-                    }
-                    else if (status == false) {
-
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<HairRequest> call, Throwable t) {
-                Log.d(TAG,"에러메세지"+t.getMessage());
-                t.getMessage();
-            }
-        });
-    }
 }

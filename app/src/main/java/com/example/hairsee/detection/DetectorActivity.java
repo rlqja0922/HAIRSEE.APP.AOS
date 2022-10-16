@@ -33,26 +33,20 @@ import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.RectF;
 import android.graphics.Typeface;
-import android.graphics.drawable.BitmapDrawable;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraCharacteristics;
 import android.media.ImageReader.OnImageAvailableListener;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.SystemClock;
-import android.provider.MediaStore;
 import android.text.Html;
 import android.util.Log;
 import android.util.Pair;
 import android.util.Size;
 import android.util.TypedValue;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Surface;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -87,11 +81,7 @@ import java.util.List;
 import java.util.Map;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Locale;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * An activity that uses a TensorFlowMultiBoxDetector and ObjectTracker to detect and then track
@@ -157,7 +147,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
   // here the face is cropped and drawn
   private Bitmap faceBmp = null;
 
-  private FloatingActionButton fabAdd;
+  private FloatingActionButton fab_cambt;
 
   //private HashMap<String, Classifier.Recognition> knownFaces = new HashMap<>();
 
@@ -197,9 +187,9 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 //    MainActivityRB.DetectorActivityFlag = true;
     myUtil.startVibrator(DetectorActivity.this);
 //    tvNoticeCamera = findViewById(R.id.tvNoticeCamera);
-    fabAdd = findViewById(R.id.fab_add);
+    fab_cambt = findViewById(R.id.fab_cambt);
     mContext = this;
-    fabAdd.setOnClickListener(new View.OnClickListener() {
+    fab_cambt.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
         Log.d(TAG, "facessize1" + facesSize);
@@ -227,7 +217,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
     flagBtnRoute = getIntent().getStringExtra("btnFlag");
     Log.d(TAG, "onCreate: " + flagBtnRoute);
     if (flagBtnRoute.split("_")[0].equals("access")) {
-      fabAdd.setVisibility(View.INVISIBLE);
+      fab_cambt.setVisibility(View.INVISIBLE);
 
     }
   }

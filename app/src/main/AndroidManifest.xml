@@ -30,17 +30,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HAIRSEE">
         <activity
-            android:name=".firstsplash_veiwpager"
-            android:noHistory="true"
+            android:name=".WaitActivity"
             android:exported="false" />
+        <activity
+            android:name=".firstsplash_veiwpager"
+            android:exported="false"
+            android:noHistory="true" />
         <activity
             android:name=".SecondSplash"
-            android:noHistory="true"
-            android:exported="false" />
+            android:exported="false"
+            android:noHistory="true" />
         <activity
             android:name=".FirstSplash"
-            android:noHistory="true"
-            android:exported="true">
+            android:exported="true"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -49,14 +52,18 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
-        <activity android:name=".detection.CameraActivity"
-            android:noHistory="true"></activity>
-        <activity android:name=".detection.DetectorActivity"
-            android:noHistory="true"></activity>
+            android:exported="false" />
+        <activity
+            android:name=".detection.CameraActivity"
+            android:noHistory="true" />
+        <activity
+            android:name=".detection.DetectorActivity"
+            android:noHistory="true" />
         <activity android:name=".ResultActivity" />
-        <activity android:name=".GIFActivity"
-            android:noHistory="true"></activity>
+        <activity
+            android:name=".GIFActivity"
+            android:noHistory="true" />
+
         <service
             android:name=".utils.MyFirebaseMessagingService"
             android:exported="false">
