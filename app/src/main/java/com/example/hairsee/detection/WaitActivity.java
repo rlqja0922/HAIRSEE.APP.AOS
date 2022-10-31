@@ -59,10 +59,6 @@ public class WaitActivity extends AppCompatActivity {
         map.put("hairColor", type);
         RequestBody fcm = RequestBody.create(MediaType.parse("text/plain"),  SharedStore.getFcmToken(WaitActivity.this));
         map.put("fcm", fcm);
-//            UploadTask uploadTask=new UploadTask();
-//            uploadTask.execute(new String[]{file_path,ipStr});
-//        RequestBody requestFile = RequestBody.create(MediaType.parse("image/*"),file);
-//        MultipartBody.Part body = MultipartBody.Part.createFormData("recordSeq", file.getName(), requestFile);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://" + ipStr)
                 .addConverterFactory(ScalarsConverterFactory.create())

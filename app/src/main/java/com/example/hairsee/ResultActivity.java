@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.FileProvider;
 
 import com.example.hairsee.API.HairRequest;
 import com.example.hairsee.API.RetrofitInterface;
@@ -69,13 +71,13 @@ public class ResultActivity extends AppCompatActivity {
         const_restart = findViewById(R.id.const_restart);
         const_gohome = findViewById(R.id.const_gohome);
         const_share = findViewById(R.id.const_share);
-
-        tv_resultTop.setTextSize((float)(standardSize_X / 33));
-        tv_resultTop.setTextSize((float)(standardSize_Y / 33));
-        tv_result_info1.setTextSize((float)(standardSize_X / 60));
-        tv_result_info1.setTextSize((float)(standardSize_Y / 60));
-        tv_result_info2.setTextSize((float)(standardSize_X / 60));
-        tv_result_info2.setTextSize((float)(standardSize_Y / 60));
+//
+//        tv_resultTop.setTextSize((float)(standardSize_X / 33));
+//        tv_resultTop.setTextSize((float)(standardSize_Y / 33));
+//        tv_result_info1.setTextSize((float)(standardSize_X / 60));
+//        tv_result_info1.setTextSize((float)(standardSize_Y / 60));
+//        tv_result_info2.setTextSize((float)(standardSize_X / 60));
+//        tv_result_info2.setTextSize((float)(standardSize_Y / 60));
 
         const_gohome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,8 +101,10 @@ public class ResultActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+                String path = SharedStore.getImgPath(ResultActivity.this);
+                File file = new File(path);
                 sharingIntent.setType("image/*");
-                Uri imageUri = Uri.parse(SharedStore.getImgPath(ResultActivity.this));
+                Uri imageUri = FileProvider.getUriForFile(ResultActivity.this,"com.example.hairsee.fileprovider",file);
                 sharingIntent.putExtra(Intent.EXTRA_STREAM,imageUri);
                 startActivity(Intent.createChooser(sharingIntent, null));
             }
