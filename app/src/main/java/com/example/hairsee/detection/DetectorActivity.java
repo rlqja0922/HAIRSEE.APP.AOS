@@ -236,7 +236,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
       SimpleDateFormat dateformat = new SimpleDateFormat(format_y_m_d, Locale.KOREA);
       boolean save =  MyImageUtils.saveBitMapImg(croppedBitmap,dateformat.format(new Date()),"dlfma",DetectorActivity.this);
       if (save){
-        Intent intent = new Intent(DetectorActivity.this, ResultActivity.class);
+        Intent intent = new Intent(DetectorActivity.this, WaitActivity.class);
         intent.putExtra("hairType","1");
         intent.putExtra("hairColor","1");
         startActivity(intent);
