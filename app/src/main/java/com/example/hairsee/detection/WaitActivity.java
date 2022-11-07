@@ -46,23 +46,19 @@ public class WaitActivity extends AppCompatActivity {
         String file_path = SharedStore.getImgPath(mContext);
         Log.d(TAG, "file_path" + file_path);
         File file=new File(file_path);
-        String ipStr = "http://hairboza.asuscomm.com:25005/";
+        String ipStr = "1.225.241.111:25001";
 
         ArrayList<MultipartBody.Part> imageList = new ArrayList<>();
         RequestBody requestFile = RequestBody.create(MediaType.parse("image/*"), file);
         MultipartBody.Part uploadFile = MultipartBody.Part.createFormData("img", file.getName(), requestFile);
         imageList.add(uploadFile);
         Map<String, RequestBody> map = new HashMap<>();
-        RequestBody record = RequestBody.create(MediaType.parse("text/plain"), "testType");
+        RequestBody record = RequestBody.create(MediaType.parse("text/plain"), "90");
         map.put("hairType", record);
-        RequestBody type = RequestBody.create(MediaType.parse("text/plain"),"testColor");
+        RequestBody type = RequestBody.create(MediaType.parse("text/plain"),"117");
         map.put("hairColor", type);
         RequestBody fcm = RequestBody.create(MediaType.parse("text/plain"),  SharedStore.getFcmToken(WaitActivity.this));
         map.put("fcm", fcm);
-//            UploadTask uploadTask=new UploadTask();
-//            uploadTask.execute(new String[]{file_path,ipStr});
-//        RequestBody requestFile = RequestBody.create(MediaType.parse("image/*"),file);
-//        MultipartBody.Part body = MultipartBody.Part.createFormData("recordSeq", file.getName(), requestFile);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://" + ipStr)
                 .addConverterFactory(ScalarsConverterFactory.create())

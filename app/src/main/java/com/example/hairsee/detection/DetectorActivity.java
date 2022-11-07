@@ -236,7 +236,9 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
       SimpleDateFormat dateformat = new SimpleDateFormat(format_y_m_d, Locale.KOREA);
       boolean save =  MyImageUtils.saveBitMapImg(croppedBitmap,dateformat.format(new Date()),"dlfma",DetectorActivity.this);
       if (save){
-        Intent intent = new Intent(DetectorActivity.this, ResultActivity.class);
+        Intent intent = new Intent(DetectorActivity.this, WaitActivity.class);
+        intent.putExtra("hairType","1");
+        intent.putExtra("hairColor","1");
         startActivity(intent);
       }
       if (croppedBitmap == null) {
@@ -297,10 +299,10 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
       targetW = previewWidth;
       targetH = previewHeight;
     }
-    int cropW = (int) (targetW / 2.0);
-    int cropH = (int) (targetH / 2.0);
+//    int cropW = (int) (targetW / 2.0);
+//    int cropH = (int) (targetH / 2.0);
 
-    croppedBitmap = Bitmap.createBitmap(cropW, cropH, Config.ARGB_8888);
+    croppedBitmap = Bitmap.createBitmap(targetW, targetH, Config.ARGB_8888);
 
     portraitBmp = Bitmap.createBitmap(targetW, targetH, Config.ARGB_8888);
     faceBmp = Bitmap.createBitmap(TF_OD_API_INPUT_SIZE, TF_OD_API_INPUT_SIZE, Config.ARGB_8888);
@@ -308,7 +310,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
     frameToCropTransform =
             ImageUtils.getTransformationMatrix(
                     previewWidth, previewHeight,
-                    cropW, cropH,
+                    targetW, targetH,
                     sensorOrientation, MAINTAIN_ASPECT);
 
 //    frameToCropTransform =
@@ -374,37 +376,37 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
       Log.d(TAG, "Byte를 bitmap으로 : " + bitmap);
     }
   };
-    /**
-     * 안드로이드 디바이스 방향에 맞는 카메라 프리뷰를 화면에 보여주기 위해 계산합니다.
-     */
-    public static int calculatePreviewOrientation(Camera.CameraInfo info, int rotation) {
-      int degrees = 0;
+  /**
+   * 안드로이드 디바이스 방향에 맞는 카메라 프리뷰를 화면에 보여주기 위해 계산합니다.
+   */
+  public static int calculatePreviewOrientation(Camera.CameraInfo info, int rotation) {
+    int degrees = 0;
 
-      switch (rotation) {
-        case Surface.ROTATION_0:
-          degrees = 0;
-          break;
-        case Surface.ROTATION_90:
-          degrees = 90;
-          break;
-        case Surface.ROTATION_180:
-          degrees = 180;
-          break;
-        case Surface.ROTATION_270:
-          degrees = 270;
-          break;
-      }
-
-      int result;
-      if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
-        result = (info.orientation + degrees) % 360;
-        result = (360 - result) % 360;  // compensate the mirror
-      } else {  // back-facing
-        result = (info.orientation - degrees + 360) % 360;
-      }
-
-      return result;
+    switch (rotation) {
+      case Surface.ROTATION_0:
+        degrees = 0;
+        break;
+      case Surface.ROTATION_90:
+        degrees = 90;
+        break;
+      case Surface.ROTATION_180:
+        degrees = 180;
+        break;
+      case Surface.ROTATION_270:
+        degrees = 270;
+        break;
     }
+
+    int result;
+    if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
+      result = (info.orientation + degrees) % 360;
+      result = (360 - result) % 360;  // compensate the mirror
+    } else {  // back-facing
+      result = (info.orientation - degrees + 360) % 360;
+    }
+
+    return result;
+  }
   @Override
   protected void processImage() {
     ++timestamp;
@@ -739,7 +741,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 //                  Intent intent = new Intent(DetectorActivity.this, MainActivity.class);
 //                  mContext.startActivity(intent);
         }
-//        facesSize = 0;
+        facesSize = faces.size();
 
         final SimilarityClassifier.Recognition result = new SimilarityClassifier.Recognition(
                 "0", label, confidence, boundingBox);//label 이 이름 같음
@@ -812,7 +814,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
   @Override
   public void onBackPressed() {
 
-      detectorActivityFinish();
+    detectorActivityFinish();
   }
 
   public void showToastMsg(String msg) {

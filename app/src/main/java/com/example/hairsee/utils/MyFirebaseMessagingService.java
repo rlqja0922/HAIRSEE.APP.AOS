@@ -21,6 +21,8 @@ import androidx.core.app.NotificationCompat;
 
 import com.example.hairsee.R;
 import com.example.hairsee.ResultActivity;
+import com.example.hairsee.detection.DetectorActivity;
+import com.example.hairsee.detection.WaitActivity;
 import com.example.hairsee.detection.customview.ResultsView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -75,11 +77,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         super.onMessageReceived(remoteMessage);
             //fcm 데이터가있을시 알림내역 데이터 클래스를이용하여 알림내역 리스트에 표현
             if (remoteMessage.getData().size() > 0) {
+
+                showNotification(remoteMessage.getData());
+
+                Log.d("FCM DATA",remoteMessage.getData().get("name"));
             }
 
-            showNotification(remoteMessage.getData());
-
-            Log.d("FCM DATA",remoteMessage.getData().get("name"));
 
 
     }
@@ -95,31 +98,37 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 //        String strContact = gson.toJson(contact, AlarmData.class);
         String Title = data.get("title");
         String Body = data.get("step");
+        String Url = data.get("file");
         String channel_id = "CHN_ID";
-        Intent intent = new Intent(this, ResultActivity.class);
+        Intent intent = new Intent(this, WaitActivity.class);
         //알림 채널 아이디 : 본인 하고싶으신대로...
         intent.setAction(Intent.ACTION_MAIN)//노티 클릭 시 앱 중복 실행 방지
                 .addCategory(Intent.CATEGORY_LAUNCHER)//노티 클릭 시 앱 중복 실행 방지
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)//노티 클릭 시 앱 중복 실행 방지
 //                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 ;
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
-        Intent cancelIntent = new Intent(this, MyFirebaseMessagingService.class);
-        cancelIntent.setAction("Stop");
-        PendingIntent fullScreenPendingIntent = PendingIntent.getActivity(this, 0,
-                intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+        if (!data.get("file").equals(null)){
+            intent = new Intent(this,ResultActivity.class);
+            intent.putExtra("url",Url);
+            startActivity(intent);
+        }else{
+            PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
+            Intent cancelIntent = new Intent(this, MyFirebaseMessagingService.class);
+            cancelIntent.setAction("Stop");
+            PendingIntent fullScreenPendingIntent = PendingIntent.getActivity(this, 0,
+                    intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,channel_id)
-                .setSmallIcon(R.drawable.ic_baseline_switch_camera_24)
-                .setContentTitle(Title)
-                .setContentText(Body)
-                .setVibrate(new long[0])
-                .setFullScreenIntent(fullScreenPendingIntent, true)
-                .setPriority(NotificationCompat.PRIORITY_HIGH) //중요도
-                .setAutoCancel(true)
-                .setGroup("GroupID")
-                .setContentIntent(pendingIntent);
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(this,channel_id)
+                    .setSmallIcon(R.drawable.ic_baseline_switch_camera_24)
+                    .setContentTitle(Title)
+                    .setContentText(Body)
+                    .setVibrate(new long[0])
+                    .setFullScreenIntent(fullScreenPendingIntent, true)
+                    .setPriority(NotificationCompat.PRIORITY_HIGH) //중요도
+                    .setAutoCancel(true)
+                    .setGroup("GroupID")
+                    .setContentIntent(pendingIntent);
 
 //        NotificationCompat.Builder builder2 = new NotificationCompat.Builder(this,channel_id)
 //                .setSmallIcon(R.drawable.ic_baseline_switch_camera_24)
@@ -133,19 +142,21 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 //                .setGroupSummary(true)
 //                .setContentIntent(pendingIntent);
 
-        //알림 채널이 필요한 안드로이드 버전을 위한 코드
-        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        if (Build.VERSION.SDK_INT >= 26) {
-            NotificationChannel channel = new NotificationChannel(channel_id, "start noti channel", NotificationManager.IMPORTANCE_HIGH );
-            channel.enableVibration(true);
-            channel.setVibrationPattern(new long[]{0});
-            notificationManager.createNotificationChannel(channel);
-        }else {
-            builder.setPriority(NotificationCompat.PRIORITY_HIGH);
+            //알림 채널이 필요한 안드로이드 버전을 위한 코드
+            NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            if (Build.VERSION.SDK_INT >= 26) {
+                NotificationChannel channel = new NotificationChannel(channel_id, "start noti channel", NotificationManager.IMPORTANCE_HIGH );
+                channel.enableVibration(true);
+                channel.setVibrationPattern(new long[]{0});
+                notificationManager.createNotificationChannel(channel);
+            }else {
+                builder.setPriority(NotificationCompat.PRIORITY_HIGH);
+            }
+
+            notificationManager.notify(0, builder.build());
+//        notificationManager.notify(0,builder2.build());
         }
 
-        notificationManager.notify(0, builder.build());
-//        notificationManager.notify(0,builder2.build());
     }
     //======== [모바일 진동 강제 발생 메소드] ========
     public void PushCallVibrator(){

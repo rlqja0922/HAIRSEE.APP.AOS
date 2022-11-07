@@ -1,6 +1,7 @@
 package com.example.hairsee;
 
 import static android.content.ContentValues.TAG;
+import static android.net.wifi.WifiConfiguration.Status.strings;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,15 +11,18 @@ import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.FileProvider;
 
 import com.example.hairsee.API.HairRequest;
 import com.example.hairsee.API.RetrofitInterface;
@@ -28,6 +32,7 @@ import com.example.hairsee.utils.SharedStore;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -51,6 +56,8 @@ public class ResultActivity extends AppCompatActivity {
     public ConstraintLayout const_gohome, const_restart,const_share,fail1,fail2,succ2,background,background1;
     int standardSize_X, standardSize_Y;
     float density;
+    private Bitmap bitmap = null;
+    private ImageView iv_result;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +66,7 @@ public class ResultActivity extends AppCompatActivity {
 
         getStandardSize();// 텍스트 크기조절
         findId();
+        ImageLoad();
     }
 
     public void findId(){
@@ -69,13 +77,14 @@ public class ResultActivity extends AppCompatActivity {
         const_restart = findViewById(R.id.const_restart);
         const_gohome = findViewById(R.id.const_gohome);
         const_share = findViewById(R.id.const_share);
-
-        tv_resultTop.setTextSize((float)(standardSize_X / 33));
-        tv_resultTop.setTextSize((float)(standardSize_Y / 33));
-        tv_result_info1.setTextSize((float)(standardSize_X / 60));
-        tv_result_info1.setTextSize((float)(standardSize_Y / 60));
-        tv_result_info2.setTextSize((float)(standardSize_X / 60));
-        tv_result_info2.setTextSize((float)(standardSize_Y / 60));
+        iv_result=findViewById(R.id.iv_result);
+//      텍스트사이즈 조절 기능 화면 크기비율
+//        tv_resultTop.setTextSize((float)(standardSize_X / 33));
+//        tv_resultTop.setTextSize((float)(standardSize_Y / 33));
+//        tv_result_info1.setTextSize((float)(standardSize_X / 60));
+//        tv_result_info1.setTextSize((float)(standardSize_Y / 60));
+//        tv_result_info2.setTextSize((float)(standardSize_X / 60));
+//        tv_result_info2.setTextSize((float)(standardSize_Y / 60));
 
         const_gohome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,8 +108,10 @@ public class ResultActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+                String path = SharedStore.getImgPath(ResultActivity.this);
+                File file = new File(path);
                 sharingIntent.setType("image/*");
-                Uri imageUri = Uri.parse(SharedStore.getImgPath(ResultActivity.this));
+                Uri imageUri = FileProvider.getUriForFile(ResultActivity.this,"com.example.hairsee.fileprovider",file);
                 sharingIntent.putExtra(Intent.EXTRA_STREAM,imageUri);
                 startActivity(Intent.createChooser(sharingIntent, null));
             }
@@ -119,6 +130,15 @@ public class ResultActivity extends AppCompatActivity {
         density  = getResources().getDisplayMetrics().density;
         standardSize_X = (int) (ScreenSize.x / density);
         standardSize_Y = (int) (ScreenSize.y / density);
+    }
+    public void ImageLoad(){
+        try {
+            String ImgURL = getIntent().getStringExtra("url");
+            bitmap = BitmapFactory.decodeStream((InputStream) new URL(ImgURL).getContent());
+            iv_result.setImageBitmap(bitmap);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     @Override
     protected void onDestroy() {
