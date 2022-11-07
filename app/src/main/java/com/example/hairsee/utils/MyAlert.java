@@ -2,6 +2,7 @@ package com.example.hairsee.utils;
 
 import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
@@ -19,6 +20,7 @@ import com.example.hairsee.R;
 
 
 public class MyAlert {
+    public static Dialog dialogrem;
     private static int MyStyle =R.style.MyAlertDialog;
     private static int MyXml = R.layout.alertxml;
 
@@ -52,15 +54,15 @@ public class MyAlert {
             Button btnOk = view.findViewById(R.id.btn_ok);
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setView(view);
-            AlertDialog dialog = builder.create();
-            dialog.setCancelable(false);
+            dialogrem = builder.create();
+            dialogrem.setCancelable(false);
             if (event == null){//null 일경우는 dismiss 할 수 있는 코드로 자동 적용. // null이 아닐 경우는 직접 처리해야함
-                event = (v)-> dialog.dismiss();
+                event = (v)-> dialogrem.dismiss();
             }
 
             btnOk.setOnClickListener((View.OnClickListener) event);
-            dialog.show();
-            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            dialogrem.show();
+            dialogrem.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         } catch (Exception e) {
             Log.d("showAlert_single", "MyAlert_single: error " + e.getMessage());
@@ -87,14 +89,14 @@ public class MyAlert {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
             builder.setView(view);
-            AlertDialog dialog = builder.create();
+            dialogrem = builder.create();
 
             if (event2 == null){
-                event2 = (v)->dialog.dismiss();
+                event2 = (v)->dialogrem.dismiss();
             }
             btnReject.setOnClickListener((View.OnClickListener) event2);
-            dialog.show();
-            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            dialogrem.show();
+            dialogrem.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         }
         catch (Exception e) {
             Log.d("showAlert", "MyAlert: error " + e.getMessage());

@@ -93,4 +93,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+    //백버튼 실행 시 홈 화면으로
+    public interface OnBackPressedListener {
+
+        void onBackPressed();
+    }
+    @Override
+    public void onBackPressed() {
+        return;
+    }
 }
