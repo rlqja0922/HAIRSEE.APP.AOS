@@ -3,55 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-<<<<<<< HEAD
         <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/activity_firstsplash_veiwpager.xml" value="0.18113208199022698" />
         <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/activity_gifactivity.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/activity_main.xml" value="0.15104166666666666" />
         <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/activity_press_button.xml" value="0.15" />
         <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/activity_result.xml" value="0.15348439504061565" />
-        <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/activity_wait.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/activity_wait.xml" value="0.4528302049755674" />
+        <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/alertxml.xml" value="0.2264151024877837" />
         <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/fragment_first_.xml" value="0.1" />
         <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/fragment_second_.xml" value="0.1" />
         <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/fragment_third_.xml" value="0.1" />
         <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/surfaceview.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/tfe_od_activity_camera.xml" value="0.15348439504061565" />
-=======
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.17864583333333334" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/drawable/bottom_sheet_bg.xml" value="0.20052083333333334" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/drawable/cam_back.xml" value="0.19635416666666666" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/drawable/custom_progressbar.xml" value="0.262037037037037" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/drawable/ic_baseline_switch_camera_24.xml" value="0.19635416666666666" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/drawable/ic_launcher_background.xml" value="0.17864583333333334" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/drawable/nav_indicator.xml" value="0.20052083333333334" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_firstsplash_veiwpager.xml" value="0.23958333333333334" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_gifactivity.xml" value="0.5100806451612904" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_press_button.xml" value="0.17300724637681159" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_pressbt.xml" value="0.15364583333333334" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_result.xml" value="0.25" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_spalsh.xml" value="0.17300724637681159" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_splash.xml" value="0.17300724637681159" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/alertxml.xml" value="0.14375" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/choiceitem.xml" value="0.29259259259259257" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/firstsplash.xml" value="0.22826086956521738" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/fragment_camera.xml" value="0.33" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/fragment_camera2.xml" value="0.33" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/fragment_camera3.xml" value="0.29259259259259257" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/fragment_first_.xml" value="0.23958333333333334" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/fragment_full__image.xml" value="0.16018518518518518" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/fragment_gall_image.xml" value="0.29259259259259257" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/fragment_gallaryfragment.xml" value="0.2033514492753623" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/fragment_galleryfragment.xml" value="0.19655797101449277" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/fragment_mainfragment.xml" value="0.2028985507246377" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/fragment_second_.xml" value="0.23958333333333334" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/fragment_third_.xml" value="0.22826086956521738" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/fragment_top10.xml" value="0.14166666666666666" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/surfaceview.xml" value="0.1" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/tfe_od_activity_camera.xml" value="0.17300724637681159" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/tfe_od_camera_connection_fragment_tracking.xml" value="0.13958333333333334" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/menu/nav_menu.xml" value="0.25677083333333334" />
-        <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.17453703703703705" />
->>>>>>> dd3530a6a7e2258d7381b2bd857d079d7d332004
       </map>
     </option>
   </component>

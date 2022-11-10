@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.example.hairsee.Hairlist;
+import com.example.hairsee.MainActivity;
 import com.example.hairsee.R;
 import com.example.hairsee.detection.DetectorActivity;
 import com.example.hairsee.listClass.Hair;
@@ -35,7 +36,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  * create an instance of this fragment.
  */
-public class Camera3Fragment extends Fragment {
+public class Camera3Fragment extends Fragment implements MainActivity.OnBackPressedListener{
     public View view;
     public ImageView camerstart_iv;
     private Activity mainActivity;
@@ -92,6 +93,7 @@ public class Camera3Fragment extends Fragment {
                     MyAlert.MyDialog_single(context, "안내", "카메라 및 저장공간 권한을 허용해주십시오", v1 -> {
                         Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + context.getPackageName()));
                         context.getApplicationContext().startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                        MyAlert.dialogrem.dismiss();
                     });
 
                 }
@@ -148,5 +150,9 @@ public class Camera3Fragment extends Fragment {
         items2.add(new Hair("장원영",R.drawable.common_google_signin_btn_icon_dark));
         items2.add(new Hair("장원영",R.drawable.common_google_signin_btn_icon_dark));
         items2.add(new Hair("장원영",R.drawable.common_google_signin_btn_icon_dark));
+    }
+    @Override
+    public void onBackPressed() {
+        return;
     }
 }

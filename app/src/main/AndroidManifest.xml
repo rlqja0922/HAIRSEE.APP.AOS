@@ -28,6 +28,7 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.HAIRSEE">
         <provider
             android:name="androidx.core.content.FileProvider"

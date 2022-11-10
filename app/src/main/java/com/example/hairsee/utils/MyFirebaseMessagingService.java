@@ -107,11 +107,14 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)//노티 클릭 시 앱 중복 실행 방지
 //                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 ;
-        if (!data.get("file").equals(null)){
-            intent = new Intent(this,ResultActivity.class);
+        if (Body=="스텝3") {
+            intent = new Intent(MyFirebaseMessagingService.this,ResultActivity.class);
             intent.putExtra("url",Url);
-            startActivity(intent);
-        }else{
+            startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+        }else if (Body !="스텝3"){
+
+        }
+        else{
             PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
             Intent cancelIntent = new Intent(this, MyFirebaseMessagingService.class);
             cancelIntent.setAction("Stop");
