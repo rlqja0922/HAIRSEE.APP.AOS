@@ -412,9 +412,9 @@ class CameraPreview extends ViewGroup implements SurfaceHolder.Callback {
             //파일로 저장
 //            new SaveImageTask().execute(currentData);
 
-            Intent intent = new Intent(getContext(), GIFActivity.class);
+//            Intent intent = new Intent(getContext(), GIFActivity.class);
 //            intent.putExtra("CarImg", getImg);
-            getContext().startActivity(intent);
+//            getContext().startActivity(intent);
 
 //            mActivity.finish();
 //            surfaceDestroyed(mHolder);

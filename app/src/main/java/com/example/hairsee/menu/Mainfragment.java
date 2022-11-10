@@ -99,7 +99,27 @@ public class Mainfragment extends Fragment {
 
 
         fcmtext.setText(SharedStore.getFcmToken(context));
-
+        hot.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void onSingleClick(View v) {
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.Fragment,new HairThreeFragment()).commit();
+            }
+        });
+        pro.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void onSingleClick(View v) {
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.Fragment,new PROfragment()).commit();
+            }
+        });
+        top10.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void onSingleClick(View v) {
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.Fragment,new Top10()).commit();
+            }
+        });
         gall.setOnClickListener(new OnSingleClickListener() {
             @Override
             public void onSingleClick(View v) {

@@ -47,10 +47,10 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.95"/>
-    <FrameLayout
+    <ImageView
+        android:id="@+id/gif"
         android:layout_width="112dp"
         android:layout_height="112dp"
-        android:background="#7700FF"
         app:layout_constraintTop_toTopOf="@+id/waitGuide1"
         app:layout_constraintBottom_toBottomOf="@id/waitGuide2"
         app:layout_constraintStart_toStartOf="@id/waitGuide1_1"

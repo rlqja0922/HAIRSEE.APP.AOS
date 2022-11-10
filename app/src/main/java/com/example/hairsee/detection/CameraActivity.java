@@ -88,7 +88,7 @@ public abstract class CameraActivity extends AppCompatActivity
 //  private SwitchCompat apiSwitchCompat;
 //  private TextView threadsTextView;
 
-    private FloatingActionButton btnSwitchCam;
+    private ImageView btnSwitchCam;
     private ImageView btn_back;
 
     private static final String KEY_USE_FACING = "use_facing";

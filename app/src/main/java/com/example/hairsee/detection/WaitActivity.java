@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.example.hairsee.API.HairRequest;
 import com.example.hairsee.API.RetrofitInterface;
 import com.example.hairsee.R;
@@ -37,6 +39,8 @@ public class WaitActivity extends AppCompatActivity {
         setContentView(R.layout.activity_wait);
         mContext = getApplicationContext();
         ImgAPI();
+        ImageView img_gif = findViewById(R.id.gif);
+        Glide.with(this).load(R.drawable.hairlod).into(img_gif);
     }
 
     /**

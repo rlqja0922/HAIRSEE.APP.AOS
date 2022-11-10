@@ -47,6 +47,7 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.Surface;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -147,7 +148,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
   // here the face is cropped and drawn
   private Bitmap faceBmp = null;
 
-  private FloatingActionButton fab_cambt;
+  private ImageView fab_cambt;
 
   //private HashMap<String, Classifier.Recognition> knownFaces = new HashMap<>();
 

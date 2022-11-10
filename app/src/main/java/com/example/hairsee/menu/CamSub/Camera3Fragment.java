@@ -93,6 +93,7 @@ public class Camera3Fragment extends Fragment {
                         Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + context.getPackageName()));
                         context.getApplicationContext().startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                     });
+
                 }
                 else {
                     btnRegistrationClickHandler();
