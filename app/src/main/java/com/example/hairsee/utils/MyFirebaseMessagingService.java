@@ -80,7 +80,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
                 showNotification(remoteMessage.getData());
 
-                Log.d("FCM DATA",remoteMessage.getData().get("name"));
             }
 
 

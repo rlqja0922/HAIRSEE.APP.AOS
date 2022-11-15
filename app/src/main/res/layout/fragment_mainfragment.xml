@@ -15,6 +15,36 @@
         app:layout_constraintGuide_percent="0.39" />
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline12_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline13_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline14_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline15_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.55" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline16_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.57" />
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline11_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -234,6 +264,28 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="나는\n 어떤 헤어스타일이\n 어울릴까?"
+        android:layout_marginLeft="40dp"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/guideline13_1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/guideline16_1"
+        app:layout_constraintTop_toTopOf="@id/guideline12_1">
 
+    </TextView>
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/mainimg1"
+        android:layout_marginRight="15dp"
+        app:layout_constraintBottom_toBottomOf="@id/guideline11_1"
+        app:layout_constraintLeft_toLeftOf="@id/guideline15_1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline14_1">
+    </ImageView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
