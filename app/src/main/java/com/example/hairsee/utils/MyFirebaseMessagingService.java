@@ -109,6 +109,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         if (Body=="스텝3") {
             intent = new Intent(MyFirebaseMessagingService.this,ResultActivity.class);
             intent.putExtra("url",Url);
+            Log.d("fcm", "showNotification: "+Url);
             startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
         }else if (Body !="스텝3"){
 

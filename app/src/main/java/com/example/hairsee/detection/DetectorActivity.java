@@ -148,7 +148,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
   // here the face is cropped and drawn
   private Bitmap faceBmp = null;
 
-  private ImageView fab_cambt;
+  private ImageView fab_cambt,fab_switchcam;
 
   //private HashMap<String, Classifier.Recognition> knownFaces = new HashMap<>();
 
@@ -169,6 +169,8 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
   private static String result = "";
   private Camera.CameraInfo mCameraInfo;
   public String format_y_m_d = "yyMMddHHmmss";
+  private Integer useFacing = null;
+  private static final String KEY_USE_FACING = "use_facing";
   /**
    * 전체 프로세스 정리 등록
    * 1. 등록 버튼 클릭 [ fabAdd ] 하여 저장 플레그 값을 변경 [ addPending = true ]
@@ -187,14 +189,33 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
     detectorActivity = DetectorActivity.this;//외부에서 사용함
 //    MainActivityRB.DetectorActivityFlag = true;
     myUtil.startVibrator(DetectorActivity.this);
+    Intent intent = getIntent();
+    useFacing = intent.getIntExtra(KEY_USE_FACING, CameraCharacteristics.LENS_FACING_FRONT);
 //    tvNoticeCamera = findViewById(R.id.tvNoticeCamera);
     fab_cambt = findViewById(R.id.fab_cambt);
+    fab_switchcam = findViewById(R.id.fab_switchcam);
     mContext = this;
     fab_cambt.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
         Log.d(TAG, "facessize1" + facesSize);
         onAddClick();
+      }
+    });
+    fab_switchcam.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Intent intent = getIntent();
+
+        if (useFacing == CameraCharacteristics.LENS_FACING_FRONT) {
+          useFacing = CameraCharacteristics.LENS_FACING_BACK;
+        } else {
+          useFacing = CameraCharacteristics.LENS_FACING_FRONT;
+        }
+
+        intent.putExtra(KEY_USE_FACING, useFacing);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        restartWith(intent);
       }
     });
 
@@ -222,6 +243,13 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
     }
   }
+  private void restartWith(Intent intent) {
+    finish();
+    overridePendingTransition(0, 0);
+    startActivity(intent);
+    overridePendingTransition(0, 0);
+  }
+
 
   private void onAddClick() {
 
@@ -229,7 +257,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
     addPending = true;
     if (facesSize >= 2) {
       Log.d(TAG, "facessize" + facesSize);
-      MyAlert.MyDialog_single(DetectorActivity.this, "경고!!", "2명 이상 감지 되었습니다.\n화면에 한 사람만 나타나게 해주세요", v -> {
+      MyAlert.MyDialog_single(DetectorActivity.this,  "2명 이상 감지 되었습니다.\n화면에 한 사람만 나타나게 해주세요", v -> {
         facesSize = 0;
         finish();
       });
@@ -710,7 +738,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                     (int) faceBB.width(),
                     (int) faceBB.height());
           } catch (IllegalArgumentException e) {
-            MyAlert.MyDialog_single(DetectorActivity.this, "경고!!", "얼굴을 흰 가이드 라인에 맞춰 주시고\n흔들리지 않게 주의 해주세요", null);
+            MyAlert.MyDialog_single(DetectorActivity.this, "얼굴을 흰 가이드 라인에 맞춰 주시고\n흔들리지 않게 주의 해주세요", null);
 //            showDialogInfo("얼굴을 흰 가이드 라인에 맞춰주시고\n흔들리지 않게 주의 해주세요.");
           }
         }

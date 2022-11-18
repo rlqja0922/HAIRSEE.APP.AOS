@@ -90,7 +90,7 @@ public class Camera3Fragment extends Fragment implements MainActivity.OnBackPres
                 if (permissionCamera != PackageManager.PERMISSION_GRANTED
                         || permissionRead != PackageManager.PERMISSION_GRANTED
                         || permissionWrite != PackageManager.PERMISSION_GRANTED) {
-                    MyAlert.MyDialog_single(context, "안내", "카메라 및 저장공간 권한을 허용해주십시오", v1 -> {
+                    MyAlert.MyDialog_single(context, "카메라 및 저장공간 권한을 허용해주십시오", v1 -> {
                         Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + context.getPackageName()));
                         context.getApplicationContext().startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                         MyAlert.dialogrem.dismiss();

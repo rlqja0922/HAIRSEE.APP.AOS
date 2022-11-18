@@ -130,6 +130,7 @@
 <!--    </com.google.android.material.bottomnavigation.BottomNavigationView>-->
     <FrameLayout
         android:id="@+id/Fragment"
+        android:layout_margin="1dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></FrameLayout>
 
@@ -137,7 +138,6 @@
         android:layout_width="0dp"
         android:layout_height="90dp"
         android:background="@drawable/appbar"
-        android:elevation="11dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline18"
         app:layout_constraintStart_toStartOf="@id/guideline17"

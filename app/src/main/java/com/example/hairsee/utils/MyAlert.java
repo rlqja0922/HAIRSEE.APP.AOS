@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -37,21 +38,15 @@ public class MyAlert {
         }
     }
 
-    public static void MyDialog_single(Context context, String title, String content, View.OnClickListener event) {
+    public static void MyDialog_single(Context context, String title,  View.OnClickListener event) {
 
         try {
             LayoutInflater inflater = (LayoutInflater) context.getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
             View view = inflater.inflate(MyXml, null);
 
             TextView Mytitle = (TextView) view.findViewById(R.id.tv_title);
-            TextView Mycontent = (TextView) view.findViewById(R.id.tv_content);
             Mytitle.setText(title);
-            Mycontent.setText(content);
-            Button btnAgree = (Button) view.findViewById(R.id.btn_agree);
-            Button btnReject = (Button) view.findViewById(R.id.btn_reject);
-            btnAgree.setVisibility(View.GONE);
-            btnReject.setVisibility(View.GONE);
-            Button btnOk = view.findViewById(R.id.btn_ok);
+            ImageView btnOk = view.findViewById(R.id.btn_ok);
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setView(view);
             dialogrem = builder.create();
@@ -66,40 +61,6 @@ public class MyAlert {
 
         } catch (Exception e) {
             Log.d("showAlert_single", "MyAlert_single: error " + e.getMessage());
-        }
-    }
-
-    public static void MyDialog(Context context, String title, String content, View.OnClickListener event, View.OnClickListener event2) {
-        try {
-            LayoutInflater inflater = (LayoutInflater) context.getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-            View view = inflater.inflate(MyXml, null);
-
-            TextView Mytitle = (TextView) view.findViewById(R.id.tv_title);
-            TextView Mycontent = (TextView) view.findViewById(R.id.tv_content);
-            Button btnOk = (Button) view.findViewById(R.id.btn_ok);
-            Button btnAgree = (Button) view.findViewById(R.id.btn_agree);
-            Button btnReject = (Button) view.findViewById(R.id.btn_reject);
-
-            Mytitle.setText(title);
-            Mycontent.setText(content);
-            btnOk.setVisibility(View.GONE);
-            btnAgree.setOnClickListener((View.OnClickListener) event);
-
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-
-            builder.setView(view);
-            dialogrem = builder.create();
-
-            if (event2 == null){
-                event2 = (v)->dialogrem.dismiss();
-            }
-            btnReject.setOnClickListener((View.OnClickListener) event2);
-            dialogrem.show();
-            dialogrem.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        }
-        catch (Exception e) {
-            Log.d("showAlert", "MyAlert: error " + e.getMessage());
         }
     }
 }

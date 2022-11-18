@@ -232,6 +232,9 @@ public class CameraConnectionFragment extends Fragment {
 
       if (option.getHeight() >= minSize && option.getWidth() >= minSize) {
         bigEnough.add(option);
+        if (option.getHeight() ==option.getWidth() ){
+          return option;
+        }
       } else {
         tooSmall.add(option);
       }
