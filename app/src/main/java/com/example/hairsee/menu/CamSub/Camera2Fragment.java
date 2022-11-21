@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.example.hairsee.MainActivity;
 import com.example.hairsee.R;
 import com.example.hairsee.utils.OnSingleClickListener;
 
@@ -19,7 +20,7 @@ import com.example.hairsee.utils.OnSingleClickListener;
  * A simple {@link Fragment} subclass.
  * create an instance of this fragment.
  */
-public class Camera2Fragment extends Fragment {
+public class Camera2Fragment extends Fragment implements MainActivity.OnBackPressedListener{
 
     public View view;
     public ImageView nextBt;
@@ -48,5 +49,10 @@ public class Camera2Fragment extends Fragment {
             }
         });
         return view;
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 }

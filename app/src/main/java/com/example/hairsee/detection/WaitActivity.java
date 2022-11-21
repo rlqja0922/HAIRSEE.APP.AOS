@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.example.hairsee.API.HairRequest;
 import com.example.hairsee.API.RetrofitInterface;
+import com.example.hairsee.MainActivity;
 import com.example.hairsee.R;
 import com.example.hairsee.ResultActivity;
 import com.example.hairsee.utils.SharedStore;
@@ -29,7 +30,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-public class WaitActivity extends AppCompatActivity {
+public class WaitActivity extends AppCompatActivity implements MainActivity.OnBackPressedListener {
 
     private static final String TAG = "WaitActivity";
     private Context mContext;

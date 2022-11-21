@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import com.example.hairsee.MainActivity;
 import com.example.hairsee.R;
 import com.example.hairsee.menu.gallarysub.gallImageFragment;
 import com.example.hairsee.utils.SharedStore;
@@ -27,7 +28,7 @@ import java.io.File;
  * Use the {@link Galleryfragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Galleryfragment extends Fragment {
+public class Galleryfragment extends Fragment implements MainActivity.OnBackPressedListener{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -100,5 +101,10 @@ public class Galleryfragment extends Fragment {
             }
         });
         return view;
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 }

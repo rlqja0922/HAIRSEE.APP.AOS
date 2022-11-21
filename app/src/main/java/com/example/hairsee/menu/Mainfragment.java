@@ -1,5 +1,7 @@
 package com.example.hairsee.menu;
 
+import static android.content.ContentValues.TAG;
+
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
@@ -19,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.hairsee.MainActivity;
 import com.example.hairsee.R;
@@ -34,13 +37,15 @@ import com.google.firebase.messaging.FirebaseMessaging;
  * Use the {@link Mainfragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Mainfragment extends Fragment {
+public class Mainfragment extends Fragment implements MainActivity.OnBackPressedListener{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private long backPressedTime = 0;
+    private Toast toast;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -183,5 +188,27 @@ public class Mainfragment extends Fragment {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (System.currentTimeMillis() > backPressedTime + 2000) {
+            backPressedTime = System.currentTimeMillis();
+            toast = Toast.makeText(getActivity(), "뒤로 버튼을\n한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+        if (System.currentTimeMillis() <= backPressedTime + 2000) {
+            try {
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(intent.CATEGORY_HOME);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }catch (Exception e){
+                Log.d(TAG, e.getMessage());
+            }
+            toast.cancel();
+        }
     }
 }

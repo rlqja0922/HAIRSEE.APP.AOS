@@ -33,7 +33,7 @@ import com.example.hairsee.utils.OnSingleClickListener;
  * Use the {@link CameraFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CameraFragment extends Fragment {
+public class CameraFragment extends Fragment implements MainActivity.OnBackPressedListener{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -157,4 +157,8 @@ public class CameraFragment extends Fragment {
     }
 
 
+    @Override
+    public void onBackPressed() {
+
+    }
 }

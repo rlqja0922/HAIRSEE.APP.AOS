@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.hairsee.MainActivity;
 import com.example.hairsee.R;
 
 /**
@@ -15,7 +16,7 @@ import com.example.hairsee.R;
  * Use the {@link PROfragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PROfragment extends Fragment {
+public class PROfragment extends Fragment implements MainActivity.OnBackPressedListener{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -62,5 +63,10 @@ public class PROfragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_p_r_ofragment, container, false);
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 }
