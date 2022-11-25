@@ -75,15 +75,5 @@
         app:layout_constraintBottom_toBottomOf="@id/waitGuide5"
         app:layout_constraintStart_toStartOf="@id/waitGuide1_1"
         app:layout_constraintEnd_toEndOf="@id/waitGuide1_2"/>
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:textColor="@color/blue"
-        android:textSize="15dp"
-        android:gravity="center"
-        android:text="앱을 백그라운드로 전환해도 측정이 진행됩니다.\n측정이 끝나면 알림으로 알려드릴게요!"
-        app:layout_constraintTop_toTopOf="@+id/waitGuide4"
-        app:layout_constraintBottom_toBottomOf="@id/waitGuide5"
-        app:layout_constraintStart_toStartOf="@id/waitGuide1_1"
-        app:layout_constraintEnd_toEndOf="@id/waitGuide1_2"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

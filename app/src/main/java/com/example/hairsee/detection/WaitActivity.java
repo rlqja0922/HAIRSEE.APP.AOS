@@ -19,6 +19,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -34,6 +36,8 @@ public class WaitActivity extends AppCompatActivity implements MainActivity.OnBa
 
     private static final String TAG = "WaitActivity";
     private Context mContext;
+    private Timer timers;
+    private String waitStep = "0";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +46,19 @@ public class WaitActivity extends AppCompatActivity implements MainActivity.OnBa
         ImgAPI();
         ImageView img_gif = findViewById(R.id.gif);
         Glide.with(this).load(R.drawable.hairlod).into(img_gif);
+
+        try {
+            timers = new Timer();
+            TimerTask timerTask = new TimerTask() {
+                @Override
+                public void run() {
+                    waitStep = SharedStore.getWait(mContext);
+                }
+            };
+            timers.scheduleAtFixedRate(timerTask,0,5000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -81,7 +98,7 @@ public class WaitActivity extends AppCompatActivity implements MainActivity.OnBa
                         Log.d(TAG, "적용요청결과" + status);
                     }
                     else if (status == false) {
-
+                        Log.d(TAG, "적용요청결과" + status);
                     }
                 }
             }

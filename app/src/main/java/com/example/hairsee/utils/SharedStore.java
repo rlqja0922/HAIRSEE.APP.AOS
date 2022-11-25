@@ -88,5 +88,11 @@ public class SharedStore {
         SharedPreferences sharedPreferences = context.getSharedPreferences("MyData",0);
         return sharedPreferences.getBoolean("Gallery0",true);
     }
-
+    public static void setWait(Context context, String waitStep){
+        context.getSharedPreferences("MyData",0).edit().putString("waitStep",waitStep).apply();
+    }
+    public static String getWait(Context context){
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MyData",0);
+        return sharedPreferences.getString("waitStep","1");
+    }
 }

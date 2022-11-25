@@ -43,6 +43,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -89,7 +90,7 @@ public abstract class CameraActivity extends AppCompatActivity
 //  private TextView threadsTextView;
 
     private ImageView btnSwitchCam;
-    private ImageView btn_back;
+    private LinearLayout btn_back;
 
     private static final String KEY_USE_FACING = "use_facing";
     private Integer useFacing = null;

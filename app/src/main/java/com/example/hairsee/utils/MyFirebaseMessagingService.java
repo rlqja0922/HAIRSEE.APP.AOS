@@ -106,13 +106,17 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)//노티 클릭 시 앱 중복 실행 방지
 //                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 ;
+
+
+        Log.d("fcm", "showNotification: body : "+Body);
+
         if (Body=="스텝3") {
             intent = new Intent(MyFirebaseMessagingService.this,ResultActivity.class);
             intent.putExtra("url",Url);
             Log.d("fcm", "showNotification: "+Url);
             startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
         }else if (Body !="스텝3"){
-
+            SharedStore.setWait(context,Body);
         }
         else{
             PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);

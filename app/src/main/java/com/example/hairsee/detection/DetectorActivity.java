@@ -198,7 +198,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
     fab_cambt.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        Log.d(TAG, "facessize1" + facesSize);
+        Log.d(TAG, "facessize1 : " + facesSize);
         onAddClick();
       }
     });
