@@ -3,18 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/drawable/bottom_sheet_bg.xml" value="0.163" />
+        <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/drawable/cam_back.xml" value="0.163" />
+        <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/drawable/custom_progressbar.xml" value="0.163" />
+        <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/drawable/ic_baseline_switch_camera_24.xml" value="0.163" />
+        <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/drawable/ic_launcher_background.xml" value="0.163" />
         <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/activity_firstsplash_veiwpager.xml" value="0.18113208199022698" />
         <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/activity_gifactivity.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/activity_main.xml" value="0.15104166666666666" />
         <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/activity_press_button.xml" value="0.15" />
         <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/activity_result.xml" value="0.15348439504061565" />
-        <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/activity_wait.xml" value="0.4528302049755674" />
+        <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/activity_wait.xml" value="0.16301887379120425" />
         <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/alertxml.xml" value="0.2264151024877837" />
+        <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/fragment_camera.xml" value="0.12612227447627192" />
         <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/fragment_first_.xml" value="0.1" />
         <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/fragment_second_.xml" value="0.1" />
         <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/fragment_third_.xml" value="0.1" />
         <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/surfaceview.xml" value="0.14407866609662248" />
         <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/tfe_od_activity_camera.xml" value="0.15348439504061565" />
+        <entry key="..\:/Users/Lim kiboum/AndroidStudioProjects/HAIRSEE.APP.AOS/app/src/main/res/layout/tfe_od_camera_connection_fragment_tracking.xml" value="0.12612227447627192" />
         <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_main.xml" value="0.16018518518518518" />
         <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_result.xml" value="0.14272809394760613" />
         <entry key="..\:/projects/toyprojects/HAIRSEE/app/src/main/res/layout/activity_wait.xml" value="0.25" />
