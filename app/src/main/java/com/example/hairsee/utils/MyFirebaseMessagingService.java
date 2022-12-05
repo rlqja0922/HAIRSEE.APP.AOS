@@ -110,14 +110,14 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         Log.d("fcm", "showNotification: body : "+Body);
 
-        if (Body=="스텝3") {
+        if (Body.equals("스텝3")) {
             SharedStore.setWait(context,Body);
             SharedStore.setimgURL(context,Url);
 //            intent = new Intent(MyFirebaseMessagingService.this,ResultActivity.class);
 //            intent.putExtra("url",Url);
 //            Log.d("fcm", "showNotification: "+Url);
 //            startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-        }else if (Body !="스텝3"){
+        }else if (!Body.equals("스텝3")){
             SharedStore.setWait(context,Body);
         }
         else{
