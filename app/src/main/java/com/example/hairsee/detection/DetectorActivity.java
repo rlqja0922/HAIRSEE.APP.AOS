@@ -284,7 +284,12 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 //      MediaStore.Images.Media.insertImage(this.getContentResolver(), croppedBitmap, dateformat.format(new Date()), "");
 
 
-    }
+    }else if(facesSize == 0){
+      MyAlert.MyDialog_single(DetectorActivity.this,  "얼굴 인식에 실패하였습니다.\n다시 촬영해주세요.", v -> {
+
+      });
+
+      }
   }
   @Override
   public void onPreviewSizeChosen(final Size size, final int rotation) {

@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.Fragment, homeFragment).commit();
         return;
     }
 }
