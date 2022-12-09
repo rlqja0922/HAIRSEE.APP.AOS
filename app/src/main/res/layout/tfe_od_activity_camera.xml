@@ -118,7 +118,7 @@
         android:layout_alignParentTop="true"
         android:paddingLeft="100dp"
         android:paddingRight="100dp"
-        app:srcCompat="@drawable/box_line_2"
+        app:srcCompat="@drawable/cam_line"
         tools:ignore="MissingConstraints,UnknownId" />
     <FrameLayout
         android:layout_width="match_parent"

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.example.hairsee.MainActivity;
@@ -25,6 +26,8 @@ public class Camera2Fragment extends Fragment implements MainActivity.OnBackPres
     public View view;
     public ImageView nextBt;
     private Context context;
+    private FrameLayout lenChoice1, lenChoice2;
+    private int lenChoice =0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,11 +44,28 @@ public class Camera2Fragment extends Fragment implements MainActivity.OnBackPres
         view = inflater.inflate(R.layout.fragment_camera2, container, false);
         context = getContext();
         nextBt = view.findViewById(R.id.camnextBt);
+        lenChoice1 = view.findViewById(R.id.lenChoice1);
+        lenChoice2 = view.findViewById(R.id.lenChoice2);
+        lenChoice1.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void onSingleClick(View v) {
+                lenChoice =1;
+
+            }
+        });
+        lenChoice2.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void onSingleClick(View v) {
+                lenChoice =2;
+            }
+        });
         AppCompatActivity activity = (AppCompatActivity) context;
         nextBt.setOnClickListener(new OnSingleClickListener() {
             @Override
             public void onSingleClick(View v) {
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.Fragment,new Camera3Fragment()).commit();
+                if (lenChoice>0){
+                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.Fragment,new Camera3Fragment()).commit();
+                }
             }
         });
         return view;

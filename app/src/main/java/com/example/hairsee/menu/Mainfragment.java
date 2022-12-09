@@ -184,7 +184,7 @@ public class Mainfragment extends Fragment implements MainActivity.OnBackPressed
                 if(task.isSuccessful()){
                     Log.d("FCM Token", task.getResult());// FCM 토큰 확인용
                     SharedStore.setFcmToken(context, task.getResult());
-                    fcmtext.setText(SharedStore.getFcmToken(context));
+//                    fcmtext.setText(SharedStore.getFcmToken(context));
                 }
             }
         });

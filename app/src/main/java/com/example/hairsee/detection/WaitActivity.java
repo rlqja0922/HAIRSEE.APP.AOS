@@ -3,9 +3,12 @@ package com.example.hairsee.detection;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.hairsee.API.HairRequest;
@@ -13,6 +16,8 @@ import com.example.hairsee.API.RetrofitInterface;
 import com.example.hairsee.MainActivity;
 import com.example.hairsee.R;
 import com.example.hairsee.ResultActivity;
+import com.example.hairsee.utils.MyAlert;
+import com.example.hairsee.utils.MyFirebaseMessagingService;
 import com.example.hairsee.utils.SharedStore;
 
 import java.io.File;
@@ -38,27 +43,22 @@ public class WaitActivity extends AppCompatActivity implements MainActivity.OnBa
     private Context mContext;
     private Timer timers;
     private String waitStep = "0";
+    private ProgressBar wait_pb;
+    private TextView wait_pt;
+    private String fcmtoken;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wait);
         mContext = getApplicationContext();
         ImgAPI();
+        wait_pb = findViewById(R.id.wait_pb);
+        wait_pt = findViewById(R.id.wait_pt);
         ImageView img_gif = findViewById(R.id.gif);
         Glide.with(this).load(R.drawable.hairlod).into(img_gif);
+        SharedStore.setWait(mContext,"스텝1");
+        fcmtoken =  SharedStore.getFcmToken(mContext);
 
-        try {
-            timers = new Timer();
-            TimerTask timerTask = new TimerTask() {
-                @Override
-                public void run() {
-                    waitStep = SharedStore.getWait(mContext);
-                }
-            };
-            timers.scheduleAtFixedRate(timerTask,0,5000);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     /**
@@ -79,7 +79,7 @@ public class WaitActivity extends AppCompatActivity implements MainActivity.OnBa
         map.put("hairType", record);
         RequestBody type = RequestBody.create(MediaType.parse("text/plain"),"117");
         map.put("hairColor", type);
-        RequestBody fcm = RequestBody.create(MediaType.parse("text/plain"),  SharedStore.getFcmToken(WaitActivity.this));
+        RequestBody fcm = RequestBody.create(MediaType.parse("text/plain"),fcmtoken );
         map.put("fcm", fcm);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://" + ipStr)
@@ -99,6 +99,13 @@ public class WaitActivity extends AppCompatActivity implements MainActivity.OnBa
                     }
                     else if (status == false) {
                         Log.d(TAG, "적용요청결과" + status);
+                        MyAlert.MyDialog_single(WaitActivity.this,  "분석요청을 실패하였습니다. 다시 시도해주세요.", v -> {
+                            Intent intent = new Intent(WaitActivity.this,DetectorActivity.class);
+                            startActivity(intent);
+
+                            timers.cancel();
+                            WaitActivity.this.finish();
+                        });
                     }
                 }
             }
@@ -109,5 +116,31 @@ public class WaitActivity extends AppCompatActivity implements MainActivity.OnBa
                 t.getMessage();
             }
         });
+        try {
+            timers = new Timer();
+            TimerTask timerTask = new TimerTask() {
+                @Override
+                public void run() {
+                    waitStep = SharedStore.getWait(mContext);
+                    if (waitStep.equals("스텝2")){
+                        wait_pb.setProgress(2);
+                        wait_pt.setText("2/3");
+                    }else if (waitStep.equals("스텝3")){
+                        wait_pb.setProgress(3);
+                        wait_pt.setText("3/3");
+                        Intent intent;
+                        intent = new Intent(WaitActivity.this,ResultActivity.class);
+                        intent.putExtra("url",SharedStore.getimgURL(mContext));
+                        Log.d("fcm", "imgurl: "+SharedStore.getimgURL(mContext));
+                        startActivity(intent);
+                        timers.cancel();
+                        WaitActivity.this.finish();
+                    }
+                }
+            };
+            timers.scheduleAtFixedRate(timerTask,0,5000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -95,4 +95,11 @@ public class SharedStore {
         SharedPreferences sharedPreferences = context.getSharedPreferences("MyData",0);
         return sharedPreferences.getString("waitStep","1");
     }
+    public static void setimgURL(Context context, String waitStep){
+        context.getSharedPreferences("MyData",0).edit().putString("imgURL",waitStep).apply();
+    }
+    public static String getimgURL(Context context){
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MyData",0);
+        return sharedPreferences.getString("imgURL","1");
+    }
 }
