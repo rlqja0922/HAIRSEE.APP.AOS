@@ -26,6 +26,7 @@ import androidx.core.content.FileProvider;
 
 import com.example.hairsee.API.HairRequest;
 import com.example.hairsee.API.RetrofitInterface;
+import com.example.hairsee.detection.DetectorActivity;
 import com.example.hairsee.utils.OnSingleClickListener;
 import com.example.hairsee.utils.SharedStore;
 
@@ -99,7 +100,7 @@ public class ResultActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SharedStore.deleteUserData(ResultActivity.this);
-                Intent intentRestart = new Intent(ResultActivity.this, CameraActivity.class);
+                Intent intentRestart = new Intent(ResultActivity.this, DetectorActivity.class);
                 intentRestart.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intentRestart);
             }
