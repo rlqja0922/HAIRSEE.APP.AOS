@@ -134,7 +134,7 @@ public class ResultActivity extends AppCompatActivity {
     }
     public void ImageLoad(){
         try {
-            String ImgURL = getIntent().getStringExtra("url");
+            String ImgURL = "http://1.225.241.111:25001"+getIntent().getStringExtra("url");
             bitmap = BitmapFactory.decodeStream((InputStream) new URL(ImgURL).getContent());
             iv_result.setImageBitmap(bitmap);
         } catch (IOException e) {

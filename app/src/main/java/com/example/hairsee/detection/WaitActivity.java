@@ -51,13 +51,13 @@ public class WaitActivity extends AppCompatActivity implements MainActivity.OnBa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wait);
         mContext = getApplicationContext();
-        ImgAPI();
         wait_pb = findViewById(R.id.wait_pb);
         wait_pt = findViewById(R.id.wait_pt);
         ImageView img_gif = findViewById(R.id.gif);
         Glide.with(this).load(R.drawable.hairlod).into(img_gif);
         SharedStore.setWait(mContext,"스텝1");
         fcmtoken =  SharedStore.getFcmToken(mContext);
+        ImgAPI();
 
     }
 

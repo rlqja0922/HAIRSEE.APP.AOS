@@ -6,7 +6,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".menu.GuideFragment"
     android:background="@drawable/guideback">
-
+    <ImageView
+        android:id="@+id/camerstart_iv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/camstart"
+        android:scaleType="fitCenter"
+        app:layout_constraintTop_toTopOf="@id/guideline1"
+        app:layout_constraintBottom_toBottomOf="@id/guideline2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        ></ImageView>
     <!-- TODO: Update blank fragment layout -->
     <androidx.constraintlayout.widget.Guideline
         android:layout_width="wrap_content"

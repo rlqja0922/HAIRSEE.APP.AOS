@@ -63,8 +63,13 @@ public class Camera2Fragment extends Fragment implements MainActivity.OnBackPres
         nextBt.setOnClickListener(new OnSingleClickListener() {
             @Override
             public void onSingleClick(View v) {
-                if (lenChoice>0){
-                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.Fragment,new Camera3Fragment()).commit();
+                if (lenChoice != 0){
+
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("sex",lenChoice);
+                    Camera3Fragment camera3 = new Camera3Fragment();
+                    camera3.setArguments(bundle);
+                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.Fragment,camera3).commit();
                 }
             }
         });

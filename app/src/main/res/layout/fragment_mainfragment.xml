@@ -8,6 +8,20 @@
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/icon_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.02" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/icon_guide2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -263,8 +277,18 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:src="@drawable/appicon"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="@id/maintext"
+        app:layout_constraintTop_toTopOf="@id/icon_guide"
+        app:layout_constraintBottom_toBottomOf="@id/icon_guide2"/>
 
     <TextView
+        android:id="@+id/maintext"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="나는\n어떤 헤어스타일이\n어울릴까?"

@@ -90,6 +90,27 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/img_guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/img_guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toTopOf="@+id/result5"
+        app:layout_constraintBottom_toBottomOf="@id/result21"></FrameLayout>
     <ImageView
         android:id="@+id/iv_result"
         android:layout_width="0dp"
@@ -97,8 +118,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:src="@drawable/common_google_signin_btn_icon_dark"
-        app:layout_constraintTop_toTopOf="@+id/result5"
-        app:layout_constraintBottom_toBottomOf="@+id/result13"
+        app:layout_constraintTop_toTopOf="@+id/img_guideline1"
+        app:layout_constraintBottom_toBottomOf="@+id/img_guideline2"
         tools:ignore="MissingConstraints" />
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/result1"
@@ -190,7 +211,20 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.9" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/result21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
 
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="@id/result21"
+        app:layout_constraintBottom_toBottomOf="parent"></FrameLayout>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

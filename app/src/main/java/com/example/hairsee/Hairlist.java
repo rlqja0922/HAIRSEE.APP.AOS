@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hairsee.listClass.Hair;
+import com.example.hairsee.menu.CamSub.Camera3Fragment;
+import com.example.hairsee.utils.OnSingleClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +27,8 @@ public class Hairlist extends RecyclerView.Adapter<Hairlist.ViewHolder>{
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imgView_item;
         TextView tv;
+        FrameLayout frame;
+        int type;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -31,6 +36,7 @@ public class Hairlist extends RecyclerView.Adapter<Hairlist.ViewHolder>{
 
             tv= itemView.findViewById(R.id.tv_title);
             imgView_item= itemView.findViewById(R.id.iv_img_resource);
+            frame = itemView.findViewById(R.id.frame);
         }
     }
     public Hairlist(ArrayList<Hair> items) {
@@ -51,9 +57,17 @@ public class Hairlist extends RecyclerView.Adapter<Hairlist.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Hair item = items.get(position);
-
+        holder.type = item.getType();
         holder.imgView_item.setImageResource(item.getImgResource());   // 사진 없어서 기본 파일로 이미지 띄움
         holder.tv.setText(item.getTitle());
+        holder.frame.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void onSingleClick(View v) {
+                Camera3Fragment.type = holder.type;
+
+            }
+
+        });
     }
 
     @Override

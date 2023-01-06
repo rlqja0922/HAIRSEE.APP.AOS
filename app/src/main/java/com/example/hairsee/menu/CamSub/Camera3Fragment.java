@@ -46,6 +46,7 @@ public class Camera3Fragment extends Fragment implements MainActivity.OnBackPres
     private ArrayList<Hair2> items2=new ArrayList<>();
     private Hairlist mHairlist;
     private Context context;
+    public static int type;
     public static final int Toast_Result = 1500;
     public static final int PERMISSIONS_REQUEST = 1;
     private static final int REQ = 0;
@@ -111,7 +112,6 @@ public class Camera3Fragment extends Fragment implements MainActivity.OnBackPres
                 ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED &&
                 ContextCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
         ) {
-            btnRegistrationClickHandler();
 
         } else {
             requestVideoPermissions(); // 권한 확인
@@ -130,27 +130,27 @@ public class Camera3Fragment extends Fragment implements MainActivity.OnBackPres
     }
     public void curlhair() {
 
-        items.add(new Hair("안유진",R.drawable.common_google_signin_btn_icon_dark));
-        items.add(new Hair("안유진2",R.drawable.common_google_signin_btn_icon_dark));
-        items.add(new Hair("안유진3",R.drawable.common_google_signin_btn_icon_dark));
-        items.add(new Hair("안유진4",R.drawable.common_google_signin_btn_icon_dark));
-        items.add(new Hair("안유진5",R.drawable.common_google_signin_btn_icon_dark));
-        items.add(new Hair("안유진6",R.drawable.common_google_signin_btn_icon_dark));
-        items.add(new Hair("안유진7",R.drawable.common_google_signin_btn_icon_dark));
-        items.add(new Hair("안유진8",R.drawable.common_google_signin_btn_icon_dark));
-        items.add(new Hair("안유진9",R.drawable.common_google_signin_btn_icon_dark));
+        items.add(new Hair("안유진",R.drawable.common_google_signin_btn_icon_dark,1));
+        items.add(new Hair("안유진2",R.drawable.common_google_signin_btn_icon_dark,2));
+        items.add(new Hair("안유진3",R.drawable.common_google_signin_btn_icon_dark,3));
+        items.add(new Hair("안유진4",R.drawable.common_google_signin_btn_icon_dark,4));
+        items.add(new Hair("안유진5",R.drawable.common_google_signin_btn_icon_dark,5));
+        items.add(new Hair("안유진6",R.drawable.common_google_signin_btn_icon_dark,6));
+        items.add(new Hair("안유진7",R.drawable.common_google_signin_btn_icon_dark,7));
+        items.add(new Hair("안유진8",R.drawable.common_google_signin_btn_icon_dark,8));
+        items.add(new Hair("안유진9",R.drawable.common_google_signin_btn_icon_dark,9));
     }
     public void straighthair(){
 
-        items2.add(new Hair2("장원영",R.drawable.common_google_signin_btn_icon_dark));
-        items2.add(new Hair2("장원영",R.drawable.common_google_signin_btn_icon_dark));
-        items2.add(new Hair2("장원영",R.drawable.common_google_signin_btn_icon_dark));
-        items2.add(new Hair2("장원영",R.drawable.common_google_signin_btn_icon_dark));
-        items2.add(new Hair2("장원영",R.drawable.common_google_signin_btn_icon_dark));
-        items2.add(new Hair2("장원영",R.drawable.common_google_signin_btn_icon_dark));
-        items2.add(new Hair2("장원영",R.drawable.common_google_signin_btn_icon_dark));
-        items2.add(new Hair2("장원영",R.drawable.common_google_signin_btn_icon_dark));
-        items2.add(new Hair2("장원영",R.drawable.common_google_signin_btn_icon_dark));
+        items2.add(new Hair2("장원영",R.drawable.common_google_signin_btn_icon_dark,10));
+        items2.add(new Hair2("장원영2",R.drawable.common_google_signin_btn_icon_dark,11));
+        items2.add(new Hair2("장원영3",R.drawable.common_google_signin_btn_icon_dark,12));
+        items2.add(new Hair2("장원영4",R.drawable.common_google_signin_btn_icon_dark,13));
+        items2.add(new Hair2("장원영5",R.drawable.common_google_signin_btn_icon_dark,14));
+        items2.add(new Hair2("장원영6",R.drawable.common_google_signin_btn_icon_dark,15));
+        items2.add(new Hair2("장원영7",R.drawable.common_google_signin_btn_icon_dark,16));
+        items2.add(new Hair2("장원영8",R.drawable.common_google_signin_btn_icon_dark,17));
+        items2.add(new Hair2("장원영9",R.drawable.common_google_signin_btn_icon_dark,18));
     }
     @Override
     public void onBackPressed() {

@@ -252,14 +252,14 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
 
   private void onAddClick() {
-
+    processImage();
     myUtil.startVibrator(DetectorActivity.this);
     addPending = true;
     if (facesSize >= 2) {
       Log.d(TAG, "facessize" + facesSize);
       MyAlert.MyDialog_single(DetectorActivity.this,  "2명 이상 감지 되었습니다.\n화면에 한 사람만 나타나게 해주세요", v -> {
         facesSize = 0;
-        finish();
+        MyAlert.dialogrem.dismiss();
       });
     }else if (facesSize == 1){
       SimpleDateFormat dateformat = new SimpleDateFormat(format_y_m_d, Locale.KOREA);
@@ -285,9 +285,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
 
     }else if(facesSize == 0){
-      MyAlert.MyDialog_single(DetectorActivity.this,  "얼굴 인식에 실패하였습니다.\n다시 촬영해주세요.", v -> {
-
-      });
+      MyAlert.MyDialog_single(DetectorActivity.this,  "얼굴 인식에 실패하였습니다.\n다시 촬영해주세요.",null);
 
       }
   }

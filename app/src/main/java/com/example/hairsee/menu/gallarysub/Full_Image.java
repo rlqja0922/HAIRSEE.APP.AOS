@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.example.hairsee.MainActivity;
 import com.example.hairsee.R;
 
 import java.io.File;
@@ -20,7 +21,7 @@ import java.io.File;
  * A simple {@link Fragment} subclass.
  * create an instance of this fragment.
  */
-public class Full_Image extends Fragment {
+public class Full_Image extends Fragment implements MainActivity.OnBackPressedListener{
 
 
     // TODO: Rename and change types of parameters
@@ -55,5 +56,10 @@ public class Full_Image extends Fragment {
         fullimg = view.findViewById(R.id.iv_full);
         fullimg.setImageBitmap(bm);
         return view;
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 }

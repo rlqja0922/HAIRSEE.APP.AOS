@@ -19,14 +19,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.example.hairsee.MainActivity;
 import com.example.hairsee.R;
 import com.example.hairsee.detection.DetectorActivity;
 import com.example.hairsee.menu.CamSub.Camera2Fragment;
+import com.example.hairsee.menu.gallarysub.Full_Image;
 import com.example.hairsee.utils.MyAlert;
+import com.example.hairsee.utils.MyImageUtils;
 import com.example.hairsee.utils.OnSingleClickListener;
+
+import java.io.File;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -47,6 +52,8 @@ public class CameraFragment extends Fragment implements MainActivity.OnBackPress
     private View view;
     public ImageView camnextBt;
     private Context context;
+    private FrameLayout sexChoice1,sexChoice2;
+    private int sexChoice =0;
     public static int permissionCamera;
     public static int permissionRead;
     public static int permissionWrite;
@@ -89,6 +96,7 @@ public class CameraFragment extends Fragment implements MainActivity.OnBackPress
         }
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -99,11 +107,33 @@ public class CameraFragment extends Fragment implements MainActivity.OnBackPress
         mainActivity = getActivity();
         AppCompatActivity activity = (AppCompatActivity) context;
         camnextBt = view.findViewById(R.id.camnextBt);
+        sexChoice1 = view.findViewById(R.id.sexChoice1);
+        sexChoice2 = view.findViewById(R.id.sexChoice2);
+
+        sexChoice1.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void onSingleClick(View v) {
+                sexChoice = 1;
+            }
+        });
+        sexChoice2.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void onSingleClick(View v) {
+                sexChoice = 2;
+            }
+        });
+
         camnextBt.setOnClickListener(new OnSingleClickListener() {
             @Override
             public void onSingleClick(View v) {
+                if (sexChoice != 0){
 
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.Fragment,new Camera2Fragment()).commit();
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("sex",sexChoice);
+                    Camera2Fragment camera2 = new Camera2Fragment();
+                    camera2.setArguments(bundle);
+                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.Fragment,camera2).commit();
+                }
             }
         });
 //        cambt.setOnClickListener(new OnSingleClickListener() {

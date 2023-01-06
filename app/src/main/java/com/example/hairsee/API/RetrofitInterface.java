@@ -15,6 +15,6 @@ import retrofit2.http.PartMap;
 
 public interface RetrofitInterface {
     @POST("/hair/request")
-    @Multipart //영상 폼데이터 전송
+    @Multipart //이미지 폼데이터 전송
     Call<HairRequest>getRequest(@PartMap Map<String, RequestBody> map, @Part ArrayList<MultipartBody.Part> files);
 }

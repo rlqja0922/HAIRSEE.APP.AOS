@@ -209,6 +209,7 @@
         app:layout_constraintTop_toTopOf="@id/guideline10"
         app:layout_constraintBottom_toBottomOf="@id/guideline11">
 
+
         <ImageView
             android:id="@+id/camerstart_iv"
             android:layout_width="0dp"
