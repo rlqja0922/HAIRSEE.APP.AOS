@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
 import android.net.Uri;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -35,6 +36,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -64,7 +66,7 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 //        String CarImg = SharedStore.getCarImg(this);
-
+        mContext= getApplicationContext();
         getStandardSize();// 텍스트 크기조절
         findId();
         ImageLoad();
@@ -137,6 +139,11 @@ public class ResultActivity extends AppCompatActivity {
             String ImgURL = "http://1.225.241.111:25001"+getIntent().getStringExtra("url");
             bitmap = BitmapFactory.decodeStream((InputStream) new URL(ImgURL).getContent());
             iv_result.setImageBitmap(bitmap);
+
+            boolean save =  MyImageUtils.saveBitMapImg(bitmap,SharedStore.getImgName(mContext),"after",ResultActivity.this);
+            if (save) {
+                Log.d(TAG,"저장완료");
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

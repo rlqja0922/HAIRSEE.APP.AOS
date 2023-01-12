@@ -102,4 +102,12 @@ public class SharedStore {
         SharedPreferences sharedPreferences = context.getSharedPreferences("MyData",0);
         return sharedPreferences.getString("imgURL","1");
     }
+    public static void setImgName(Context context, String ImgName){
+        context.getSharedPreferences("MyData",0).edit().putString("imgPath",ImgName).apply();
+    }
+
+    public static String getImgName(Context context){
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MyData",0);
+        return sharedPreferences.getString("ImgName","");
+    }
 }

@@ -26,6 +26,7 @@ import com.example.hairsee.MainActivity;
 import com.example.hairsee.R;
 import com.example.hairsee.detection.DetectorActivity;
 import com.example.hairsee.menu.CamSub.Camera2Fragment;
+import com.example.hairsee.menu.CamSub.Camera3Fragment;
 import com.example.hairsee.menu.gallarysub.Full_Image;
 import com.example.hairsee.utils.MyAlert;
 import com.example.hairsee.utils.MyImageUtils;
@@ -130,9 +131,9 @@ public class CameraFragment extends Fragment implements MainActivity.OnBackPress
 
                     Bundle bundle = new Bundle();
                     bundle.putInt("sex",sexChoice);
-                    Camera2Fragment camera2 = new Camera2Fragment();
-                    camera2.setArguments(bundle);
-                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.Fragment,camera2).commit();
+                    Camera3Fragment camera3 = new Camera3Fragment();
+                    camera3.setArguments(bundle);
+                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.Fragment,camera3).commit();
                 }
             }
         });

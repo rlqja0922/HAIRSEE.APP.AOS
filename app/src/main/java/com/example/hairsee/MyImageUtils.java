@@ -26,17 +26,17 @@ public class MyImageUtils {
     public static String format_y_m_d = "yyyyMMdd";
     private static final String TAG = "ImageUtils";
 
-    public static boolean saveBitMapImg(Bitmap imageData, String name, String extension, Context c) {//extension : jpg, png
+    public static boolean saveBitMapImg(Bitmap imageData, String name, String status, Context c) {//extension : jpg, png
         try {
             //저장할 파일 경로
             ContextWrapper contextWrapper = new ContextWrapper(c);
-            String saveDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString() + "/헤보자";
+            String saveDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString() + "/헤보자/"+status;
             File file = new File(saveDir);
             if (!file.exists()) {
                 file.mkdir();
             }
 
-            String fileName = name + ".jpg";
+            String fileName = name;
             File tempFile = new File(saveDir, fileName);
             FileOutputStream output = null;
 
@@ -67,6 +67,7 @@ public class MyImageUtils {
                     try {
                         output.flush();
                         output.close();
+                        SharedStore.setImgName(c,fileName);
                         SharedStore.setImgPath(c,tempFile.getPath());
                         return true;
                     } catch (IOException e) {

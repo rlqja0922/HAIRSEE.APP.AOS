@@ -263,7 +263,8 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
       });
     }else if (facesSize == 1){
       SimpleDateFormat dateformat = new SimpleDateFormat(format_y_m_d, Locale.KOREA);
-      boolean save =  MyImageUtils.saveBitMapImg(croppedBitmap,dateformat.format(new Date()),"dlfma",DetectorActivity.this);
+      boolean save =  MyImageUtils.saveBitMapImg(croppedBitmap,dateformat.format(new Date())+
+              ".jpg","before",DetectorActivity.this);
       if (save){
         Intent intent = new Intent(DetectorActivity.this, WaitActivity.class);
         intent.putExtra("hairType","1");
@@ -273,16 +274,6 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
       if (croppedBitmap == null) {
         return;
       }
-//      String path = Environment.getExternalStorageDirectory().getAbsolutePath()+"/DCIM/헤보자/";
-//      SimpleDateFormat dateformat = new SimpleDateFormat(format_y_m_d, Locale.KOREA);
-//        String filePath = path + dateformat+".JPG";
-//        File file = new File(filePath);
-//        if (file.exists()) {
-//
-//        }
-
-//      MediaStore.Images.Media.insertImage(this.getContentResolver(), croppedBitmap, dateformat.format(new Date()), "");
-
 
     }else if(facesSize == 0){
       MyAlert.MyDialog_single(DetectorActivity.this,  "얼굴 인식에 실패하였습니다.\n다시 촬영해주세요.",null);
