@@ -52,6 +52,7 @@ public class Full_Image extends Fragment implements MainActivity.OnBackPressedLi
             bitmapArr = getArguments().getByteArray("bitmap");
             path = getArguments().getString("path");
         }
+        //  String saveDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString() + "/헤보자/"+status;
         bm = BitmapFactory.decodeFile(path);
         fullimg = view.findViewById(R.id.iv_full);
         fullimg.setImageBitmap(bm);

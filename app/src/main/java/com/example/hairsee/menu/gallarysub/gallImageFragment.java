@@ -139,6 +139,7 @@ public class gallImageFragment extends BaseAdapter {
                     Bundle bundle = new Bundle();
                     bundle.putByteArray("bitmap", MyImageUtils.bitmapToByteArray(bm));
                     bundle.putString("path",mBasePath + File.separator + mImgList[mImgList.length-1-position]);
+                    //path확인해야됨
                     AppCompatActivity activity = (AppCompatActivity) context;
                     Full_Image full_image = new Full_Image();
                     full_image.setArguments(bundle);

@@ -61,6 +61,7 @@ public class ResultActivity extends AppCompatActivity {
     float density;
     private Bitmap bitmap = null;
     private ImageView iv_result;
+    private boolean save;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,13 +111,15 @@ public class ResultActivity extends AppCompatActivity {
         const_share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-                String path = SharedStore.getImgPath(ResultActivity.this);
-                File file = new File(path);
-                sharingIntent.setType("image/*");
-                Uri imageUri = FileProvider.getUriForFile(ResultActivity.this,"com.example.hairsee.fileprovider",file);
-                sharingIntent.putExtra(Intent.EXTRA_STREAM,imageUri);
-                startActivity(Intent.createChooser(sharingIntent, null));
+                if (save){
+                    Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+                    String path = SharedStore.getImgPath(ResultActivity.this);
+                    File file = new File(path);
+                    sharingIntent.setType("image/*");
+                    Uri imageUri = FileProvider.getUriForFile(ResultActivity.this,"com.example.hairsee.fileprovider",file);
+                    sharingIntent.putExtra(Intent.EXTRA_STREAM,imageUri);
+                    startActivity(Intent.createChooser(sharingIntent, null));
+                }
             }
         });
     }
@@ -140,7 +143,7 @@ public class ResultActivity extends AppCompatActivity {
             bitmap = BitmapFactory.decodeStream((InputStream) new URL(ImgURL).getContent());
             iv_result.setImageBitmap(bitmap);
 
-            boolean save =  MyImageUtils.saveBitMapImg(bitmap,SharedStore.getImgName(mContext),"after",ResultActivity.this);
+            save =  MyImageUtils.saveBitMapImg(bitmap,SharedStore.getImgName(mContext),"after",ResultActivity.this);
             if (save) {
                 Log.d(TAG,"저장완료");
             }
