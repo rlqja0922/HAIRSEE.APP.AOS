@@ -3,5 +3,7 @@
     <base-config cleartextTrafficPermitted = "true"/>
 <!--    <domain-config cleartextTrafficPermitted="true">-->
 <!--        <domain includeSubdomains="true">http://1.225.241.111:25001</domain>-->
+<!--        <domain includeSubdomains="true">http://172.18.0.2:25001</domain>-->
+<!--        <domain includeSubdomains="true">http://192.168.2.49:47134</domain>-->
 <!--    </domain-config>-->
 </network-security-config>

@@ -5,7 +5,8 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ResultActivity">
+    tools:context=".ResultActivity"
+    android:background="@color/white">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/top_top"
@@ -319,7 +320,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/const_gohome"
+        android:id="@+id/const_save"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/result14"
@@ -385,7 +386,7 @@
             app:layout_constraintGuide_begin="87dp" />
 
         <ImageView
-            android:id="@+id/img_gohome"
+            android:id="@+id/img_save"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="centerInside"

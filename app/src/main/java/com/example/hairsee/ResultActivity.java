@@ -3,6 +3,8 @@ package com.example.hairsee;
 import static android.content.ContentValues.TAG;
 import static android.net.wifi.WifiConfiguration.Status.strings;
 
+import static com.example.hairsee.MainActivity.Toast_Result;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +19,7 @@ import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +37,7 @@ import com.example.hairsee.utils.SharedStore;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
@@ -56,7 +60,8 @@ public class ResultActivity extends AppCompatActivity {
     private final int ImgageShare = 101;
     public static Context mContext;
     public static TextView tv_resultTop, tv_result_info1, tv_result_info2;
-    public ConstraintLayout const_gohome, const_restart,const_share,fail1,fail2,succ2,background,background1;
+    public ConstraintLayout const_save, const_restart,const_share,fail1,fail2,succ2,background,background1;
+    public LinearLayout resultBack,resultCancel;
     int standardSize_X, standardSize_Y;
     float density;
     private Bitmap bitmap = null;
@@ -79,9 +84,10 @@ public class ResultActivity extends AppCompatActivity {
 //        Log.d(TAG, "Base64 이미지 값 : "+ CarImg);
 //        new HttpCarImage(this).execute(CarImg);
         const_restart = findViewById(R.id.const_restart);
-        const_gohome = findViewById(R.id.const_gohome);
+        const_save = findViewById(R.id.const_save);
         const_share = findViewById(R.id.const_share);
-        iv_result=findViewById(R.id.iv_result);
+        resultCancel = findViewById(R.id.resultCancel);
+        resultBack = findViewById(R.id.resultBack);
 //      텍스트사이즈 조절 기능 화면 크기비율
 //        tv_resultTop.setTextSize((float)(standardSize_X / 33));
 //        tv_resultTop.setTextSize((float)(standardSize_Y / 33));
@@ -89,14 +95,41 @@ public class ResultActivity extends AppCompatActivity {
 //        tv_result_info1.setTextSize((float)(standardSize_Y / 60));
 //        tv_result_info2.setTextSize((float)(standardSize_X / 60));
 //        tv_result_info2.setTextSize((float)(standardSize_Y / 60));
+        resultBack.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void onSingleClick(View v) {
+                new OnBackPressedListener() {
+                    @Override
+                    public void onBackPressed() {
 
-        const_gohome.setOnClickListener(new View.OnClickListener() {
+                    }
+                };
+            }
+        });
+        resultCancel.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void onSingleClick(View v) {
+                new OnBackPressedListener() {
+                    @Override
+                    public void onBackPressed() {
+
+                    }
+                };
+            }
+        });
+        //백버튼 실행 시 홈 화면으로
+
+        const_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedStore.deleteUserData(ResultActivity.this);
-                Intent intentHome = new Intent(ResultActivity.this, MainActivity.class);
-                intentHome.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intentHome);
+                save =  MyImageUtils.saveBitMapImg(bitmap,SharedStore.getImgName(mContext),"after",ResultActivity.this);
+                if (save) {
+                    Log.d(TAG,"저장완료");
+                    SharedStore.deleteUserData(ResultActivity.this);
+                    Intent intentHome = new Intent(ResultActivity.this, MainActivity.class);
+//                    intentHome.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intentHome);
+                }
             }
         });
         const_restart.setOnClickListener(new View.OnClickListener() {
@@ -104,8 +137,8 @@ public class ResultActivity extends AppCompatActivity {
             public void onClick(View v) {
                 SharedStore.deleteUserData(ResultActivity.this);
                 Intent intentRestart = new Intent(ResultActivity.this, DetectorActivity.class);
-                intentRestart.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intentRestart);
+                intentRestart.putExtra("btnFlag", "registraion");
+                startActivityForResult(intentRestart, Toast_Result);
             }
         });
         const_share.setOnClickListener(new View.OnClickListener() {
@@ -138,18 +171,30 @@ public class ResultActivity extends AppCompatActivity {
         standardSize_Y = (int) (ScreenSize.y / density);
     }
     public void ImageLoad(){
-        try {
-            String ImgURL = "http://1.225.241.111:25001"+getIntent().getStringExtra("url");
-            bitmap = BitmapFactory.decodeStream((InputStream) new URL(ImgURL).getContent());
-            iv_result.setImageBitmap(bitmap);
-
-            save =  MyImageUtils.saveBitMapImg(bitmap,SharedStore.getImgName(mContext),"after",ResultActivity.this);
-            if (save) {
-                Log.d(TAG,"저장완료");
+        iv_result = findViewById(R.id.iv_result);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String ImgURL = "http://1.225.241.111:25001"+getIntent().getStringExtra("url");
+                try {
+                    bitmap = BitmapFactory.decodeStream((InputStream) new URL(ImgURL).getContent());
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            iv_result.setImageBitmap(bitmap);
+                        }
+                    });
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        }).start();
+
+        iv_result.setImageBitmap(bitmap);
+    }
+    public interface OnBackPressedListener {
+
+        void onBackPressed();
     }
     @Override
     protected void onDestroy() {
@@ -163,7 +208,7 @@ public class ResultActivity extends AppCompatActivity {
     public void onBackPressed() {
         SharedStore.deleteUserData(ResultActivity.this);
         Intent intentHome = new Intent(ResultActivity.this, MainActivity.class);
-        intentHome.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        intentHome.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intentHome);
     }
     @Override
