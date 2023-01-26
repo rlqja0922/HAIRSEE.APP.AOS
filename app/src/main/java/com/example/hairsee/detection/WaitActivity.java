@@ -21,6 +21,8 @@ import com.example.hairsee.utils.MyFirebaseMessagingService;
 import com.example.hairsee.utils.SharedStore;
 
 import java.io.File;
+import java.io.IOException;
+import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -114,6 +116,27 @@ public class WaitActivity extends AppCompatActivity implements MainActivity.OnBa
             public void onFailure(Call<HairRequest> call, Throwable t) {
                 Log.d(TAG,"에러메세지"+t.getMessage());
                 t.getMessage();
+                if (t instanceof SocketTimeoutException)
+                {
+                    // "Connection Timeout";
+                    MyAlert.MyDialog_single(WaitActivity.this,  "서버에 연결을 실패 하였습니다. \n동일한 오류 발생시 관리자에게 문의해주세요.", v -> {
+                        Intent intent = new Intent(WaitActivity.this,MainActivity.class);
+                        startActivity(intent);
+
+                        timers.cancel();
+                    });
+                }
+                else if (t instanceof IOException)
+                {
+                    // "Timeout";
+                }else {
+                    MyAlert.MyDialog_single(WaitActivity.this,  "서버에 연결을 실패 하였습니다. \n동일한 오류 발생시 관리자에게 문의해주세요.", v -> {
+                        Intent intent = new Intent(WaitActivity.this,MainActivity.class);
+                        startActivity(intent);
+
+                        timers.cancel();
+                    });
+                }
             }
         });
         try {

@@ -132,6 +132,13 @@ public class Mainfragment extends Fragment implements MainActivity.OnBackPressed
                 transaction.replace(R.id.Fragment,new Galleryfragment()).commit();
             }
         });
+        guide.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void onSingleClick(View v) {
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.Fragment,new GuideFragment()).commit();
+            }
+        });
 //
 //        gall = view.findViewById(R.id.gallery_mn);
 //        cam = view.findViewById(R.id.camera_mn);

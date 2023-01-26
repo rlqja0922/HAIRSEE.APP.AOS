@@ -36,6 +36,7 @@ import android.graphics.Typeface;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraCharacteristics;
 import android.media.ImageReader.OnImageAvailableListener;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.SystemClock;
@@ -45,8 +46,10 @@ import android.util.Pair;
 import android.util.Size;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Surface;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -141,7 +144,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
   private BorderedText borderedText;
 
   // Face detector
-  private com.google.mlkit.vision.face.FaceDetector faceDetector;
+  private FaceDetector faceDetector;
 
   // here the preview image is drawn in portrait way
   private Bitmap portraitBmp = null;
@@ -243,16 +246,10 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
     }
   }
-  private void restartWith(Intent intent) {
-    finish();
-    overridePendingTransition(0, 0);
-    startActivity(intent);
-    overridePendingTransition(0, 0);
-  }
 
 
   private void onAddClick() {
-    processImage();
+
     myUtil.startVibrator(DetectorActivity.this);
     addPending = true;
     if (facesSize >= 2) {
@@ -322,10 +319,10 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
       targetW = previewWidth;
       targetH = previewHeight;
     }
-//    int cropW = (int) (targetW / 2.0);
-//    int cropH = (int) (targetH / 2.0);
+    int cropW = (int) (targetW / 2.0);
+    int cropH = (int) (targetH / 2.0);
 
-    croppedBitmap = Bitmap.createBitmap(targetW, targetH, Config.ARGB_8888);
+    croppedBitmap = Bitmap.createBitmap(cropW, cropH, Config.ARGB_8888);
 
     portraitBmp = Bitmap.createBitmap(targetW, targetH, Config.ARGB_8888);
     faceBmp = Bitmap.createBitmap(TF_OD_API_INPUT_SIZE, TF_OD_API_INPUT_SIZE, Config.ARGB_8888);
@@ -333,7 +330,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
     frameToCropTransform =
             ImageUtils.getTransformationMatrix(
                     previewWidth, previewHeight,
-                    targetW, targetH,
+                    cropW, cropH,
                     sensorOrientation, MAINTAIN_ASPECT);
 
 //    frameToCropTransform =
@@ -366,69 +363,6 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
             });
 
     tracker.setFrameConfiguration(previewWidth, previewHeight, sensorOrientation);
-  }
-  Camera.PictureCallback jpegCallback = new Camera.PictureCallback() {
-    public void onPictureTaken(byte[] data, Camera camera) {
-      //이미지의 너비와 높이 결정
-      int w = camera.getParameters().getPictureSize().width;
-      int h = camera.getParameters().getPictureSize().height;
-
-
-      //Log.d("MyTag","이미지 캡처 시 -> orientation : " + orientation);
-
-      //byte array 를 bitmap 으로 변환
-      BitmapFactory.Options options = new BitmapFactory.Options();
-      options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-      Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length, options);
-      //이미지를 디바이스 방향으로 회전
-      Matrix matrix = new Matrix();
-      matrix.postRotate(sensorOrientation);
-      bitmap = Bitmap.createBitmap(bitmap, 0, 0, w, h, matrix, true);
-
-//            SharedStore.setBitmap(getContext(), "MyData",bitmap);
-//            Log.d(TAG,"bitmap"+SharedStore.getBitmap(getContext(),"MyData"));
-
-      String CarImg = MyImageUtils.bitmapToBase64(bitmap);
-//            String getImg = SharedStore.getCarImg(getContext());
-//            Log.d(TAG, "이미지값 저장 :"+getImg);
-
-      //bitmap을 byte array로 변환
-//            ByteArrayOutputStream stream = new ByteArrayOutputStream();
-//            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-//            byte[] currentData = stream.toByteArray();
-      Log.d(TAG, "Byte를 bitmap으로 : " + bitmap);
-    }
-  };
-  /**
-   * 안드로이드 디바이스 방향에 맞는 카메라 프리뷰를 화면에 보여주기 위해 계산합니다.
-   */
-  public static int calculatePreviewOrientation(Camera.CameraInfo info, int rotation) {
-    int degrees = 0;
-
-    switch (rotation) {
-      case Surface.ROTATION_0:
-        degrees = 0;
-        break;
-      case Surface.ROTATION_90:
-        degrees = 90;
-        break;
-      case Surface.ROTATION_180:
-        degrees = 180;
-        break;
-      case Surface.ROTATION_270:
-        degrees = 270;
-        break;
-    }
-
-    int result;
-    if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
-      result = (info.orientation + degrees) % 360;
-      result = (360 - result) % 360;  // compensate the mirror
-    } else {  // back-facing
-      result = (info.orientation - degrees + 360) % 360;
-    }
-
-    return result;
   }
   @Override
   protected void processImage() {
@@ -514,7 +448,6 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
     Matrix matrix = new Matrix();
     if (applyRotation != 0) {
       if (applyRotation % 90 != 0) {
-
       }
 
       // Translate so center of image is at origin.
@@ -538,7 +471,6 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
     return matrix;
 
   }
-
 
 
 
@@ -732,7 +664,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                     (int) faceBB.width(),
                     (int) faceBB.height());
           } catch (IllegalArgumentException e) {
-            MyAlert.MyDialog_single(DetectorActivity.this, "얼굴을 흰 가이드 라인에 맞춰 주시고\n흔들리지 않게 주의 해주세요", null);
+            MyAlert.MyDialog_single(DetectorActivity.this,  "얼굴을 흰 가이드 라인에 맞춰 주시고\n흔들리지 않게 주의 해주세요", null);
 //            showDialogInfo("얼굴을 흰 가이드 라인에 맞춰주시고\n흔들리지 않게 주의 해주세요.");
           }
         }
@@ -764,7 +696,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 //                  Intent intent = new Intent(DetectorActivity.this, MainActivity.class);
 //                  mContext.startActivity(intent);
         }
-        facesSize = faces.size();
+//        facesSize = 0;
 
         final SimilarityClassifier.Recognition result = new SimilarityClassifier.Recognition(
                 "0", label, confidence, boundingBox);//label 이 이름 같음
@@ -782,6 +714,31 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
         }
 
         //여기서 안면 체크함
+        if (flagBtnRoute.split("_")[0].equals("access")){
+          if(!(faces.size() >= 2) && faces.size() == 1){//감지된 얼굴 수가 2개 이상이 아니라면
+            Pair<String, Float> matchFaceResult = matchFace(detector.recognizeImage(faceBmp));
+            try{
+              if(prevName.equals(""))
+              {
+                prevName = matchFaceResult.first;
+              }else if(prevName.equals(matchFaceResult.first)){
+                recognitionTimeCount++;
+              }else{
+                prevName = matchFaceResult.first;
+                recognitionTimeCount = 0;
+              }
+            }catch (NullPointerException e){
+
+            }
+            Log.d("aaaaaaaaaa",  "prevName : "+ prevName+", "+ recognitionTimeCount);
+            if(recognitionTimeCount >= 12){
+              if(matchFaceResult.second < 0.7f){
+
+              }
+              recognitionTimeCount = 0;
+            }
+          }
+        }
       }
     }
 //    if (faces.size() >= 2) {
@@ -836,8 +793,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
   @Override
   public void onBackPressed() {
-
-    detectorActivityFinish();
+      detectorActivityFinish();
   }
 
   public void showToastMsg(String msg) {
@@ -858,51 +814,6 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
   public static void detectorActivityFinish(){
     detectorActivity.finish();
-  }
-  public boolean saveImage(Bitmap bitmap, String saveImageName) {
-    String saveDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString()+ "/directoryName";
-    File file = new File(saveDir);
-    if (!file.exists()) {
-      file.mkdir();
-    }
-
-    String fileName = saveImageName + ".png";
-    File tempFile = new File(saveDir, fileName);
-    FileOutputStream output = null;
-
-    try {
-      if (tempFile.createNewFile()) {
-        output = new FileOutputStream(tempFile);
-        // 이미지 줄이기
-        // TODO : 사진 비율로 압축하도록 수정할 것
-        Bitmap newBitmap = bitmap.createScaledBitmap(bitmap, 200, 200, true);
-        // 이미지 압축. 압축된 파일은 output stream에 저장. 2번째 인자는 압축률인데 100으로 해도 많이 깨진다..
-        newBitmap.compress(Bitmap.CompressFormat.PNG, 100, output);
-      } else {
-        // 같은 이름의 파일 존재
-        Log.d("TEST_LOG", "같은 이름의 파일 존재:"+saveImageName);
-
-        return false;
-      }
-    } catch (FileNotFoundException e) {
-      Log.d("TEST_LOG", "파일을 찾을 수 없음");
-      return false;
-
-    } catch (IOException e) {
-      Log.d("TEST_LOG", "IO 에러");
-      e.printStackTrace();
-      return false;
-
-    } finally {
-      if (output != null) {
-        try {
-          output.close();
-        } catch (IOException e) {
-          e.printStackTrace();
-        }
-      }
-    }
-    return true;
   }
 
 }

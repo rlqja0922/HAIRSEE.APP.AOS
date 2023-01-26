@@ -1,14 +1,23 @@
 package com.example.hairsee.menu;
 
+import static com.example.hairsee.menu.Mainfragment.Toast_Result;
+
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.example.hairsee.MainActivity;
 import com.example.hairsee.R;
+import com.example.hairsee.detection.DetectorActivity;
+import com.example.hairsee.utils.OnSingleClickListener;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,6 +35,8 @@ public class GuideFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private ImageView camerstart_iv;
+    private Context mcontext;
     public GuideFragment() {
         // Required empty public constructor
     }
@@ -61,6 +72,17 @@ public class GuideFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_guide, container, false);
+        //camerstart_iv
+        View view = inflater.inflate(R.layout.fragment_guide, container, false);
+        camerstart_iv = view.findViewById(R.id.camerstart_iv);
+        mcontext = getContext();
+        camerstart_iv.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void onSingleClick(View v) {
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.Fragment,new CameraFragment()).commit();
+            }
+        });
+        return view;
     }
 }

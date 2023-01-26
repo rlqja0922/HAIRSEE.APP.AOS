@@ -162,7 +162,7 @@ public abstract class CameraActivity extends AppCompatActivity
         restartWith(intent);
     }
 
-    private void restartWith(Intent intent) {
+    public void restartWith(Intent intent) {
         finish();
         overridePendingTransition(0, 0);
         startActivity(intent);

@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -36,7 +37,7 @@ public class CameraActivity extends AppCompatActivity
     private static final int CAMERA_FACING = Camera.CameraInfo.CAMERA_FACING_BACK; // Camera.CameraInfo.CAMERA_FACING_FRONT
     public FloatingActionButton floatingActionButton;
     public Button btn_sample;
-    public ImageView btn_back;
+    public LinearLayout btn_back;
     public ImageButton viewclose;
     private SurfaceView surfaceView;
     private CameraPreview mCameraPreview;
