@@ -118,13 +118,12 @@ public class WaitActivity extends AppCompatActivity implements MainActivity.OnBa
                 t.getMessage();
                 if (t instanceof SocketTimeoutException)
                 {
-                    // "Connection Timeout";
-                    MyAlert.MyDialog_single(WaitActivity.this,  "서버에 연결을 실패 하였습니다. \n동일한 오류 발생시 관리자에게 문의해주세요.", v -> {
-                        Intent intent = new Intent(WaitActivity.this,MainActivity.class);
-                        startActivity(intent);
-
-                        timers.cancel();
-                    });
+//                    // "Connection Timeout";
+//                    MyAlert.MyDialog_single(WaitActivity.this,  "서버에 연결을 실패 하였습니다. \n동일한 오류 발생시 관리자에게 문의해주세요.", v -> {
+//                        Intent intent = new Intent(WaitActivity.this,MainActivity.class);
+//                        startActivity(intent);
+//                        timers.cancel();
+//                    });
                 }
                 else if (t instanceof IOException)
                 {
@@ -133,7 +132,6 @@ public class WaitActivity extends AppCompatActivity implements MainActivity.OnBa
                     MyAlert.MyDialog_single(WaitActivity.this,  "서버에 연결을 실패 하였습니다. \n동일한 오류 발생시 관리자에게 문의해주세요.", v -> {
                         Intent intent = new Intent(WaitActivity.this,MainActivity.class);
                         startActivity(intent);
-
                         timers.cancel();
                     });
                 }
