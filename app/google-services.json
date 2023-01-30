@@ -1,41 +1,99 @@
 {
   "project_info": {
-    "project_number": "513884813797",
-    "project_id": "hairsee-e5193",
-    "storage_bucket": "hairsee-e5193.appspot.com"
+    "project_number": "488499753465",
+    "project_id": "hair-see-e9b39",
+    "storage_bucket": "hair-see-e9b39.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:513884813797:android:1370b3667e9f78da57170c",
+        "mobilesdk_app_id": "1:488499753465:android:d1aca3482c1da8e4c98d28",
         "android_client_info": {
-          "package_name": "com.example.hairsee"
+          "package_name": "com.example.hair__see"
         }
       },
       "oauth_client": [
         {
-          "client_id": "513884813797-m44v5gocuo19o5sqh4evdgdj762vkecj.apps.googleusercontent.com",
+          "client_id": "488499753465-4771grmi8k7og50u3vp5obgcjlnnsb0q.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.hairsee",
+            "package_name": "com.example.hair__see",
             "certificate_hash": "a2c4cfef23e2bd57a73f0d91f9aedb6912f3a58d"
           }
         },
         {
-          "client_id": "513884813797-9hth263gd2q7mb4v64l03u85oosqb5uv.apps.googleusercontent.com",
+          "client_id": "488499753465-mo1dp7qscs425l0i0b564955sf4grd5c.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBPxUe96OFM4SVImyNv8k8mJT3n8tiZ8pA"
+          "current_key": "AIzaSyBEraFhjXCitGQ34upug7XQVOlWeaRZGT4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "513884813797-9hth263gd2q7mb4v64l03u85oosqb5uv.apps.googleusercontent.com",
+              "client_id": "488499753465-mo1dp7qscs425l0i0b564955sf4grd5c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488499753465:android:a710866f26d17a70c98d28",
+        "android_client_info": {
+          "package_name": "com.example.hair_see"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "488499753465-mo1dp7qscs425l0i0b564955sf4grd5c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEraFhjXCitGQ34upug7XQVOlWeaRZGT4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "488499753465-mo1dp7qscs425l0i0b564955sf4grd5c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488499753465:android:66273f74c4e44000c98d28",
+        "android_client_info": {
+          "package_name": "com.example.hairsee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "488499753465-mo1dp7qscs425l0i0b564955sf4grd5c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEraFhjXCitGQ34upug7XQVOlWeaRZGT4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "488499753465-mo1dp7qscs425l0i0b564955sf4grd5c.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

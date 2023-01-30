@@ -6,7 +6,7 @@ plugins {
 android {
     compileSdkVersion 32
     defaultConfig {
-        applicationId "com.example.hairsee"
+        applicationId "com.example.hair__see"
         minSdkVersion 21
         targetSdkVersion 32
         versionCode 1

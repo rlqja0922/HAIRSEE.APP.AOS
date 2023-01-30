@@ -17,12 +17,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.example.hairsee.detection.customview.AutoFitTextureView
+    <com.example.hair__See.detection.customview.AutoFitTextureView
         android:id="@+id/texture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <com.example.hairsee.detection.customview.OverlayView
+    <com.example.hair__See.detection.customview.OverlayView
         android:id="@+id/tracking_overlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

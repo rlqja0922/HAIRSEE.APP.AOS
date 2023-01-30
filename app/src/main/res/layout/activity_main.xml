@@ -63,6 +63,7 @@
             android:layout_height="match_parent"
             android:textColor="#0044FF"
             android:text="헤보자"
+            android:fontFamily="@font/pretendard_semibold"
             android:gravity="center"
             android:textSize="24dp"
             ></TextView>
@@ -160,7 +161,7 @@
 <!--    </com.google.android.material.bottomnavigation.BottomNavigationView>-->
     <FrameLayout
         android:id="@+id/Fragment"
-        android:layout_marginBottom="1dp"
+        android:layout_marginBottom="0dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></FrameLayout>
 

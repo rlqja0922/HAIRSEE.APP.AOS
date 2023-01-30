@@ -98,6 +98,7 @@
             android:textColor="@color/blue"
             android:textSize="24dp"
             android:gravity="center"
+            android:fontFamily="@font/pretendard_semibold"
             >
         </TextView>
 
@@ -147,6 +148,7 @@
             android:textColor="@color/black"
             android:gravity="bottom"
             android:text="컬 헤어"
+            android:fontFamily="@font/pretendard_bold"
             android:textSize="20dp">
 
         </TextView>
@@ -196,6 +198,7 @@
             android:textColor="@color/black"
             android:text="스트레이트 헤어"
             android:gravity="bottom"
+            android:fontFamily="@font/pretendard_bold"
             android:textSize="20dp">
 
         </TextView>
@@ -259,6 +262,7 @@
             android:gravity="center"
             android:text="2/2"
             android:textSize="20dp"
+            android:fontFamily="@font/pretendard_semibold"
             app:layout_constraintBottom_toBottomOf="@+id/guideline24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -295,6 +295,8 @@
         android:layout_marginLeft="40dp"
         android:textSize="20dp"
         android:textColor="@color/white"
+        android:fontFamily="@font/pretendard_regular"
+        android:bufferType="spannable"
         app:layout_constraintBottom_toBottomOf="@id/guideline13_1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="@id/guideline16_1"
@@ -302,6 +304,7 @@
 
     </TextView>
     <ImageView
+        android:id="@+id/mainimg"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@drawable/mainimg1"

@@ -97,6 +97,7 @@
             android:text="측정을 원하는 \n성별을 선택하세요."
             android:textColor="@color/blue"
             android:textSize="24dp"
+            android:fontFamily="@font/pretendard_semibold"
             android:gravity="center"
             >
         </TextView>
@@ -121,7 +122,7 @@
             android:id="@+id/sexChoice1"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="10dp"
+            android:layout_margin="0dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -130,21 +131,56 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/pickready"/>
+            <ImageView
+                android:id="@+id/picksex1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:visibility="gone"
+                android:scaleType="fitXY"
+                android:src="@drawable/pick"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:text="남성"
+                android:fontFamily="@font/pretendard_semibold"
+                android:textColor="@color/white"
+                android:layout_gravity="center"/>
         </FrameLayout>
 
         <FrameLayout
             android:id="@+id/sexChoice2"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="10dp"
+            android:layout_margin="0dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/choiceGuideline"
             app:layout_constraintEnd_toEndOf="parent">
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
                 android:src="@drawable/pickready"/>
+            <ImageView
+                android:id="@+id/picksex2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:visibility="gone"
+                android:scaleType="fitXY"
+                android:src="@drawable/pick"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:text="여성"
+                android:fontFamily="@font/pretendard_semibold"
+                android:textColor="@color/white"
+                android:layout_gravity="center"/>
         </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -214,6 +250,7 @@
             android:gravity="center"
             android:text="1/2"
             android:textSize="20dp"
+            android:fontFamily="@font/pretendard_semibold"
             app:layout_constraintBottom_toBottomOf="@+id/guideline24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
