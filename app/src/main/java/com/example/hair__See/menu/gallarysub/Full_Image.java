@@ -30,7 +30,7 @@ public class Full_Image extends Fragment implements MainActivity.OnBackPressedLi
     private String mBasePath;
     private String Position;
     private View view;
-    private ImageView fullimg;
+    private ImageView fullimg,afterImg,beforeImg;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,6 +54,8 @@ public class Full_Image extends Fragment implements MainActivity.OnBackPressedLi
         bm = BitmapFactory.decodeFile(path);
         fullimg = view.findViewById(R.id.iv_full);
         fullimg.setImageBitmap(bm);
+        afterImg = view.findViewById(R.id.afterImg);
+        beforeImg = view.findViewById(R.id.beforeImg);
         return view;
     }
 

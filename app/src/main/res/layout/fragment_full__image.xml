@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="1dp"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.2"/>
+        app:layout_constraintGuide_percent="0.15"/>
 
 
 
@@ -82,14 +82,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.45" />
+        app:layout_constraintGuide_percent="0.47" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fullresult17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.55" />
+        app:layout_constraintGuide_percent="0.53" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/fullresult18"
@@ -97,6 +97,28 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.75" />
+    <ImageView
+        android:id="@+id/afterImg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/fullguideline1"
+        app:layout_constraintLeft_toRightOf="@+id/fullresult15"
+        app:layout_constraintRight_toLeftOf="@+id/fullresult16"
+        app:layout_constraintTop_toTopOf="@+id/iv_full"
+        android:src="@drawable/after1"
+
+    />
+    <ImageView
+        android:id="@+id/beforeImg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/fullguideline1"
+        app:layout_constraintLeft_toRightOf="@+id/fullresult17"
+        app:layout_constraintRight_toLeftOf="@+id/fullresult18"
+        app:layout_constraintTop_toTopOf="@+id/iv_full"
+        android:src="@drawable/before2"
+
+        />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/const_gohome"
