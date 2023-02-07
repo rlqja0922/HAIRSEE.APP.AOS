@@ -86,7 +86,7 @@ public class Galleryfragment extends Fragment implements MainActivity.OnBackPres
                  Log.d("MyCameraApp", "failed to create directory");
              }
          }
-         basePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString() + "/헤보자/before";
+         basePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString() + "/헤보자/after";
          mGridView = view.findViewById(R.id.gridview); // .xml의GridView와 연결
          mCustomImageAdapter = new gallImageFragment(context, basePath); //앞에서 정의한 Custom Image Adapter와 연결
 

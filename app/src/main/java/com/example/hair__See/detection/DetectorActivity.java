@@ -241,30 +241,39 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
     myUtil.startVibrator(DetectorActivity.this);
     addPending = true;
-    if (facesSize >= 2) {
-      Log.d(TAG, "facessize" + facesSize);
-      MyAlert.MyDialog_single(DetectorActivity.this,  "2명 이상 감지 되었습니다.\n화면에 한 사람만 나타나게 해주세요", v -> {
-        facesSize = 0;
-        MyAlert.dialogrem.dismiss();
-      });
-    }else if (facesSize == 1){
-      SimpleDateFormat dateformat = new SimpleDateFormat(format_y_m_d, Locale.KOREA);
-      boolean save =  MyImageUtils.saveBitMapImg(croppedBitmap,dateformat.format(new Date())+
-              ".jpg","before",DetectorActivity.this);
-      if (save){
-        Intent intent = new Intent(DetectorActivity.this, WaitActivity.class);
-        intent.putExtra("hairType","1");
-        intent.putExtra("hairColor","1");
-        startActivity(intent);
-      }
-      if (croppedBitmap == null) {
-        return;
-      }
-
-    }else if(facesSize == 0){
-      MyAlert.MyDialog_single(DetectorActivity.this,  "얼굴 인식에 실패하였습니다.\n다시 촬영해주세요.",null);
-
-      }
+//    if (facesSize >= 2) {
+//      Log.d(TAG, "facessize" + facesSize);
+//      MyAlert.MyDialog_single(DetectorActivity.this,  "2명 이상 감지 되었습니다.\n화면에 한 사람만 나타나게 해주세요", v -> {
+//        facesSize = 0;
+//        MyAlert.dialogrem.dismiss();
+//      });
+//    }else if (facesSize == 1){
+//      SimpleDateFormat dateformat = new SimpleDateFormat(format_y_m_d, Locale.KOREA);
+//      boolean save =  MyImageUtils.saveBitMapImg(croppedBitmap,dateformat.format(new Date())+
+//              ".jpg","before",DetectorActivity.this);
+//      if (save){
+//        Intent intent = new Intent(DetectorActivity.this, WaitActivity.class);
+//        intent.putExtra("hairType","1");
+//        intent.putExtra("hairColor","1");
+//        startActivity(intent);
+//      }
+//      if (croppedBitmap == null) {
+//        return;
+//      }
+//
+//    }else if(facesSize == 0){
+//      MyAlert.MyDialog_single(DetectorActivity.this,  "얼굴 인식에 실패하였습니다.\n다시 촬영해주세요.",null);
+//
+//      }
+    SimpleDateFormat dateformat = new SimpleDateFormat(format_y_m_d, Locale.KOREA);
+    boolean save =  MyImageUtils.saveBitMapImg(croppedBitmap,dateformat.format(new Date())+
+            ".jpg","before",DetectorActivity.this);
+    if (save){
+      Intent intent = new Intent(DetectorActivity.this, WaitActivity.class);
+      intent.putExtra("hairType","1");
+      intent.putExtra("hairColor","1");
+      startActivity(intent);
+    }
   }
   @Override
   public void onPreviewSizeChosen(final Size size, final int rotation) {

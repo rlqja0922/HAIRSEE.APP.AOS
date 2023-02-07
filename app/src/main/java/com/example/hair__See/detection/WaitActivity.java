@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.hair__See.API.HairRequest;
 import com.example.hair__See.API.RetrofitInterface;
+import com.example.hair__See.API.Test;
 import com.example.hair__See.MainActivity;
 import com.example.hair__See.R;
 import com.example.hair__See.ResultActivity;
@@ -30,6 +31,7 @@ import java.util.TimerTask;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
+import okhttp3.Request;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -59,9 +61,36 @@ public class WaitActivity extends AppCompatActivity implements MainActivity.OnBa
         SharedStore.setWait(mContext,"스텝1");
         fcmtoken =  SharedStore.getFcmToken(mContext);
         ImgAPI();
+//        testApi();
 
     }
+    private void testApi(){
+//http://221.139.102.72:25005/fcm
+        String ipStr = "221.139.102.72:25005";
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://" + ipStr)
+                .addConverterFactory(ScalarsConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        RetrofitInterface retrofitInterface = retrofit.create(RetrofitInterface.class);
+        Test test = new Test(fcmtoken);
+        Call<Test> call = retrofitInterface.getToken(test);
+        call.enqueue(new Callback<Test>() {
+            @Override
+            public void onResponse(Call<Test> call, Response<Test> response) {
+                if (response.isSuccessful()) {
 
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Test> call, Throwable t) {
+                Log.d(TAG,"에러메세지"+t.getMessage());
+                t.getMessage();
+
+            }
+        });
+    }
     /**
      * 영상 전송 API
      */

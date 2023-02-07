@@ -14,6 +14,7 @@ import android.widget.ImageView;
 
 import com.example.hair__See.MainActivity;
 import com.example.hair__See.R;
+import com.example.hair__See.utils.OnSingleClickListener;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,6 +32,8 @@ public class Full_Image extends Fragment implements MainActivity.OnBackPressedLi
     private String Position;
     private View view;
     private ImageView fullimg,afterImg,beforeImg;
+    String[] array,array2;
+    String fileName,folderPath;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,10 +55,30 @@ public class Full_Image extends Fragment implements MainActivity.OnBackPressedLi
         }
         //  String saveDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString() + "/헤보자/"+status;
         bm = BitmapFactory.decodeFile(path);
+        array = path.split("/");
+        array2 = path.split("after");
+        folderPath = array2[0];
+        fileName = array[array.length-1];
         fullimg = view.findViewById(R.id.iv_full);
         fullimg.setImageBitmap(bm);
         afterImg = view.findViewById(R.id.afterImg);
         beforeImg = view.findViewById(R.id.beforeImg);
+
+        afterImg.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void onSingleClick(View v) {
+                afterImg.setImageResource(R.drawable.after1);
+                beforeImg.setImageResource(R.drawable.before2);
+
+            }
+        });
+        beforeImg.setOnClickListener(new OnSingleClickListener() {
+            @Override
+            public void onSingleClick(View v) {
+                afterImg.setImageResource(R.drawable.after2);
+                beforeImg.setImageResource(R.drawable.before1);
+            }
+        });
         return view;
     }
 

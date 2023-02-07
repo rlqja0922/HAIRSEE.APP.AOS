@@ -185,8 +185,10 @@ public class MainActivity extends AppCompatActivity {
     public void onAttachFragment(@NonNull Fragment fragment) {
         super.onAttachFragment(fragment);
         if (String.valueOf(fragment.getClass()).equals("class com.example.hairsee.menu.gallarysub.Full_Image")){
+            appbar = findViewById(R.id.appbar);
             appbar.setVisibility(View.GONE);
         }else {
+            appbar = findViewById(R.id.appbar);
             appbar.setVisibility(View.VISIBLE);
         }
         //class com.example.hairsee.menu.gallarysub.Full_Image
