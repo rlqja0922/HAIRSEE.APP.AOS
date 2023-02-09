@@ -44,6 +44,7 @@ public class Camera3Fragment extends Fragment implements MainActivity.OnBackPres
     private ArrayList<Hair2> items2=new ArrayList<>();
     private Hairlist mHairlist;
     private Context context;
+    private int sex;
     public static int type;
     public static final int Toast_Result = 1500;
     public static final int PERMISSIONS_REQUEST = 1;
@@ -72,6 +73,8 @@ public class Camera3Fragment extends Fragment implements MainActivity.OnBackPres
         camerstart_iv = view.findViewById(R.id.camerstart_iv);
         context = getContext();
         mainActivity = getActivity();
+
+        sex = getArguments().getInt("sex");
         curlhair();
         straighthair();
         mHairlist = new Hairlist(items);
@@ -127,28 +130,56 @@ public class Camera3Fragment extends Fragment implements MainActivity.OnBackPres
         startActivityForResult(intent, Toast_Result);
     }
     public void curlhair() {
+        if (sex == 1){
+            //남성
+            items.add(new Hair("8",R.drawable.common_google_signin_btn_icon_dark,8,false));
+            items.add(new Hair("24",R.drawable.common_google_signin_btn_icon_dark,24,false));
+            items.add(new Hair("32",R.drawable.common_google_signin_btn_icon_dark,32,false));
+            items.add(new Hair("33",R.drawable.common_google_signin_btn_icon_dark,33,false));
+            items.add(new Hair("52",R.drawable.common_google_signin_btn_icon_dark,52,false));
+            items.add(new Hair("63",R.drawable.common_google_signin_btn_icon_dark,63,false));
+            items.add(new Hair("66",R.drawable.common_google_signin_btn_icon_dark,66,false));
+            items.add(new Hair("75",R.drawable.common_google_signin_btn_icon_dark,75,false));
+            items.add(new Hair("116",R.drawable.common_google_signin_btn_icon_dark,116,false));
+        }else if (sex ==2){
+            //여성
+            items.add(new Hair("1",R.drawable.common_google_signin_btn_icon_dark,1,false));
+            items.add(new Hair("4",R.drawable.common_google_signin_btn_icon_dark,4,false));
+            items.add(new Hair("17",R.drawable.common_google_signin_btn_icon_dark,17,false));
+            items.add(new Hair("20",R.drawable.common_google_signin_btn_icon_dark,20,false));
+            items.add(new Hair("56",R.drawable.common_google_signin_btn_icon_dark,56,false));
+            items.add(new Hair("57",R.drawable.common_google_signin_btn_icon_dark,57,false));
+            items.add(new Hair("64",R.drawable.common_google_signin_btn_icon_dark,64,false));
+            items.add(new Hair("72",R.drawable.common_google_signin_btn_icon_dark,72,false));
+            items.add(new Hair("89",R.drawable.common_google_signin_btn_icon_dark,89,false));
 
-        items.add(new Hair("안유진",R.drawable.common_google_signin_btn_icon_dark,1));
-        items.add(new Hair("안유진2",R.drawable.common_google_signin_btn_icon_dark,2));
-        items.add(new Hair("안유진3",R.drawable.common_google_signin_btn_icon_dark,3));
-        items.add(new Hair("안유진4",R.drawable.common_google_signin_btn_icon_dark,4));
-        items.add(new Hair("안유진5",R.drawable.common_google_signin_btn_icon_dark,5));
-        items.add(new Hair("안유진6",R.drawable.common_google_signin_btn_icon_dark,6));
-        items.add(new Hair("안유진7",R.drawable.common_google_signin_btn_icon_dark,7));
-        items.add(new Hair("안유진8",R.drawable.common_google_signin_btn_icon_dark,8));
-        items.add(new Hair("안유진9",R.drawable.common_google_signin_btn_icon_dark,9));
+        }
     }
     public void straighthair(){
+        if (sex == 1){
+            //남성
+            items2.add(new Hair2("8",R.drawable.common_google_signin_btn_icon_dark,8,false));
+            items2.add(new Hair2("24",R.drawable.common_google_signin_btn_icon_dark,24,false));
+            items2.add(new Hair2("32",R.drawable.common_google_signin_btn_icon_dark,32,false));
+            items2.add(new Hair2("33",R.drawable.common_google_signin_btn_icon_dark,33,false));
+            items2.add(new Hair2("52",R.drawable.common_google_signin_btn_icon_dark,52,false));
+            items2.add(new Hair2("63",R.drawable.common_google_signin_btn_icon_dark,63,false));
+            items2.add(new Hair2("66",R.drawable.common_google_signin_btn_icon_dark,66,false));
+            items2.add(new Hair2("75",R.drawable.common_google_signin_btn_icon_dark,75,false));
+            items2.add(new Hair2("116",R.drawable.common_google_signin_btn_icon_dark,116,false));
+        }else if (sex ==2){
+            //여성
+            items2.add(new Hair2("1",R.drawable.common_google_signin_btn_icon_dark,1,false));
+            items2.add(new Hair2("4",R.drawable.common_google_signin_btn_icon_dark,4,false));
+            items2.add(new Hair2("17",R.drawable.common_google_signin_btn_icon_dark,17,false));
+            items2.add(new Hair2("20",R.drawable.common_google_signin_btn_icon_dark,20,false));
+            items2.add(new Hair2("56",R.drawable.common_google_signin_btn_icon_dark,56,false));
+            items2.add(new Hair2("57",R.drawable.common_google_signin_btn_icon_dark,57,false));
+            items2.add(new Hair2("64",R.drawable.common_google_signin_btn_icon_dark,64,false));
+            items2.add(new Hair2("72",R.drawable.common_google_signin_btn_icon_dark,72,false));
+            items2.add(new Hair2("89",R.drawable.common_google_signin_btn_icon_dark,89,false));
 
-        items2.add(new Hair2("장원영",R.drawable.common_google_signin_btn_icon_dark,10));
-        items2.add(new Hair2("장원영2",R.drawable.common_google_signin_btn_icon_dark,11));
-        items2.add(new Hair2("장원영3",R.drawable.common_google_signin_btn_icon_dark,12));
-        items2.add(new Hair2("장원영4",R.drawable.common_google_signin_btn_icon_dark,13));
-        items2.add(new Hair2("장원영5",R.drawable.common_google_signin_btn_icon_dark,14));
-        items2.add(new Hair2("장원영6",R.drawable.common_google_signin_btn_icon_dark,15));
-        items2.add(new Hair2("장원영7",R.drawable.common_google_signin_btn_icon_dark,16));
-        items2.add(new Hair2("장원영8",R.drawable.common_google_signin_btn_icon_dark,17));
-        items2.add(new Hair2("장원영9",R.drawable.common_google_signin_btn_icon_dark,18));
+        }
     }
     @Override
     public void onBackPressed() {

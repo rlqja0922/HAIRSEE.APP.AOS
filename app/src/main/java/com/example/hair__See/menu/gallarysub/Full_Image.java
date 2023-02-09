@@ -69,6 +69,9 @@ public class Full_Image extends Fragment implements MainActivity.OnBackPressedLi
             public void onSingleClick(View v) {
                 afterImg.setImageResource(R.drawable.after1);
                 beforeImg.setImageResource(R.drawable.before2);
+                String file = folderPath +"after/"+fileName;
+                bm = BitmapFactory.decodeFile(file);
+                fullimg.setImageBitmap(bm);
 
             }
         });
@@ -77,6 +80,9 @@ public class Full_Image extends Fragment implements MainActivity.OnBackPressedLi
             public void onSingleClick(View v) {
                 afterImg.setImageResource(R.drawable.after2);
                 beforeImg.setImageResource(R.drawable.before1);
+                String file = folderPath +"before/"+fileName;
+                bm = BitmapFactory.decodeFile(file);
+                fullimg.setImageBitmap(bm);
             }
         });
         return view;

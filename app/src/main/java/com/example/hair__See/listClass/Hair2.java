@@ -4,11 +4,21 @@ public class Hair2 {
     private String title;
     private int imgResource;
     private int type;
+    private boolean pick;
 
-    public Hair2(String title, int imgResource, int type) {
+    public boolean isPick() {
+        return pick;
+    }
+
+    public void setPick(boolean pick) {
+        this.pick = pick;
+    }
+
+    public Hair2(String title, int imgResource, int type , boolean pick) {
         this.title = title;
         this.imgResource = imgResource;
         this.type = type;
+        this.pick = pick;
     }
 
     public int getType() {

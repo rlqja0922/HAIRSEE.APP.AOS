@@ -67,6 +67,7 @@ public class MyImageUtils {
                         output.close();
                         SharedStore.setImgName(c,fileName);
                         SharedStore.setImgPath(c,tempFile.getPath());
+                        Log.d("파일저장경로",tempFile.getPath());
                         return true;
                     } catch (IOException e) {
                         e.printStackTrace();

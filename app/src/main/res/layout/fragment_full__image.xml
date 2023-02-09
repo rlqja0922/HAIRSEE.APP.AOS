@@ -187,22 +187,22 @@
             app:layout_constraintGuide_begin="87dp" />
 
         <ImageView
-            android:id="@+id/img_gohome"
+            android:id="@+id/img_delete"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="centerInside"
-            android:src="@drawable/save"
+            android:src="@drawable/hoemic"
             app:layout_constraintBottom_toTopOf="@+id/btnhome6"
             app:layout_constraintLeft_toRightOf="@+id/btnhome1"
             app:layout_constraintRight_toLeftOf="@+id/btnhome2"
             app:layout_constraintTop_toBottomOf="@+id/btnhome5" />
 
         <TextView
-            android:id="@+id/tv_gohome"
+            android:id="@+id/tv_delete"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="center"
-            android:text="저장하기"
+            android:text="지우기"
             android:textColor="@color/blue"
             android:textSize="15dp"
             android:fontFamily="@font/pretendard_bold"

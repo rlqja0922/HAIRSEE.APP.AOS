@@ -39,7 +39,7 @@ public class ResultActivity extends AppCompatActivity {
     public static Context mContext;
     public static TextView tv_resultTop, tv_result_info1, tv_result_info2;
     public ConstraintLayout const_save, const_restart,const_share,fail1,fail2,succ2,background,background1;
-    public LinearLayout resultBack,resultCancel;
+    public LinearLayout resultBack;
     int standardSize_X, standardSize_Y;
     float density;
     private Bitmap bitmap = null;
@@ -64,7 +64,6 @@ public class ResultActivity extends AppCompatActivity {
         const_restart = findViewById(R.id.const_restart);
         const_save = findViewById(R.id.const_save);
         const_share = findViewById(R.id.const_share);
-        resultCancel = findViewById(R.id.resultCancel);
         resultBack = findViewById(R.id.resultBack);
 //      텍스트사이즈 조절 기능 화면 크기비율
 //        tv_resultTop.setTextSize((float)(standardSize_X / 33));
@@ -79,17 +78,8 @@ public class ResultActivity extends AppCompatActivity {
                 new OnBackPressedListener() {
                     @Override
                     public void onBackPressed() {
-
-                    }
-                };
-            }
-        });
-        resultCancel.setOnClickListener(new OnSingleClickListener() {
-            @Override
-            public void onSingleClick(View v) {
-                new OnBackPressedListener() {
-                    @Override
-                    public void onBackPressed() {
+                        Intent intentHome = new Intent(ResultActivity.this, MainActivity.class);
+                        startActivity(intentHome);
 
                     }
                 };
@@ -119,15 +109,16 @@ public class ResultActivity extends AppCompatActivity {
                 startActivityForResult(intentRestart, Toast_Result);
             }
         });
+        //이미지 공유 기능
         const_share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (save){
+                if (save){  
                     Intent sharingIntent = new Intent(Intent.ACTION_SEND);
                     String path = SharedStore.getImgPath(ResultActivity.this);
                     File file = new File(path);
                     sharingIntent.setType("image/*");
-                    Uri imageUri = FileProvider.getUriForFile(ResultActivity.this,"com.example.hairsee.fileprovider",file);
+                    Uri imageUri = FileProvider.getUriForFile(ResultActivity.this,"com.example.hair__See.fileprovider",file);
                     sharingIntent.putExtra(Intent.EXTRA_STREAM,imageUri);
                     startActivity(Intent.createChooser(sharingIntent, null));
                 }

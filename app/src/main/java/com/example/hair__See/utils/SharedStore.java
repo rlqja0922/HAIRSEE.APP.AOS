@@ -103,11 +103,28 @@ public class SharedStore {
         return sharedPreferences.getString("imgURL","1");
     }
     public static void setImgName(Context context, String ImgName){
-        context.getSharedPreferences("MyData",0).edit().putString("imgPath",ImgName).apply();
+        context.getSharedPreferences("MyData",0).edit().putString("ImgName",ImgName).apply();
     }
 
     public static String getImgName(Context context){
         SharedPreferences sharedPreferences = context.getSharedPreferences("MyData",0);
         return sharedPreferences.getString("ImgName","");
+    }
+
+    public static void setSex(Context context, String Sex){
+        context.getSharedPreferences("MyData",0).edit().putString("Sex",Sex).apply();
+    }
+
+    public static String getSex(Context context){
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MyData",0);
+        return sharedPreferences.getString("Sex","");
+    }
+    public static void setHairType(Context context, String ImgName){
+        context.getSharedPreferences("MyData",0).edit().putString("HairType",ImgName).apply();
+    }
+
+    public static String getHairType(Context context){
+        SharedPreferences sharedPreferences = context.getSharedPreferences("MyData",0);
+        return sharedPreferences.getString("HairType","");
     }
 }

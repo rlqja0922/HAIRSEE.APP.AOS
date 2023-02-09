@@ -65,8 +65,8 @@ public class WaitActivity extends AppCompatActivity implements MainActivity.OnBa
 
     }
     private void testApi(){
-//http://221.139.102.72:25005/fcm
-        String ipStr = "221.139.102.72:25005";
+//http://221.139.102.72:25005/fcm 테스트용 ip
+        String ipStr = "1.225.241.111:25001";
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://" + ipStr)
                 .addConverterFactory(ScalarsConverterFactory.create())

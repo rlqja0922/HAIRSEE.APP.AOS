@@ -7,10 +7,15 @@
         android:id="@+id/iv_img_resource"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/common_google_signin_btn_icon_dark_focused"
+        android:src="@drawable/w57_m"
         android:layout_alignParentLeft="true"
         android:scaleType="centerCrop"/>
-
+    <ImageView
+        android:id="@+id/hairPick"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/pick"
+        android:visibility="gone"/>
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
@@ -19,7 +24,6 @@
         android:text="헤어이름"
         android:fontFamily="@font/pretendard_semibold"
         android:textSize="15dp"
-        android:textStyle="bold"
         android:layout_marginBottom="12dp"
         android:gravity="bottom|center"/>
 
