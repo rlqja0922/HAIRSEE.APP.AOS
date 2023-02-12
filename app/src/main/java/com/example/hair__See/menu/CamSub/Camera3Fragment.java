@@ -135,49 +135,50 @@ public class Camera3Fragment extends Fragment implements MainActivity.OnBackPres
             items.add(new Hair("8",R.drawable.common_google_signin_btn_icon_dark,8,false));
             items.add(new Hair("24",R.drawable.common_google_signin_btn_icon_dark,24,false));
             items.add(new Hair("32",R.drawable.common_google_signin_btn_icon_dark,32,false));
-            items.add(new Hair("33",R.drawable.common_google_signin_btn_icon_dark,33,false));
-            items.add(new Hair("52",R.drawable.common_google_signin_btn_icon_dark,52,false));
-            items.add(new Hair("63",R.drawable.common_google_signin_btn_icon_dark,63,false));
             items.add(new Hair("66",R.drawable.common_google_signin_btn_icon_dark,66,false));
-            items.add(new Hair("75",R.drawable.common_google_signin_btn_icon_dark,75,false));
             items.add(new Hair("116",R.drawable.common_google_signin_btn_icon_dark,116,false));
+            items.add(new Hair("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
+            items.add(new Hair("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
+            items.add(new Hair("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
+            items.add(new Hair("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
         }else if (sex ==2){
             //여성
-            items.add(new Hair("1",R.drawable.common_google_signin_btn_icon_dark,1,false));
             items.add(new Hair("4",R.drawable.common_google_signin_btn_icon_dark,4,false));
-            items.add(new Hair("17",R.drawable.common_google_signin_btn_icon_dark,17,false));
             items.add(new Hair("20",R.drawable.common_google_signin_btn_icon_dark,20,false));
             items.add(new Hair("56",R.drawable.common_google_signin_btn_icon_dark,56,false));
             items.add(new Hair("57",R.drawable.common_google_signin_btn_icon_dark,57,false));
-            items.add(new Hair("64",R.drawable.common_google_signin_btn_icon_dark,64,false));
             items.add(new Hair("72",R.drawable.common_google_signin_btn_icon_dark,72,false));
             items.add(new Hair("89",R.drawable.common_google_signin_btn_icon_dark,89,false));
+            items.add(new Hair("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
+            items.add(new Hair("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
+            items.add(new Hair("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
 
         }
     }
     public void straighthair(){
         if (sex == 1){
             //남성
-            items2.add(new Hair2("8",R.drawable.common_google_signin_btn_icon_dark,8,false));
-            items2.add(new Hair2("24",R.drawable.common_google_signin_btn_icon_dark,24,false));
-            items2.add(new Hair2("32",R.drawable.common_google_signin_btn_icon_dark,32,false));
+
             items2.add(new Hair2("33",R.drawable.common_google_signin_btn_icon_dark,33,false));
             items2.add(new Hair2("52",R.drawable.common_google_signin_btn_icon_dark,52,false));
             items2.add(new Hair2("63",R.drawable.common_google_signin_btn_icon_dark,63,false));
-            items2.add(new Hair2("66",R.drawable.common_google_signin_btn_icon_dark,66,false));
             items2.add(new Hair2("75",R.drawable.common_google_signin_btn_icon_dark,75,false));
-            items2.add(new Hair2("116",R.drawable.common_google_signin_btn_icon_dark,116,false));
+            items2.add(new Hair2("52",R.drawable.common_google_signin_btn_icon_dark,52,false));
+            items2.add(new Hair2("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
+            items2.add(new Hair2("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
+            items2.add(new Hair2("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
+            items2.add(new Hair2("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
         }else if (sex ==2){
             //여성
             items2.add(new Hair2("1",R.drawable.common_google_signin_btn_icon_dark,1,false));
-            items2.add(new Hair2("4",R.drawable.common_google_signin_btn_icon_dark,4,false));
             items2.add(new Hair2("17",R.drawable.common_google_signin_btn_icon_dark,17,false));
-            items2.add(new Hair2("20",R.drawable.common_google_signin_btn_icon_dark,20,false));
-            items2.add(new Hair2("56",R.drawable.common_google_signin_btn_icon_dark,56,false));
-            items2.add(new Hair2("57",R.drawable.common_google_signin_btn_icon_dark,57,false));
             items2.add(new Hair2("64",R.drawable.common_google_signin_btn_icon_dark,64,false));
-            items2.add(new Hair2("72",R.drawable.common_google_signin_btn_icon_dark,72,false));
-            items2.add(new Hair2("89",R.drawable.common_google_signin_btn_icon_dark,89,false));
+            items2.add(new Hair2("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
+            items2.add(new Hair2("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
+            items2.add(new Hair2("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
+            items2.add(new Hair2("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
+            items2.add(new Hair2("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
+            items2.add(new Hair2("준비중", R.drawable.m52_m,0,false));
 
         }
     }
