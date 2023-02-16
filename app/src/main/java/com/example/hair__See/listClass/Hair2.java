@@ -6,7 +6,7 @@ public class Hair2 {
     private int type;
     private boolean pick;
 
-    public boolean isPick() {
+    public boolean getPick() {
         return pick;
     }
 

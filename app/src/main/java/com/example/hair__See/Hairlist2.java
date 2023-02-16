@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hair__See.listClass.Hair;
+import com.example.hair__See.listClass.Hair2;
 import com.example.hair__See.menu.CamSub.Camera3Fragment;
 import com.example.hair__See.utils.OnSingleClickListener;
 import com.example.hair__See.utils.SharedStore;
@@ -21,14 +22,13 @@ import com.example.hair__See.utils.SharedStore;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Hairlist extends RecyclerView.Adapter<Hairlist.ViewHolder>{
+public class Hairlist2 extends RecyclerView.Adapter<Hairlist2.ViewHolder>{
     private static final String TAG = "SingleAdapter";
-    public static Hairlist.ViewHolder ViewHolder;
 
-    private List<Hair> items=new ArrayList<>();
+    private List<Hair2> items=new ArrayList<>();
     private Context context;
     private ViewHolder viewholder;
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imgView_item,hairPick;
         TextView tv;
         FrameLayout frame;
@@ -44,7 +44,7 @@ public class Hairlist extends RecyclerView.Adapter<Hairlist.ViewHolder>{
             hairPick = itemView.findViewById(R.id.hairPick);
         }
     }
-    public Hairlist(ArrayList<Hair> items) {
+    public Hairlist2(ArrayList<Hair2> items) {
         this.items = items;
     }
 
@@ -55,14 +55,14 @@ public class Hairlist extends RecyclerView.Adapter<Hairlist.ViewHolder>{
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         View view = inflater.inflate(R.layout.choiceitem, parent, false);
-        Hairlist.ViewHolder vh = new Hairlist.ViewHolder(view);
+        Hairlist2.ViewHolder vh = new Hairlist2.ViewHolder(view);
         return vh;
     }
 
     @SuppressLint("RecyclerView")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Hair item = items.get(position);
+        Hair2 item = items.get(position);
         viewholder = holder;
         viewholder.type = item.getType();
         viewholder.imgView_item.setImageResource(item.getImgResource());   // 사진 없어서 기본 파일로 이미지 띄움
@@ -81,11 +81,11 @@ public class Hairlist extends RecyclerView.Adapter<Hairlist.ViewHolder>{
                     Camera3Fragment.type = holder.type;
                     SharedStore.setHairType(context,String.valueOf(holder.type));
                     for (int i =0;i < items.size(); i++){
-                        Hair item1 = items.get(i);
+                        Hair2 item1 = items.get(i);
                         if (i == position){
-                            items.set(position,new Hair(item.getTitle(), item.getImgResource(),item.getType(),true));
+                            items.set(position,new Hair2(item.getTitle(), item.getImgResource(),item.getType(),true));
                         }else{
-                            items.set(i,new Hair(item1.getTitle(),item1.getImgResource(),item1.getType(),false));
+                            items.set(i,new Hair2(item1.getTitle(),item1.getImgResource(),item1.getType(),false));
                         }
                     }
                     ViewChange();

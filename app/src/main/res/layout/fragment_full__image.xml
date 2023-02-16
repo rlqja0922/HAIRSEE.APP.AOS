@@ -121,7 +121,7 @@
         />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/const_gohome"
+        android:id="@+id/const_trash"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/fullresult14"
@@ -131,74 +131,74 @@
         >
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/btnhome1"
+            android:id="@+id/btntrash1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.31" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/btnhome2"
+            android:id="@+id/btntrash2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.69" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/btnhome3"
+            android:id="@+id/btntrash3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.15" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/btnhome4"
+            android:id="@+id/btntrash4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.85" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/btnhome5"
+            android:id="@+id/btntrash5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.1" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/btnhome6"
+            android:id="@+id/btntrash6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.55" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/btnhome7"
+            android:id="@+id/btntrash7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.6" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/btnhome8"
+            android:id="@+id/btntrash8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_begin="87dp" />
 
         <ImageView
-            android:id="@+id/img_delete"
+            android:id="@+id/img_trash"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="centerInside"
-            android:src="@drawable/hoemic"
-            app:layout_constraintBottom_toTopOf="@+id/btnhome6"
-            app:layout_constraintLeft_toRightOf="@+id/btnhome1"
-            app:layout_constraintRight_toLeftOf="@+id/btnhome2"
-            app:layout_constraintTop_toBottomOf="@+id/btnhome5" />
+            android:src="@drawable/trash"
+            app:layout_constraintBottom_toTopOf="@+id/btntrash6"
+            app:layout_constraintLeft_toRightOf="@+id/btntrash1"
+            app:layout_constraintRight_toLeftOf="@+id/btntrash2"
+            app:layout_constraintTop_toBottomOf="@+id/btntrash5" />
 
         <TextView
-            android:id="@+id/tv_delete"
+            android:id="@+id/tv_trash"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="center"
@@ -206,10 +206,10 @@
             android:textColor="@color/blue"
             android:textSize="15dp"
             android:fontFamily="@font/pretendard_bold"
-            app:layout_constraintBottom_toTopOf="@+id/btnhome8"
-            app:layout_constraintLeft_toRightOf="@+id/btnhome3"
-            app:layout_constraintRight_toLeftOf="@+id/btnhome4"
-            app:layout_constraintTop_toBottomOf="@+id/btnhome7" />
+            app:layout_constraintBottom_toTopOf="@+id/btntrash8"
+            app:layout_constraintLeft_toRightOf="@+id/btntrash3"
+            app:layout_constraintRight_toLeftOf="@+id/btntrash4"
+            app:layout_constraintTop_toBottomOf="@+id/btntrash7" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

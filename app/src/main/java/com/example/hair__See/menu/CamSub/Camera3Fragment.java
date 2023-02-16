@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -15,19 +16,24 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.provider.Settings;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.hair__See.Hairlist;
+import com.example.hair__See.Hairlist2;
 import com.example.hair__See.MainActivity;
 import com.example.hair__See.R;
 import com.example.hair__See.detection.DetectorActivity;
 import com.example.hair__See.listClass.Hair;
 import com.example.hair__See.listClass.Hair2;
+import com.example.hair__See.listClass.ItemClickSupport;
 import com.example.hair__See.utils.MyAlert;
 import com.example.hair__See.utils.OnSingleClickListener;
+import com.example.hair__See.utils.SharedStore;
 
 import java.util.ArrayList;
 
@@ -43,6 +49,7 @@ public class Camera3Fragment extends Fragment implements MainActivity.OnBackPres
     private ArrayList<Hair> items=new ArrayList<>();
     private ArrayList<Hair2> items2=new ArrayList<>();
     private Hairlist mHairlist;
+    private Hairlist2 mHairlist2;
     private Context context;
     private int sex;
     public static int type;
@@ -70,6 +77,7 @@ public class Camera3Fragment extends Fragment implements MainActivity.OnBackPres
         view = inflater.inflate(R.layout.fragment_camera3, container, false);
         hairChoice = view.findViewById(R.id.hairChoice1);
         hairChoice2 = view.findViewById(R.id.hairChoice2);
+
         camerstart_iv = view.findViewById(R.id.camerstart_iv);
         context = getContext();
         mainActivity = getActivity();
@@ -78,10 +86,60 @@ public class Camera3Fragment extends Fragment implements MainActivity.OnBackPres
         curlhair();
         straighthair();
         mHairlist = new Hairlist(items);
+        mHairlist2 = new Hairlist2(items2);
         hairChoice.setAdapter(mHairlist);
         hairChoice.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
-        hairChoice2.setAdapter(mHairlist);
+        hairChoice2.setAdapter(mHairlist2);
         hairChoice2.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
+
+        ItemClickSupport.addTo(hairChoice).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+            @Override
+            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                if (items.get(position).getTitle().equals("준비중")){
+
+                }else{
+                    type = items.get(position).getType();
+                    SharedStore.setHairType(context,String.valueOf(items.get(position).getType()));
+                    for (int i =0;i < items.size(); i++){
+                        if (i == position){
+                            items.get(position).setPick(true);
+                        }else{
+                            items.get(i).setPick(false);
+                        }
+                    }
+                    for (int i =0;i < items2.size(); i++){
+                        items2.get(i).setPick(false);
+                    }
+                }
+                hairChoice2.getAdapter().notifyDataSetChanged();
+                recyclerView.getAdapter().notifyDataSetChanged();
+            }
+        });
+
+        ItemClickSupport.addTo(hairChoice2).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+            @Override
+            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                if (items2.get(position).getTitle().equals("준비중")){
+
+                }else{
+                    type = items2.get(position).getType();
+                    SharedStore.setHairType(context,String.valueOf(items2.get(position).getType()));
+                    for (int i =0;i < items2.size(); i++){
+                        if (i == position){
+                            items2.get(position).setPick(true);
+                        }else{
+                            items2.get(i).setPick(false);
+                        }
+                    }
+                    for (int i =0;i < items.size(); i++){
+                        items.get(i).setPick(false);
+                    }
+                }
+                hairChoice.getAdapter().notifyDataSetChanged();
+                recyclerView.getAdapter().notifyDataSetChanged();
+            }
+        });
+
         camerstart_iv.setOnClickListener(new OnSingleClickListener() {
             @Override
             public void onSingleClick(View v) {

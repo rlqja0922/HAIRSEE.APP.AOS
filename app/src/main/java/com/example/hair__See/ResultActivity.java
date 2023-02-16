@@ -5,6 +5,8 @@ import static com.example.hair__See.MainActivity.Toast_Result;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
@@ -31,6 +33,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.List;
 
 public class ResultActivity extends AppCompatActivity {
 
@@ -118,9 +121,23 @@ public class ResultActivity extends AppCompatActivity {
                     String path = SharedStore.getImgPath(ResultActivity.this);
                     File file = new File(path);
                     sharingIntent.setType("image/*");
-                    Uri imageUri = FileProvider.getUriForFile(ResultActivity.this,"com.example.hair__See.fileprovider",file);
+                    Uri imageUri = FileProvider.getUriForFile(ResultActivity.this,"com.example.hair__see.fileprovider",file);
                     sharingIntent.putExtra(Intent.EXTRA_STREAM,imageUri);
-                    startActivity(Intent.createChooser(sharingIntent, null));
+
+
+
+                    Intent chooser = Intent.createChooser(sharingIntent, "Share File");
+//                    chooser.putExtra(Intent.EXTRA_CHOOSER_TARGETS, myChooserTargetArray);
+//                    chooser.putExtra(Intent.EXTRA_INITIAL_INTENTS, myInitialIntentArray);
+
+                    List<ResolveInfo> resInfoList = getPackageManager().queryIntentActivities(chooser, PackageManager.MATCH_DEFAULT_ONLY);
+
+                    for (ResolveInfo resolveInfo : resInfoList) {
+                        String packageName = resolveInfo.activityInfo.packageName;
+                        grantUriPermission(packageName, imageUri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    }
+
+                    startActivity(chooser);
                 }
             }
         });
