@@ -75,10 +75,9 @@ public class Hairlist extends RecyclerView.Adapter<Hairlist.ViewHolder>{
         viewholder.frame.setOnClickListener(new OnSingleClickListener() {
             @Override
             public void onSingleClick(View v) {
-                if (item.getTitle().equals("준비중")){
+                if (item.getTitle().equals("")){
 
                 }else{
-                    Camera3Fragment.type = holder.type;
                     SharedStore.setHairType(context,String.valueOf(holder.type));
                     for (int i =0;i < items.size(); i++){
                         Hair item1 = items.get(i);

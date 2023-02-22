@@ -5,16 +5,20 @@
     android:id="@+id/frame">
     <ImageView
         android:id="@+id/iv_img_resource"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/w57_m"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/thumbs1"
+        android:layout_gravity="center"
         android:layout_alignParentLeft="true"
+        android:layout_margin="20dp"
         android:scaleType="centerCrop"/>
     <ImageView
         android:id="@+id/hairPick"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/pick"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/pickhair"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
         />
     <TextView
         android:id="@+id/tv_title"

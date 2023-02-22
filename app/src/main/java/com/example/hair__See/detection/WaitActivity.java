@@ -99,13 +99,13 @@ public class WaitActivity extends AppCompatActivity implements MainActivity.OnBa
         Log.d(TAG, "file_path" + file_path);
         File file=new File(file_path);
         String ipStr = "1.225.241.111:25001";
-
+        String HairType = SharedStore.getHairType(mContext);
         ArrayList<MultipartBody.Part> imageList = new ArrayList<>();
         RequestBody requestFile = RequestBody.create(MediaType.parse("image/*"), file);
         MultipartBody.Part uploadFile = MultipartBody.Part.createFormData("img", file.getName(), requestFile);
         imageList.add(uploadFile);
         Map<String, RequestBody> map = new HashMap<>();
-        RequestBody record = RequestBody.create(MediaType.parse("text/plain"), "90");
+        RequestBody record = RequestBody.create(MediaType.parse("text/plain"), HairType);
         map.put("hairType", record);
         RequestBody type = RequestBody.create(MediaType.parse("text/plain"),"117");
         map.put("hairColor", type);
@@ -191,5 +191,14 @@ public class WaitActivity extends AppCompatActivity implements MainActivity.OnBa
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Intent intentHome = new Intent(WaitActivity.this, MainActivity.class);
+//        intentHome.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intentHome);
     }
 }

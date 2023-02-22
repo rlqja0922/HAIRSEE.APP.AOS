@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment fragment = getSupportFragmentManager().getFragments().get(0);
         String fragmentText = String.valueOf(fragment.getClass());
         Log.d("Fragment", fragmentText);
-        if (fragmentText.equals("class com.example.hairsee.menu.Mainfragment")){
+        if (fragmentText.equals("class com.example.hair__See.menu.Mainfragment")){
             if (System.currentTimeMillis() > backPressedTime + 2000) {
                 backPressedTime = System.currentTimeMillis();
                 toast = Toast.makeText(MainActivity.this, "뒤로 버튼을\n한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT);
@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                 toast.cancel();
             }
         }
-        else if (String.valueOf(fragment.getClass()).equals("class com.example.hairsee.menu.gallarysub.Full_Image")){
+        else if (String.valueOf(fragment.getClass()).equals("class com.example.hair__See.menu.gallarysub.Full_Image")){
             getSupportFragmentManager().beginTransaction().replace(R.id.Fragment, galleyFragment).commit();
             appbar.setVisibility(View.VISIBLE);
         }

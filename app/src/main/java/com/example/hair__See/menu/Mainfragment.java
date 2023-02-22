@@ -203,7 +203,7 @@ public class Mainfragment extends Fragment implements MainActivity.OnBackPressed
     @Override
     public void onResume() {
         super.onResume();
-        if ((Math.random()*1000)>=5){
+        if ((Math.random()*10)>=5){
             mainimg.setImageDrawable(getActivity().getDrawable(R.drawable.mainimg1));
         }else {
             mainimg.setImageDrawable(getActivity().getDrawable(R.drawable.mainimg2));

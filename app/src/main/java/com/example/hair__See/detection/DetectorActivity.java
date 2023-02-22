@@ -394,7 +394,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
               @Override
               public void onSuccess(List<Face> faces) {// 첫 얼굴정보가 들어오는 곳. 이미 얼굴 정보가 여기애 들어 있을 것으로 추측함
                 if (faces.size() == 0) {
-                  updateResults(currTimestamp, new LinkedList<>(), false);
+//                  updateResults(currTimestamp, new LinkedList<>(), false);
                   return;
                 }
                 runInBackground(
@@ -402,7 +402,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                           @Override
                           public void run() {
                             Log.d(TAG, "add 1 : " + addPending);
-                            onFacesDetected(currTimestamp, faces, addPending);// 얼굴 저장 여부
+//                            onFacesDetected(currTimestamp, faces, addPending);// 얼굴 저장 여부
                           }
                         });
               }
@@ -750,7 +750,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 //      }, 1000);
 //    }
     facesSize = faces.size();
-    updateResults(currTimestamp, mappedRecognitions, add);//얼굴인식된 결과를 뿌리는 곳?
+//    updateResults(currTimestamp, mappedRecognitions, add);//얼굴인식된 결과를 뿌리는 곳?
   }
 
 

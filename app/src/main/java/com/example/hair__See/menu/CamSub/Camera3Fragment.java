@@ -52,7 +52,7 @@ public class Camera3Fragment extends Fragment implements MainActivity.OnBackPres
     private Hairlist2 mHairlist2;
     private Context context;
     private int sex;
-    public static int type;
+    public int type =0;
     public static final int Toast_Result = 1500;
     public static final int PERMISSIONS_REQUEST = 1;
     private static final int REQ = 0;
@@ -95,7 +95,7 @@ public class Camera3Fragment extends Fragment implements MainActivity.OnBackPres
         ItemClickSupport.addTo(hairChoice).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                if (items.get(position).getTitle().equals("준비중")){
+                if (items.get(position).getTitle().equals("")){
 
                 }else{
                     type = items.get(position).getType();
@@ -119,7 +119,7 @@ public class Camera3Fragment extends Fragment implements MainActivity.OnBackPres
         ItemClickSupport.addTo(hairChoice2).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                if (items2.get(position).getTitle().equals("준비중")){
+                if (items2.get(position).getTitle().equals("")){
 
                 }else{
                     type = items2.get(position).getType();
@@ -159,7 +159,9 @@ public class Camera3Fragment extends Fragment implements MainActivity.OnBackPres
 
                 }
                 else {
-                    btnRegistrationClickHandler();
+                    if (type!=0){
+                        btnRegistrationClickHandler();
+                    }
                 }
             }
         });
@@ -190,26 +192,26 @@ public class Camera3Fragment extends Fragment implements MainActivity.OnBackPres
     public void curlhair() {
         if (sex == 1){
             //남성
-            items.add(new Hair("8",R.drawable.common_google_signin_btn_icon_dark,8,false));
-            items.add(new Hair("24",R.drawable.common_google_signin_btn_icon_dark,24,false));
-            items.add(new Hair("32",R.drawable.common_google_signin_btn_icon_dark,32,false));
-            items.add(new Hair("66",R.drawable.common_google_signin_btn_icon_dark,66,false));
-            items.add(new Hair("116",R.drawable.common_google_signin_btn_icon_dark,116,false));
-            items.add(new Hair("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
-            items.add(new Hair("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
-            items.add(new Hair("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
-            items.add(new Hair("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
+            items.add(new Hair("8",R.drawable.thumbs8,8,false));
+            items.add(new Hair("24",R.drawable.thumbs24,24,false));
+            items.add(new Hair("32",R.drawable.thumbs32,32,false));
+            items.add(new Hair("66",R.drawable.thumbs66,66,false));
+            items.add(new Hair("116",R.drawable.thumbs116,116,false));
+            items.add(new Hair("",R.drawable.ready,0,false));
+            items.add(new Hair("",R.drawable.ready,0,false));
+            items.add(new Hair("",R.drawable.ready,0,false));
+            items.add(new Hair("",R.drawable.ready,0,false));
         }else if (sex ==2){
             //여성
-            items.add(new Hair("4",R.drawable.common_google_signin_btn_icon_dark,4,false));
-            items.add(new Hair("20",R.drawable.common_google_signin_btn_icon_dark,20,false));
-            items.add(new Hair("56",R.drawable.common_google_signin_btn_icon_dark,56,false));
-            items.add(new Hair("57",R.drawable.common_google_signin_btn_icon_dark,57,false));
-            items.add(new Hair("72",R.drawable.common_google_signin_btn_icon_dark,72,false));
-            items.add(new Hair("89",R.drawable.common_google_signin_btn_icon_dark,89,false));
-            items.add(new Hair("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
-            items.add(new Hair("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
-            items.add(new Hair("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
+            items.add(new Hair("4",R.drawable.thumbs4,4,false));
+            items.add(new Hair("20",R.drawable.thumbs20,20,false));
+            items.add(new Hair("56",R.drawable.thumbs56,56,false));
+            items.add(new Hair("57",R.drawable.thumbs57,57,false));
+            items.add(new Hair("72",R.drawable.thumbs72,72,false));
+            items.add(new Hair("89",R.drawable.thumbs89,89,false));
+            items.add(new Hair("",R.drawable.ready,0,false));
+            items.add(new Hair("",R.drawable.ready,0,false));
+            items.add(new Hair("",R.drawable.ready,0,false));
 
         }
     }
@@ -217,26 +219,26 @@ public class Camera3Fragment extends Fragment implements MainActivity.OnBackPres
         if (sex == 1){
             //남성
 
-            items2.add(new Hair2("33",R.drawable.common_google_signin_btn_icon_dark,33,false));
-            items2.add(new Hair2("52",R.drawable.common_google_signin_btn_icon_dark,52,false));
-            items2.add(new Hair2("63",R.drawable.common_google_signin_btn_icon_dark,63,false));
-            items2.add(new Hair2("75",R.drawable.common_google_signin_btn_icon_dark,75,false));
-            items2.add(new Hair2("52",R.drawable.common_google_signin_btn_icon_dark,52,false));
-            items2.add(new Hair2("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
-            items2.add(new Hair2("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
-            items2.add(new Hair2("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
-            items2.add(new Hair2("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
+            items2.add(new Hair2("33",R.drawable.thumbs33,33,false));
+            items2.add(new Hair2("52",R.drawable.thumbs52,52,false));
+            items2.add(new Hair2("63",R.drawable.thumbs63,63,false));
+            items2.add(new Hair2("75",R.drawable.thumbs75,75,false));
+            items2.add(new Hair2("52",R.drawable.thumbs52,52,false));
+            items2.add(new Hair2("",R.drawable.ready,0,false));
+            items2.add(new Hair2("",R.drawable.ready,0,false));
+            items2.add(new Hair2("",R.drawable.ready,0,false));
+            items2.add(new Hair2("",R.drawable.ready,0,false));
         }else if (sex ==2){
             //여성
-            items2.add(new Hair2("1",R.drawable.common_google_signin_btn_icon_dark,1,false));
-            items2.add(new Hair2("17",R.drawable.common_google_signin_btn_icon_dark,17,false));
-            items2.add(new Hair2("64",R.drawable.common_google_signin_btn_icon_dark,64,false));
-            items2.add(new Hair2("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
-            items2.add(new Hair2("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
-            items2.add(new Hair2("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
-            items2.add(new Hair2("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
-            items2.add(new Hair2("준비중",R.drawable.common_google_signin_btn_icon_dark,0,false));
-            items2.add(new Hair2("준비중", R.drawable.m52_m,0,false));
+            items2.add(new Hair2("1",R.drawable.thumbs1,1,false));
+            items2.add(new Hair2("17",R.drawable.thumbs17,17,false));
+            items2.add(new Hair2("64",R.drawable.thumbs64,64,false));
+            items2.add(new Hair2("",R.drawable.ready,0,false));
+            items2.add(new Hair2("",R.drawable.ready,0,false));
+            items2.add(new Hair2("",R.drawable.ready,0,false));
+            items2.add(new Hair2("",R.drawable.ready,0,false));
+            items2.add(new Hair2("",R.drawable.ready,0,false));
+            items2.add(new Hair2("", R.drawable.ready,0,false));
 
         }
     }
