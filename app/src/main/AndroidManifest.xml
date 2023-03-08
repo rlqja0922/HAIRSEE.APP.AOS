@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.hair__See">
-
+<!--    0578de7c972d4b11390d819f5ca1e59e-->
+    <queries>
+        <package android:name="com.kakao.talk" />
+    </queries>
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -60,8 +63,18 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:host="kakaolink"
+                    android:scheme="kakao$0578de7c972d4b11390d819f5ca1e59e" />
+                <data android:scheme="kakao0578de7c972d4b11390d819f5ca1e59e"
+                    android:host="kakaolink" />
             </intent-filter>
         </activity>
+        <meta-data
+        android:name="com.kakao.sdk.AppKey"
+        android:value="0578de7c972d4b11390d819f5ca1e59e" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />

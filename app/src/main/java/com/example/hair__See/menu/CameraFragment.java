@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.hair__See.MainActivity;
 import com.example.hair__See.R;
@@ -102,7 +103,7 @@ public class CameraFragment extends Fragment implements MainActivity.OnBackPress
         sexChoice2 = view.findViewById(R.id.sexChoice2);
         picksex1 = view.findViewById(R.id.picksex1);
         picksex2 = view.findViewById(R.id.picksex2);
-
+        sexChoice =0;
         sexChoice1.setOnClickListener(new OnSingleClickListener() {
             @Override
             public void onSingleClick(View v) {
@@ -130,6 +131,8 @@ public class CameraFragment extends Fragment implements MainActivity.OnBackPress
                     Camera3Fragment camera3 = new Camera3Fragment();
                     camera3.setArguments(bundle);
                     activity.getSupportFragmentManager().beginTransaction().replace(R.id.Fragment,camera3).commit();
+                }else {
+                    Toast.makeText(getContext(),"성별을 선택해 주세요.",Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -157,6 +160,13 @@ public class CameraFragment extends Fragment implements MainActivity.OnBackPress
         return view;
 
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        sexChoice =0;
+    }
+
     private void permission(){
         // 카메라, 오디오, 저장공간 확인
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED &&

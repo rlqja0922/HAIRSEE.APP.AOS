@@ -63,5 +63,12 @@ dependencies {
     // Also declare the dependency for the TensorFlow Lite library and specify its version
     implementation 'org.tensorflow:tensorflow-lite:2.3.0'
 
+
+//    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    implementation group: project.KAKAO_SDK_GROUP, name: 'kakaolink', version: project.KAKAO_SDK_VERSION
+    implementation "com.kakao.sdk:v2-all:2.12.1" // 전체 모듈 설치, 2.11.0 버전부터 지원
+    implementation "com.kakao.sdk:v2-share:2.12.1" // 메시지(카카오톡 공유)
+    implementation "com.kakao.sdk:v2-talk:2.12.1" // 친구, 메시지(카카오톡)
+
 }
 apply plugin: 'com.google.gms.google-services'

@@ -22,6 +22,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.hair__See.Hairlist;
 import com.example.hair__See.Hairlist2;
@@ -161,6 +162,8 @@ public class Camera3Fragment extends Fragment implements MainActivity.OnBackPres
                 else {
                     if (type!=0){
                         btnRegistrationClickHandler();
+                    }else {
+                        Toast.makeText(getContext(),"헤어스타일을 선택해 주세요.",Toast.LENGTH_LONG).show();
                     }
                 }
             }
