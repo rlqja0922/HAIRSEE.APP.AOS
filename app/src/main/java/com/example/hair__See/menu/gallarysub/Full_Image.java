@@ -28,20 +28,20 @@ import com.example.hair__See.R;
 import com.example.hair__See.ResultActivity;
 import com.example.hair__See.utils.OnSingleClickListener;
 import com.example.hair__See.utils.SharedStore;
-import com.kakao.sdk.common.KakaoSdk;
-import com.kakao.sdk.share.ShareClient;
-import com.kakao.sdk.share.model.KakaoTalkSharingAttachment;
-import com.kakao.sdk.share.model.SharingResult;
-import com.kakao.sdk.talk.TalkApi;
-import com.kakao.sdk.talk.TalkApiClient;
-import com.kakao.sdk.talk.model.Friend;
-import com.kakao.sdk.talk.model.Friends;
-import com.kakao.sdk.template.model.CommerceTemplate;
-import com.kakao.sdk.template.model.Content;
-import com.kakao.sdk.template.model.FeedTemplate;
-import com.kakao.sdk.template.model.Link;
-import com.kakao.sdk.template.model.TextTemplate;
-import com.kakao.sdk.user.UserApiClient;
+//import com.kakao.sdk.common.KakaoSdk;
+//import com.kakao.sdk.share.ShareClient;
+//import com.kakao.sdk.share.model.KakaoTalkSharingAttachment;
+//import com.kakao.sdk.share.model.SharingResult;
+//import com.kakao.sdk.talk.TalkApi;
+//import com.kakao.sdk.talk.TalkApiClient;
+//import com.kakao.sdk.talk.model.Friend;
+//import com.kakao.sdk.talk.model.Friends;
+//import com.kakao.sdk.template.model.CommerceTemplate;
+//import com.kakao.sdk.template.model.Content;
+//import com.kakao.sdk.template.model.FeedTemplate;
+//import com.kakao.sdk.template.model.Link;
+//import com.kakao.sdk.template.model.TextTemplate;
+//import com.kakao.sdk.user.UserApiClient;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -72,16 +72,16 @@ public class Full_Image extends Fragment implements MainActivity.OnBackPressedLi
     private ImageView fullimg,afterImg,beforeImg;
     String[] array,array2;
     String fileName,folderPath,folderPath_state,KakaoHash;
-    private TextTemplate defaultText;
+//    private TextTemplate defaultText;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             bitmapArr = getArguments().getByteArray("bitmap");
             path = getArguments().getString("path");
-            KakaoSdk.init(getContext(), "0578de7c972d4b11390d819f5ca1e59e");
-            KakaoHash = KakaoSdk.INSTANCE.getKeyHash();
-            Log.d("kakao", KakaoHash);
+//            KakaoSdk.init(getContext(), "0578de7c972d4b11390d819f5ca1e59e");
+//            KakaoHash = KakaoSdk.INSTANCE.getKeyHash();
+//            Log.d("kakao", KakaoHash);
         }
     }
 

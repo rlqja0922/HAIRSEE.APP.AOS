@@ -1,18 +1,18 @@
 <resources>
-    <string name="tfe_od_app_name" translation_description="Object Detection demo app [CHAR_LIMIT=40]">On Walk</string>
-    <string name="tfe_od_camera_error" translation_description="Error regarding camera support[CHAR_LIMIT=40]">This device doesn\'t support Camera2 API.</string>
-    <string name="app_name">HAIRSEE</string>
-    <string name="E0000">에러가 발생했습니다. 잠시 뒤 다시 진행해주시기 바랍니다.\n동일한 오류 발생시 관리자에게 문의하세요.</string>
-    <string name="E0001">서버 DB 에러가 발생했습니다.\n동일한 오류 발생시 관리자에게 문의하세요.</string>
-    <string name="E0002">입력 값 확인 후 다시 진행해주시기 바랍니다.\n동일한 오류 발생시 관리자에게 문의하세요.</string>
-    <string name="E9999">예기치않은 에러가 발생했습니다.\n관리자에게 문의하세요.</string>
-    <string name="di_ct_error">에러가 발생했습니다. 잠시 뒤 다시 진행해 주시기 바랍니다.</string>
+    <string name="tfe_od_app_name" translation_description="Object Detection demo app [CHAR_LIMIT=40]">HAIRSEE</string>
+    <string name="tfe_od_camera_error" translation_description="Error regarding camera support[CHAR_LIMIT=40]" type="id">This device doesn\'t support Camera2 API.</string>
+    <string name="app_name" type="id">HAIRSEE</string>
+    <string name="E0000" type="id">에러가 발생했습니다. 잠시 뒤 다시 진행해주시기 바랍니다.\n동일한 오류 발생시 관리자에게 문의하세요.</string>
+    <string name="E0001" type="id">서버 DB 에러가 발생했습니다.\n동일한 오류 발생시 관리자에게 문의하세요.</string>
+    <string name="E0002" type="id">입력 값 확인 후 다시 진행해주시기 바랍니다.\n동일한 오류 발생시 관리자에게 문의하세요.</string>
+    <string name="E9999" type="id">예기치않은 에러가 발생했습니다.\n관리자에게 문의하세요.</string>
+    <string name="di_ct_error" type="id">에러가 발생했습니다. 잠시 뒤 다시 진행해 주시기 바랍니다.</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="guide_text1">해보고 싶었던 헤어스타일\n간편하게 미리보기</string>
-    <string name="guide_text2">찍은 사진을\n모두에게 공유해보세요</string>
-    <string name="guide_text3">정밀한 인식을 통한\n맞춤 헤어 제공</string>
-    <string name="guide_text1_1">평소에 도전하고 싶었지만 나에게 어울릴까\n고민되어 시도하지 못한 헤어스타일을\nAI 인식으로 시뮬레이션 해보세요.</string>
-    <string name="guide_text2_1">헤보자에서 씌운 헤어 필터 사진은\n저장과 SNS로 공유가 가능합니다.\n나에게 어울리는 머리스타일을 자랑해보세요.</string>
-    <string name="guide_text3_1">헤보자의 AI 얼굴인식 &amp; 헤어인식 기술로\n사용자를 인식하고, 선택한 헤어스타일을 매치하여\n사용자가 원하는 헤어스타일을 시뮬레이션 해줍니다.</string>
+    <string name="hello_blank_fragment" type="id">Hello blank fragment</string>
+    <string name="guide_text1" type="id">해보고 싶었던 헤어스타일\n간편하게 미리보기</string>
+    <string name="guide_text2" type="id">찍은 사진을\n모두에게 공유해보세요</string>
+    <string name="guide_text3" type="id">정밀한 인식을 통한\n맞춤 헤어 제공</string>
+    <string name="guide_text1_1" type="id">평소에 도전하고 싶었지만 나에게 어울릴까\n고민되어 시도하지 못한 헤어스타일을\nAI 인식으로 시뮬레이션 해보세요.</string>
+    <string name="guide_text2_1" type="id">헤보자에서 씌운 헤어 필터 사진은\n저장과 SNS로 공유가 가능합니다.\n나에게 어울리는 머리스타일을 자랑해보세요.</string>
+    <string name="guide_text3_1" type="id">헤보자의 AI 얼굴인식 &amp; 헤어인식 기술로\n사용자를 인식하고, 선택한 헤어스타일을 매치하여\n사용자가 원하는 헤어스타일을 시뮬레이션 해줍니다.</string>
 </resources>

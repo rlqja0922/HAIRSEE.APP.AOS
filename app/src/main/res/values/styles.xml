@@ -1,5 +1,5 @@
 <resources>
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar" type="id">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/color_black</item>
@@ -7,9 +7,9 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowIsTranslucent">true</item>
     </style>
-    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar" type="id">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary" >@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/color_black</item>
         <item name="colorAccent">@color/color_white</item>
         <item name="android:windowContentOverlay">@null</item>
@@ -17,30 +17,30 @@
     </style>
 
     <!-- Base application theme. -->
-    <style name="AppTheme.ObjectDetection" parent="Theme.AppCompat.Light">
+    <style name="AppTheme.ObjectDetection" parent="Theme.AppCompat.Light" type="id">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/new_blue</item>
         <item name="colorPrimaryDark">@color/color_black</item>
         <item name="colorAccent">@color/color_gray3</item>
     </style>
     <style name="Widget.BottomNavigationView"
-        parent="Widget.Design.BottomNavigationView">
+        parent="Widget.Design.BottomNavigationView" type="id">
 
     </style>
-    <style name="MyAlertDialog" parent="Base.Theme.AppCompat.Light.Dialog">
+    <style name="MyAlertDialog" parent="Base.Theme.AppCompat.Light.Dialog" type="id">
         <item name="android:textColor">@color/color_red</item>
         <item name="android:textColorPrimary">#000000</item>
         <item name="android:colorAccent">#000000</item>
     </style>
 
-    <style name="MyAlertDialog2" parent="Base.Theme.AppCompat.Light.Dialog">
+    <style name="MyAlertDialog2" parent="Base.Theme.AppCompat.Light.Dialog" type="id">
         <item name="android:textColor">@color/color_red</item>
         <item name="android:textColorPrimary">#FFFFFF</item>
         <item name="android:colorAccent">#FFFFFF</item>
         <item name="android:background">@color/gray_color</item>
     </style>
 
-    <style name="placeadd" parent="Base.Theme.AppCompat.Light.Dialog">
+    <style name="placeadd" parent="Base.Theme.AppCompat.Light.Dialog" type="id">
         <item name="android:windowMinWidthMajor">80%</item>
         <item name="android:windowMinWidthMinor">80%</item>
     </style>
