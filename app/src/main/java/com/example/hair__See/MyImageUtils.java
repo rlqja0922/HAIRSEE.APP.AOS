@@ -5,6 +5,7 @@ import android.content.ContextWrapper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.graphics.Path;
 import android.media.ExifInterface;
 import android.os.Environment;
 import android.util.Base64;
@@ -17,6 +18,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URI;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,9 +68,13 @@ public class MyImageUtils {
                     try {
                         output.flush();
                         output.close();
+                        String mainPath ="";
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                            mainPath = Paths.get(file.toURI()).toString();
+                        }
                         SharedStore.setImgName(c,fileName);
-                        SharedStore.setImgPath(c,tempFile.getPath());
-                        Log.d("파일저장경로",tempFile.getPath());
+                        SharedStore.setImgPath(c,mainPath);
+                        Log.d("파일저장경로",mainPath);
                         return true;
                     } catch (IOException e) {
                         e.printStackTrace();
