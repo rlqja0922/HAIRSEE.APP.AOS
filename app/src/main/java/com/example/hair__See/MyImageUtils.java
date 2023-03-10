@@ -70,7 +70,7 @@ public class MyImageUtils {
                         output.close();
                         String mainPath ="";
                         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                            mainPath = Paths.get(file.toURI()).toString();
+                            mainPath = Paths.get(file.toURI()).toString()+"/"+fileName;
                         }
                         SharedStore.setImgName(c,fileName);
                         SharedStore.setImgPath(c,mainPath);
